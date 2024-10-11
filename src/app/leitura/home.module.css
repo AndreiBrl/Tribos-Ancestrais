@@ -8,7 +8,8 @@
         height: 100vh;
     }
 
-    .sub_container_1 {
+    .sub_container_1,
+    .menuLeitura {
         display: none;
     }
 }
@@ -30,18 +31,41 @@
         display: none;
     }
 
+    .menuLeituraAberto {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 50vw;
+        background-color: black;
+        transition: all 0.3s ease;
+    }
+    
+    .menuLeituraFechado {
+        transition: all 0.3s ease;
+        position: fixed;
+        top: 0;
+        left: 0;
+       
+        width: 20vw;
+        height: 20vw;
+        background-color: black;
+    }
+
     .sub_container_1 {
         display: block;
-        padding: 10vw;
+        padding: 7vw;
 
         &>p {
-            font-size: 7vw;
-            line-height: 12vw;
+            font-size: 5vw;
+            line-height: 9vw;
             text-align: justify;
             text-indent: 30px;
         }
-        &>img{
-            width: 10vw;
+
+        &>img {
+            width: 85vw;
+            height: 85vw;
         }
     }
 }

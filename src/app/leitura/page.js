@@ -1,15 +1,38 @@
+'use client';
 import Image from "next/image";
 import styles from "./home.module.css";
-
+import { useLayoutEffect, useState } from 'react';
 export default function Home() {
+
+
+  const [menu, setMenu] = useState(false)
+
+
   return (
     <div className={styles.container}>
       <div className={styles.aviso}>
         <h1> Modo Leitura disponível apenas para formato Celular</h1>
 
       </div>
-      <div className={styles.sub_container_1}>
-      <img className={styles.capaEdit} src="img/capaEdit.png" />
+      <div className={menu ? styles.menuLeituraAberto : styles.menuLeituraFechado } onTouchEnd={() => setMenu(!menu)} >
+
+
+      </div>
+      <div className={styles.sub_container_1} onTouchEnd={() => setMenu(false)}>
+        <img className={styles.capaEdit} src="img/cap1/paku_1.png" />
+        {/* <Image
+
+          src="/img/cap1/paku_1.png"
+          width={200}
+          height={200}
+          loading='lazy'
+          quality={100}
+          className={styles.capaEdit}
+
+        >
+
+        </Image> */}
+
         <p>Perguntou Paku.</p>
         <p>Abak lançou-lhe um olhar seco, esporou o cavalo, afastandose. Paku o acompanhou.</p>
         <p> — O que foi agora, Paku? — Rebateu, com a voz baixa

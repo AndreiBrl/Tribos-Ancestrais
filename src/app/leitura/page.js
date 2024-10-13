@@ -2,6 +2,13 @@
 import Image from "next/image";
 import styles from "./home.module.css";
 import { useLayoutEffect, useState } from 'react';
+import { Potta_One } from 'next/font/google';
+
+const potta = Potta_One({
+  subsets: ['latin'],
+  weight: ['400']
+})
+
 export default function Home() {
 
 
@@ -14,11 +21,92 @@ export default function Home() {
         <h1> Modo Leitura disponível apenas para formato Celular</h1>
 
       </div>
-      <div className={menu ? styles.menuLeituraAberto : styles.menuLeituraFechado } onTouchEnd={() => setMenu(!menu)} >
 
+      <div className={menu ? styles.menuLeituraAberto : styles.menuLeituraFechado}  >
 
+        <Image
+
+          src="/img/galhoSeco.png"
+          width={200}
+          height={200}
+          loading='lazy'
+          quality={100}
+          className={menu ? styles.galhoOff : styles.galhoOn}
+          onTouchEnd={() => setMenu(true)}
+
+        >
+
+        </Image>
+        <Image
+
+          src="/img/galhoEnergia.png"
+          width={200}
+          height={200}
+          loading='lazy'
+          quality={100}
+          className={menu ? styles.galhoOn : styles.galhoOff}
+          onTouchEnd={() => setMenu(false)}
+
+        >
+
+        </Image>
+        <div className={styles.capitulos}>
+
+          <div>
+            <h1>I</h1>
+            <h2>Um sonho impossível</h2>
+          </div>
+          <div>
+            <h1>I</h1>
+            <h2>Um sonho impossível</h2>
+          </div>
+          <div>
+            <h1>I</h1>
+            <h2>Um sonho impossível</h2>
+          </div>
+          <div>
+            <h1>I</h1>
+            <h2>Um sonho impossível</h2>
+          </div>
+          <div>
+            <h1>I</h1>
+            <h2>Um sonho impossível</h2>
+          </div>
+          <div>
+            <h1>I</h1>
+            <h2>Um sonho impossível</h2>
+          </div>
+          <div>
+            <h1>I</h1>
+            <h2>Um sonho impossível</h2>
+          </div>
+          <div>
+            <h1>I</h1>
+            <h2>Um sonho impossível</h2>
+          </div>
+          <div>
+            <h1>I</h1>
+            <h2>Um sonho impossível</h2>
+          </div>
+          <div>
+            <h1>I</h1>
+            <h2>Um sonho impossível</h2>
+          </div>
+          <div>
+            <h1>I</h1>
+            <h2>Um sonho impossível</h2>
+          </div>
+          <div>
+            <h1>I</h1>
+            <h2>Um sonho impossível</h2>
+          </div>
+        </div>
       </div>
       <div className={styles.sub_container_1} onTouchEnd={() => setMenu(false)}>
+        <div >
+
+          <h1 className={potta.className}>Capítulo X</h1>
+        </div>
         <img className={styles.capaEdit} src="img/cap1/paku_1.png" />
         {/* <Image
 

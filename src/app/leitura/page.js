@@ -50,7 +50,7 @@ export default function Home() {
         >
 
         </Image>
-        <div className={styles.capitulos}>
+        <div className={`${styles.capitulos} ${menu ? styles.ativado : styles.desativado}`}>
 
           <div>
             <h1>I</h1>

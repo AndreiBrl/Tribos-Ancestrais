@@ -29,7 +29,7 @@ export default function Home() {
 
   useEffect(() => {
 
-    import('../../components/paginas/pag_'+pagina).then((module) => {
+    import('../../components/paginas/pag_'+pagina+'').then((module) => {
       setComponent(() => module.default);
     });
 
@@ -146,7 +146,7 @@ export default function Home() {
       <div className={styles.controlaPaginas
       }>
         <h1 onTouchEnd={decrementarPagina}>-</h1>
-        <input type="number" value={pagina} onChange={(e)=>setPagina(e.target.value)}  />
+        <input type="number" value={pagina} onChange={(e)=>setPagina(Number(e.target.value))}  />
         <h1 onTouchEnd={incrementarPagina}>+</h1>
       </div>
       <div onTouchEnd={() => setMenu(false)}>

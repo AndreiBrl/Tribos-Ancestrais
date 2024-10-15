@@ -39,9 +39,6 @@ const Page = () => (
             tingidos. Na lateral direita, o cavalo ostentava a marca da tribo em
             vermelho sangue, mostrando sua posição de líder tribal. A marca </p>
 
-
-
-
     </div>
 
 );

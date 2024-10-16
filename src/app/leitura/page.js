@@ -21,9 +21,11 @@ export default function Home() {
   const [capitulo, setCapitulo] = useState('O Eco do irmão Perdido')
 
   const incrementarPagina = () => {
+    localStorage.setItem('pagina', pagina);
     setPagina(prevPagina => prevPagina + 1);
   };
   const decrementarPagina = () => {
+    localStorage.setItem('pagina', pagina);
     setPagina(prevPagina => prevPagina - 1);
   };
 
@@ -35,6 +37,16 @@ export default function Home() {
 
 
   }, [pagina])
+
+  useEffect(() => {
+    // Recupera a localização do localStorage ao montar o componente
+
+    const paginaSalva = localStorage.getItem('pagina');
+    if (paginaSalva) {
+        setPagina(paginaSalva);
+        
+    }
+}, []);
 
 
   const handleCapituloChange = (capituloCompleto) => {
@@ -150,7 +162,7 @@ export default function Home() {
           width={30}
           height={30}
           onTouchEnd={decrementarPagina}
-          style={{transform: 'rotate(180deg)' }}
+          style={{ transform: 'rotate(180deg)' }}
         >
 
         </Image>
@@ -170,12 +182,14 @@ export default function Home() {
 
       </div>
       <div className={styles.conteudoLeitura} onTouchEnd={() => setMenu(false)}>
-        <div >
+        <div>
 
           <h1 className={potta.className}>{capitulo}</h1>
         </div>
         {Component ? <Component /> : ''}
       </div>
+
+
 
     </div>
   );

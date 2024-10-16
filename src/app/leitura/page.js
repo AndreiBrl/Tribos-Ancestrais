@@ -146,11 +146,30 @@ export default function Home() {
 
       </div>
       <div className={styles.controlaPaginas}>
-        <h1 onTouchEnd={decrementarPagina}>-</h1>
+        <Image src='/img/setaEsquerda.png' loading='lazy'
+          width={30}
+          height={30}
+          onTouchEnd={decrementarPagina}
+          style={{ textAlign: 'center' }}
+        >
+
+        </Image>
         <input type="number" value={pagina} onChange={(e) => setPagina(Number(e.target.value))} />
-        <h1 onTouchEnd={incrementarPagina}>+</h1>
+        <Image src='/img/setaDireita.png' loading='lazy'
+          width={30}
+          height={30}
+          onTouchEnd={incrementarPagina}
+          style={{
+            textAlign: 'center',
+            filter: 'grayscale(100%)'
+          }}
+
+        >
+
+        </Image>
+
       </div>
-      <div  className={styles.conteudoLeitura} onTouchEnd={() => setMenu(false)}>
+      <div className={styles.conteudoLeitura} onTouchEnd={() => setMenu(false)}>
         <div >
 
           <h1 className={potta.className}>{capitulo}</h1>

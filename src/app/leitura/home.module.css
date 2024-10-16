@@ -67,10 +67,11 @@
     }
 
     .controlaPaginas {
+        width: fit-content;
         display: flex;
         justify-content: center;
         align-items: center;
-        gap: 5vw;
+        gap: 3vw;
         margin-top: 30vw;
         z-index: 2;
 
@@ -79,10 +80,14 @@
         }
 
         &>input {
-            width: 15vw;
+            width: 20vw;
             height: 15vw;
             font-size: 10vw;
             text-align: center;
+            border-radius: 10px;
+            background-color: #ffffffd1;
+            border: 1px solid rgb(184, 184, 184);
+            
         }
     }
 
@@ -159,7 +164,7 @@
         text-align: center;
 
         &>div:nth-child(1)>h1 {
-            font-size: 6vw;
+            font-size: 5vw;
             text-transform: uppercase;
         }
     }

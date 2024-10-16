@@ -146,11 +146,11 @@ export default function Home() {
 
       </div>
       <div className={styles.controlaPaginas}>
-        <Image src='/img/setaEsquerda.png' loading='lazy'
+        <Image src='/img/setaDireita.png' loading='lazy'
           width={30}
           height={30}
           onTouchEnd={decrementarPagina}
-          style={{ textAlign: 'center' }}
+          style={{transform: 'rotate(180deg)' }}
         >
 
         </Image>
@@ -160,7 +160,7 @@ export default function Home() {
           height={30}
           onTouchEnd={incrementarPagina}
           style={{
-            textAlign: 'center',
+
             filter: 'grayscale(100%)'
           }}
 

@@ -16,9 +16,9 @@ export default function Home() {
 
   const [Component, setComponent] = useState(null);
 
+  const [pagina, setPagina] = useState(1)
 
-  const [pagina, setPagina] = useState(0)
-
+  const [capitulo, setCapitulo] = useState('O Eco do irmão Perdido')
 
   const incrementarPagina = () => {
     setPagina(prevPagina => prevPagina + 1);
@@ -29,7 +29,7 @@ export default function Home() {
 
   useEffect(() => {
 
-    import('../../components/paginas/pag_'+pagina+'').then((module) => {
+    import('../../components/paginas/pag_' + pagina + '').then((module) => {
       setComponent(() => module.default);
     });
 
@@ -37,7 +37,10 @@ export default function Home() {
   }, [pagina])
 
 
-
+  const handleCapituloChange = (capituloCompleto) => {
+    setCapitulo(capituloCompleto);
+    setMenu(false);
+  };
 
 
   return (
@@ -72,55 +75,54 @@ export default function Home() {
         >
         </img>
         <div className={`${styles.capitulos} ${menu ? styles.ativado : styles.desativado}`}>
+          <div>
+            <h1 className={potta.className} onClick={() => handleCapituloChange('I\nO Eco do irmão Perdido')}>I</h1>
+            <h2 className={potta.className} onClick={() => handleCapituloChange('I\nO Eco do irmão Perdido')}>O Eco do irmão Perdido</h2>
+          </div>
+          <div>
+            <h1 className={potta.className} onClick={() => handleCapituloChange('II\nA Dor que Desperta')}>II</h1>
+            <h2 className={potta.className} onClick={() => handleCapituloChange('II\nA Dor que Desperta')}>A Dor que Desperta</h2>
+          </div>
+          <div>
+            <h1 className={potta.className} onClick={() => handleCapituloChange('III\nUm Banquete para Porcos')}>III</h1>
+            <h2 className={potta.className} onClick={() => handleCapituloChange('III\nUm Banquete para Porcos')}>Um Banquete para Porcos</h2>
+          </div>
+          <div>
+            <h1 className={potta.className} onClick={() => handleCapituloChange('IV\nO Caminho Revelado')}>IV</h1>
+            <h2 className={potta.className} onClick={() => handleCapituloChange('IV\nO Caminho Revelado')}>O Caminho Revelado</h2>
+          </div>
+          <div>
+            <h1 className={potta.className} onClick={() => handleCapituloChange('V\nA Cabana na Clareira')}>V</h1>
+            <h2 className={potta.className} onClick={() => handleCapituloChange('V\nA Cabana na Clareira')}>A Cabana na Clareira</h2>
+          </div>
+          <div>
+            <h1 className={potta.className} onClick={() => handleCapituloChange('VI\nSangue e Sacrifício')}>VI</h1>
+            <h2 className={potta.className} onClick={() => handleCapituloChange('VI\nSangue e Sacrifício')}>Sangue e Sacrifício</h2>
+          </div>
+          <div>
+            <h1 className={potta.className} onClick={() => handleCapituloChange('VII\nXa’ru Xaruna')}>VII</h1>
+            <h2 className={potta.className} onClick={() => handleCapituloChange('VII\nXa’ru Xaruna')}>Xa’ru Xaruna</h2>
+          </div>
+          <div>
+            <h1 className={potta.className} onClick={() => handleCapituloChange('VIII\nUm Sonho Impossível')}>VIII</h1>
+            <h2 className={potta.className} onClick={() => handleCapituloChange('VIII\nUm Sonho Impossível')}>Um Sonho Impossível</h2>
+          </div>
+          <div>
+            <h1 className={potta.className} onClick={() => handleCapituloChange('IX\nObsidiana Vermelha')}>IX</h1>
+            <h2 className={potta.className} onClick={() => handleCapituloChange('IX\nObsidiana Vermelha')}>Obsidiana Vermelha</h2>
+          </div>
+          <div>
+            <h1 className={potta.className} onClick={() => handleCapituloChange('X\nTorokar')}>X</h1>
+            <h2 className={potta.className} onClick={() => handleCapituloChange('X\nTorokar')}>Torokar</h2>
+          </div>
+          <div>
+            <h1 className={potta.className} onClick={() => handleCapituloChange('XI\nO Verdadeiro Propósito')}>XI</h1>
+            <h2 className={potta.className} onClick={() => handleCapituloChange('XI\nO Verdadeiro Propósito')}>O Verdadeiro Propósito</h2>
+          </div>
 
-          <div>
-            <h1>I</h1>
-            <h2>Um sonho impossível</h2>
-          </div>
-          <div>
-            <h1>I</h1>
-            <h2>Um sonho impossível</h2>
-          </div>
-          <div>
-            <h1>I</h1>
-            <h2>Um sonho impossível</h2>
-          </div>
-          <div>
-            <h1>I</h1>
-            <h2>Um sonho impossível</h2>
-          </div>
-          <div>
-            <h1>I</h1>
-            <h2>Um sonho impossível</h2>
-          </div>
-          <div>
-            <h1>I</h1>
-            <h2>Um sonho impossível</h2>
-          </div>
-          <div>
-            <h1>I</h1>
-            <h2>Um sonho impossível</h2>
-          </div>
-          <div>
-            <h1>I</h1>
-            <h2>Um sonho impossível</h2>
-          </div>
-          <div>
-            <h1>I</h1>
-            <h2>Um sonho impossível</h2>
-          </div>
-          <div>
-            <h1>I</h1>
-            <h2>Um sonho impossível</h2>
-          </div>
-          <div>
-            <h1>I</h1>
-            <h2>Um sonho impossível</h2>
-          </div>
-          <div>
-            <h1>I</h1>
-            <h2>Um sonho impossível</h2>
-          </div>
+
+
+
         </div>
 
         {/* <Image
@@ -143,14 +145,17 @@ export default function Home() {
         </img>
 
       </div>
-      <div className={styles.controlaPaginas
-      }>
+      <div className={styles.controlaPaginas}>
         <h1 onTouchEnd={decrementarPagina}>-</h1>
-        <input type="number" value={pagina} onChange={(e)=>setPagina(Number(e.target.value))}  />
+        <input type="number" value={pagina} onChange={(e) => setPagina(Number(e.target.value))} />
         <h1 onTouchEnd={incrementarPagina}>+</h1>
       </div>
-      <div onTouchEnd={() => setMenu(false)}>
-        {Component ? <Component menu={menu} /> : ''}
+      <div  className={styles.conteudoLeitura} onTouchEnd={() => setMenu(false)}>
+        <div >
+
+          <h1 className={potta.className}>{capitulo}</h1>
+        </div>
+        {Component ? <Component /> : ''}
       </div>
 
     </div>

@@ -11,10 +11,7 @@ const Page = () => (
 
     <div className={styles.sub_container_1} >
       
-        <div >
-
-            <h1 className={potta.className}>Capítulo X</h1>
-        </div>
+       
         <img className={styles.capaEdit} src="img/cap1/paku_1.png" />
 
         <p>Perguntou Paku2.</p>

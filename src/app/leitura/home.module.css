@@ -113,7 +113,7 @@
             justify-content: center;
             align-items: center;
             padding: 5vw;
-
+            opacity: 50%;
             &>h1 {
                 font-size: 4.5vw;
                 /* color: #35827b; */
@@ -126,7 +126,12 @@
                 font-size: 5vw;
             }
 
+
         }
+        &>div:nth-child(1){
+            opacity: 1;
+        }
+        
     }
 
     .galhoOn {
@@ -170,6 +175,10 @@
         &>div:nth-child(1)>h1 {
             font-size: 5vw;
             text-transform: uppercase;
+        }
+        &>div:nth-child(1)>h2 {
+            font-size: 4vw;
+
         }
     }
 

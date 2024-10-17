@@ -50,7 +50,11 @@ export default function Home() {
 
   const handleCapituloChange = (numero, titulo) => {
     setCapitulo({ numero, titulo });
+    if(numero=='I'){
+      setPagina(Number(1))
+    }
     setMenu(false);
+
   };
 
 

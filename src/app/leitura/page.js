@@ -13,16 +13,11 @@ export default function Home() {
 
 
   const [menu, setMenu] = useState(false)
-
   const [Component, setComponent] = useState(null);
-
-  const paginaSalva = localStorage.getItem('pagina');
-  const [pagina, setPagina] = useState(paginaSalva ? Number(paginaSalva) : 1);
-
+  const [pagina, setPagina] = useState(1);
   const [capitulo, setCapitulo] = useState({ numero: 'I', titulo: 'O Eco do Irmão Perdido' });
+  const [primeiraRender, setPrimeiraRender] = useState(true);
 
-
-  localStorage.setItem('pagina', pagina);
 
 
   const incrementarPagina = () => {
@@ -38,17 +33,26 @@ export default function Home() {
     import('../../components/paginas/pag_' + pagina + '').then((module) => {
       setComponent(() => module.default);
     });
-    localStorage.setItem('pagina', pagina);
+    if (primeiraRender) {
+      setPrimeiraRender(false)
+    }
+    else {
 
-
+      localStorage.setItem('pagina', pagina);
+    }
 
   }, [pagina])
 
+  useEffect(() => {
+    const paginaSalva = localStorage.getItem('pagina');
+    setPagina(paginaSalva ? Number(paginaSalva) : 1);
+  }, []);
+
   const handleCapituloChange = (numero, titulo) => {
     setCapitulo({ numero, titulo });
-    setMenu(false); 
+    setMenu(false);
   };
-  
+
 
 
   return (

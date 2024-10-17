@@ -16,16 +16,19 @@ export default function Home() {
 
   const [Component, setComponent] = useState(null);
 
-  const [pagina, setPagina] = useState(1)
+  const paginaSalva = localStorage.getItem('pagina');
+  const [pagina, setPagina] = useState(paginaSalva ? Number(paginaSalva) : 1);
 
   const [capitulo, setCapitulo] = useState('O Eco do irmão Perdido')
 
+  localStorage.setItem('pagina', pagina);
+
+
   const incrementarPagina = () => {
-    localStorage.setItem('pagina', pagina);
     setPagina(prevPagina => prevPagina + 1);
+
   };
   const decrementarPagina = () => {
-    localStorage.setItem('pagina', pagina);
     setPagina(prevPagina => prevPagina - 1);
   };
 
@@ -34,19 +37,11 @@ export default function Home() {
     import('../../components/paginas/pag_' + pagina + '').then((module) => {
       setComponent(() => module.default);
     });
+    localStorage.setItem('pagina', pagina);
+    
 
 
   }, [pagina])
-
-  useEffect(() => {
-    // Recupera a localização do localStorage ao montar o componente
-
-    const paginaSalva = localStorage.getItem('pagina');
-    if (paginaSalva) {
-        setPagina(paginaSalva);
-        
-    }
-}, []);
 
 
   const handleCapituloChange = (capituloCompleto) => {

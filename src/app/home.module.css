@@ -148,6 +148,7 @@
     }
 
     .mMobile {
+       height: 63vw;
         display: block;
     }
 
@@ -164,7 +165,7 @@
     }
 
     .vilage {
-        margin-top: 50vw;
+        margin-top: 70vw;
         margin-bottom: 58vw;
 
 
@@ -267,6 +268,7 @@
     .palavraMenu{
         bottom: 62vw;
         width: 21vw !important;
+        height: 12vw;
         left: 42vw;
         display: block;
         position: absolute;

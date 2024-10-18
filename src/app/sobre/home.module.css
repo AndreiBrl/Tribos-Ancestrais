@@ -1,0 +1,199 @@
+
+/* Pagina About */
+/* desktop */
+.containerSobre {
+
+    margin-left: 20vw;
+    margin-right: 20vw;
+   
+    background-color: #F2E3D0;
+    background-image: url("/img/backAbout.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    position: relative;
+
+
+}
+
+.titulosSobre {
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+}
+
+.autor {
+    width: 20vw;
+    margin-top: 10vw;
+}
+
+.nome {
+    margin-top: 5vw;
+    width: 30vw;
+}
+
+
+.perfil {
+    margin-top: 3vw;
+    width: 30vw;
+}
+
+.redesSociais {
+    padding-bottom: 5vw;
+}
+
+.insta {
+    margin-top: 0vw;
+    width: 18vw;
+    transition: 0.1s all linear;
+    padding-left: 7vw;
+}
+
+.gmail {
+    padding-left: 5vw;
+    transition: 0.1s all linear;
+    margin-top: 3vw;
+    width: 25vw;
+
+}
+
+.insta:hover,
+.gmail:hover {
+
+    scale: 1.05;
+}
+
+.containerSobreTexto {
+    margin-left: 20vw;
+    margin-right: 20vw;
+    position: relative;
+    background-color: #F4E2C7;
+    height: 50vw;
+}
+
+.barraSobre {
+    width: 59.2vw;
+    position: absolute;
+    top: -1.2vw;
+}
+
+.textoSobre {
+    margin-left: 10vw;
+    margin-right: 10vw;
+    display: flex;
+}
+
+.textoSobre2 {
+    border-left: 3px solid rgb(88, 29, 8);
+    margin-top: 15vw;
+    text-align: justify;
+    display: flex;
+    flex-direction: column;
+    gap: 1vw;
+    font-size: 1.3vw;
+    /* font-family: serif; */
+    font-family: 'Times New Roman', Times, serif;
+    padding-left: 1vw;
+}
+
+/*celular */
+@media only screen and (max-width: 600px) {
+
+    .containerSobre {
+
+        margin-left: 0vw;
+        margin-right: 0vw;
+        background-color: #F2E3D0;
+        background-image: url("/img/backAbout.png");
+        background-size: cover;
+        background-repeat: no-repeat;
+        position: relative;
+
+
+    }
+
+    .titulosSobre {
+        display: flex;
+
+        flex-direction: column;
+        width: 96vw;
+        align-items: center;
+    }
+
+    .autor {
+        width: 50vw;
+        margin-top: 10vw;
+    }
+
+    .nome {
+        margin-top: 5vw;
+        width: 80vw;
+    }
+
+
+    .perfil {
+        margin-top: 5vw;
+        width: 70vw;
+    }
+
+    .redesSociais {
+        padding-bottom: 20vw;
+    }
+
+    .insta {
+        margin-top: 10vw;
+        width: 55vw;
+        transition: 0.3s all linear;
+        padding-left: 5vw;
+    }
+
+    .gmail {
+        padding-left: 5vw;
+        transition: 0.5s all linear;
+        margin-top: 3vw;
+        width: 85vw;
+
+    }
+
+    .insta:hover,
+    .gmail:hover {
+
+        scale: 1.1;
+    }
+
+    .containerSobreTexto {
+        margin-left: 0vw;
+        margin-right: 0vw;
+        position: relative;
+        background-color: #F4E2C7;
+        height: fit-content;
+        padding-bottom: 20vw;
+
+    }
+
+    .barraSobre {
+        width: 100vw;
+        position: absolute;
+        top: -2vw;
+    }
+
+    .textoSobre {
+        margin-left: 12vw;
+        margin-right: 12vw;
+        display: flex;
+    }
+
+    .textoSobre2 {
+        border-left: 2px solid rgb(88, 29, 8);
+        margin-top: 25vw;
+        text-align: justify;
+        display: flex;
+        flex-direction: column;
+        gap: 5vw;
+        font-size: 4.3vw;
+        /* font-family: serif; */
+        font-family: 'Times New Roman', Times, serif;
+        padding-left: 3vw;
+    }
+}

@@ -18,15 +18,17 @@ export default function Home() {
 
 
 
-      
-      <Image  width={100} height={100}className={styles.mDesk} src="/img/menuDesk.png" alt="Menu Desk" quality={100} />
-        <Image   width={100} height={100} className={styles.palavraMenu} src="/img/palavraMenu.png" alt="Palavra Menu" quality={100} />
-        <Image   width={100} height={100} className={styles.mMobile} src="/img/menu.png" alt="Menu Mobile" quality={100} />
+
+        <Image width={100} height={100} className={styles.mDesk} src="/img/menuDesk.png" alt="Menu Desk" quality={100} />
+        <Image width={100} height={100} className={styles.palavraMenu} src="/img/palavraMenu.png" alt="Palavra Menu" quality={100} />
+        <Image width={100} height={100} className={styles.mMobile} src="/img/menu.png" alt="Menu Mobile" quality={100} />
         <Link href="/leitura">
-          <Image   width={100} height={100} className={styles.livroAkin} src="/img/livroAkin.png" alt="Livro Akin" quality={100} />
+          <Image width={100} height={100} className={styles.livroAkin} src="/img/livroAkin.png" alt="Livro Akin" quality={100} />
         </Link>
-        <Image   width={100} height={100} className={styles.homenzin} src="/img/homenzin.png" alt="Homenzinho" quality={100} />
-        <Image   width={100} height={100} className={styles.saco} src="/img/saco.png" alt="Saco" quality={100} />
+        <Link href="/sobre">
+          <Image width={100} height={100} className={styles.homenzin} src="/img/homenzin.png" alt="Homenzinho" quality={100} />
+        </Link>
+        <Image width={100} height={100} className={styles.saco} src="/img/saco.png" alt="Saco" quality={100} />
 
         {/* <h1 className="emBreve">EM BREVE</h1> */}
 

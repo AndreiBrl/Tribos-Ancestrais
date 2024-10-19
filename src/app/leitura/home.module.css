@@ -60,17 +60,17 @@
         width: 100vw;
         height: 130vw;
         padding-bottom: 5vh;
-
         background: rgba(255, 255, 255, 0.3);
         /* Fundo semitransparente */
         border-radius: 10px;
+        -webkit-backdrop-filter: blur(10px);
         backdrop-filter: blur(10px);
         /* Efeito de desfoque */
         box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
         /* Sombra */
         transition: all 0.3s ease;
         z-index: 3;
-
+        overflow: visible;
     }
 
     .menuLeituraFechado {

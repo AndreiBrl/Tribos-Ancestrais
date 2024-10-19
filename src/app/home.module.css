@@ -16,10 +16,20 @@
     overflow: hidden;
     position: relative;
     height: 47vw;
-
-
+    opacity: 0;
+    animation: apareceHome 1s linear forwards;
+    animation-delay: 1s;
 }
 
+@keyframes apareceHome {
+
+    to{
+        opacity: 1;
+    }
+
+
+    
+}
 .vilage {
     padding-top: 1vw;
     margin-bottom: 8vw;
@@ -218,7 +228,8 @@
         top: 0vw;
         left: 42vw;
         width:21vw;
-        height:21vw;        animation: cresceLivro 0.5s linear infinite alternate ;
+        height:21vw;        
+        animation: cresceLivro 0.5s linear infinite alternate ;
         
     }
 

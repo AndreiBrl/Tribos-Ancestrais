@@ -1,3 +1,8 @@
+@font-face {
+    font-family: 'potta';
+    src:('/fonts/PottaOne-Regular.ttf') format('ttf');
+
+}
 @media (min-width: 768px) {
     .container {
 
@@ -30,12 +35,22 @@
         align-items: center;
         width: 100vw;
         height: fit-content;
+        opacity: 0;
+        animation: apareceHome 1s linear forwards;
+        animation-delay: 1s;
+
     }
 
     .aviso {
         display: none;
     }
-
+    .voltar{
+        font-size: 3.5vw;
+        margin-left: 50vw;
+        margin-top: 10vw;
+        width: fit-content;
+        font-family: 'potta';
+    }
     .menuLeituraAberto {
         position: fixed;
         top: 0;
@@ -114,6 +129,7 @@
             align-items: center;
             padding: 5vw;
             opacity: 50%;
+
             &>h1 {
                 font-size: 4.5vw;
                 /* color: #35827b; */
@@ -128,10 +144,11 @@
 
 
         }
-        &>div:nth-child(1){
+
+        &>div:nth-child(1) {
             opacity: 1;
         }
-        
+
     }
 
     .galhoOn {
@@ -176,6 +193,7 @@
             font-size: 5vw;
             text-transform: uppercase;
         }
+
         &>div:nth-child(1)>h2 {
             font-size: 4vw;
 
@@ -217,4 +235,16 @@
 
 .desativado {
     display: none;
+}
+
+
+
+@keyframes apareceHome {
+
+    to {
+        opacity: 1;
+    }
+
+
+
 }

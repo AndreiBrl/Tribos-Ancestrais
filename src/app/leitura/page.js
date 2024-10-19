@@ -4,6 +4,7 @@ import styles from "./home.module.css";
 import { useEffect, useState } from 'react';
 import { Potta_One } from 'next/font/google';
 import { motion } from 'framer-motion';
+import Link from "next/link";
 
 const potta = Potta_One({
   subsets: ['latin'],
@@ -161,6 +162,11 @@ export default function Home() {
         </img>
 
       </div>
+      <Link href="/">
+        <div className={styles.voltar}>
+          <h1>Voltar</h1>
+        </div>
+      </Link>
       <div className={styles.controlaPaginas}>
         <Image src='/img/setaDireita.png' loading='lazy'
           width={30}

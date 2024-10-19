@@ -3,6 +3,7 @@ import Image from "next/image";
 import styles from "./home.module.css";
 import { useEffect, useState } from 'react';
 import { Potta_One } from 'next/font/google';
+import { motion } from 'framer-motion';
 
 const potta = Potta_One({
   subsets: ['latin'],
@@ -50,7 +51,7 @@ export default function Home() {
 
   const handleCapituloChange = (numero, titulo) => {
     setCapitulo({ numero, titulo });
-    if(numero=='I'){
+    if (numero == 'I') {
       setPagina(Number(1))
     }
     setMenu(false);
@@ -190,7 +191,21 @@ export default function Home() {
           <h1 className={potta.className}>{capitulo.numero}</h1>
           <h2 className={potta.className}>{capitulo.titulo}</h2>
         </div>
-        {Component ? <Component /> : ''}
+        <motion.div
+
+          drag="x" // Detecta o arrastar horizontalmente
+          dragConstraints={{ left: 0, right: 0 }}
+          onDragEnd={(event, info) => {
+            if (info.offset.x < -100) {
+              setPagina(prevPagina => prevPagina + 1);
+            } else if (info.offset.x > 100) {
+              setPagina(prevPagina => prevPagina - 1);
+            }
+          }}
+        >
+
+          {Component ? <Component /> : ''}
+        </motion.div>
       </div>
 
 

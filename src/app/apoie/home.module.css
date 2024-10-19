@@ -169,4 +169,12 @@
         font-family: 'Times New Roman', Times, serif;
         padding-left: 3vw;
     }
+    
+    .volta {
+        filter: brightness(0);
+        transform: rotateY(180deg);
+        width: 15vw;
+        height: 15vw;
+
+    }
 }

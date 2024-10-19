@@ -142,6 +142,7 @@
 
 /* Para celular */
 @media only screen and (max-width: 768px) {
+    
 
     .mDesk {
         display: none;
@@ -152,10 +153,16 @@
         display: block;
     }
 
+        .backHome{
+            position: absolute;
+            top: 0;
+            width: 100vw;
+            height: 114vh;
+        }
     .containerHome {
 
         background-color: #F2E3D0;
-        background-image: url("/img/backHome.png");
+        /* background-image: url("/img/backHome.png"); */
         background-size: cover;
         background-repeat: no-repeat;
         height: 191vw;
@@ -183,33 +190,35 @@
         position: relative;
     }
 
-    .menu img {
+    /* .menu img {
 
         width: 120vw;
-    }
+    } */
 
     
     
     .saco {
-        top: 30.5vw;
-        left: 56vw;
+        top: 28.5vw;
+        left: 55vw;
         width: 26vw !important;
-        animation: cresceLivro 0.5s linear infinite alternate ;
+        height: 24vw;
+        animation: cresceLivro 0.5s linear infinite alternate;
         filter: grayscale(0);
     }
     .livroAkin{
-        top: 35.5vw;
+        top: 36.5vw;
         left: 22.2vw;
-        width: 29vw !important;
-        animation: cresceLivro 0.5s linear infinite alternate ;
+        width: 26vw ;
+        height: 20vw;
+        animation: cresceLivro 0.5s linear infinite alternate;
         filter: grayscale(0);
     }
     .homenzin{
         filter: grayscale(0);
-        top: 1vw;
+        top: 0vw;
         left: 42vw;
-        width:22vw !important;
-        animation: cresceLivro 0.5s linear infinite alternate ;
+        width:21vw;
+        height:21vw;        animation: cresceLivro 0.5s linear infinite alternate ;
         
     }
 

@@ -1,4 +1,7 @@
 import styles from "./home.module.css";
+import Link from 'next/link';
+
+
 
 export default function Home() {
   return (
@@ -14,13 +17,16 @@ export default function Home() {
       </div>
 
       <div className={styles.containerApoieTexto}>
-        <img
-          style={{ position: "absolute", top: '5vw', zIndex: 5 }}
-          className={styles.volta}
-          src="/img/setaVolta.png"
-          alt="Voltar"
+        <Link href="/">
 
-        />
+          <img
+            style={{ position: "absolute", top: '5vw', zIndex: 5 }}
+            className={styles.volta}
+            src="/img/setaVolta.png"
+            alt="Voltar"
+
+          />
+        </Link>
         <img className={styles.barraApoie} src="/img/comoFunciona.png" alt="Como Funciona" />
 
         <div className={styles.textoApoie}>

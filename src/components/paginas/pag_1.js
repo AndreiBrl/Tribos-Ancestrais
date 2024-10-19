@@ -1,10 +1,5 @@
 import styles from "../../app/leitura/home.module.css";
-import { Potta_One } from 'next/font/google';
 
-const potta = Potta_One({
-    subsets: ['latin'],
-    weight: ['400']
-})
 
 const Page = () => (
 

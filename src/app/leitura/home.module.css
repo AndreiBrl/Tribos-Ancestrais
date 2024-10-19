@@ -1,8 +1,10 @@
 @font-face {
     font-family: 'potta';
-    src:('/fonts/PottaOne-Regular.ttf') format('ttf');
-
+    src: url('/fonts/PottaOne-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
 }
+
 @media (min-width: 768px) {
     .container {
 
@@ -135,11 +137,13 @@
                 /* color: #35827b; */
                 color: #823535;
                 width: fit-content;
+                font-family: 'potta';
 
             }
 
             &>h2 {
                 font-size: 5vw;
+                font-family: 'potta';
             }
 
 
@@ -185,18 +189,21 @@
     .conteudoLeitura {
         margin-top: 5vw;
         text-align: center;
-
-
-
+        
+        
+        
+        
         /* div com nome do capítulo */
         &>div:nth-child(1)>h1 {
+           
             font-size: 5vw;
             text-transform: uppercase;
+            font-family: 'potta';
         }
 
         &>div:nth-child(1)>h2 {
             font-size: 4vw;
-
+            font-family: 'potta';
         }
     }
 

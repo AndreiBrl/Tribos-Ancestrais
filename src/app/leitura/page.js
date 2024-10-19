@@ -2,14 +2,14 @@
 import Image from "next/image";
 import styles from "./home.module.css";
 import { useEffect, useState } from 'react';
-import { Potta_One } from 'next/font/google';
+// import { Potta_One } from 'next/font/google';
 import { motion } from 'framer-motion';
 import Link from "next/link";
 
-const potta = Potta_One({
-  subsets: ['latin'],
-  weight: ['400']
-})
+// const potta = Potta_One({
+//   subsets: ['latin'],
+//   weight: ['400']
+// })
 
 export default function Home() {
 
@@ -94,48 +94,48 @@ export default function Home() {
         </img>
         <div className={`${styles.capitulos} ${menu ? styles.ativado : styles.desativado}`}>
           <div>
-            <h1 className={potta.className} onClick={() => handleCapituloChange('I', 'O Eco do irmão Perdido')}>I</h1>
-            <h2 className={potta.className} onClick={() => handleCapituloChange('I', 'O Eco do irmão Perdido')}>O Eco do Irmão Perdido</h2>
+            <h1  onClick={() => handleCapituloChange('I', 'O Eco do irmão Perdido')}>I</h1>
+            <h2  onClick={() => handleCapituloChange('I', 'O Eco do irmão Perdido')}>O Eco do Irmão Perdido</h2>
           </div>
           <div>
-            <h1 className={potta.className} /* onClick={() => handleCapituloChange('II', 'A Dor que Desperta')} */>II</h1>
-            <h2 className={potta.className} /* onClick={() => handleCapituloChange('II', 'A Dor que Desperta')} */>A Dor que Desperta</h2>
+            <h1  /* onClick={() => handleCapituloChange('II', 'A Dor que Desperta')} */>II</h1>
+            <h2  /* onClick={() => handleCapituloChange('II', 'A Dor que Desperta')} */>A Dor que Desperta</h2>
           </div>
           <div>
-            <h1 className={potta.className} /* onClick={() => handleCapituloChange('III', 'Um Banquete para Porcos')} */>III</h1>
-            <h2 className={potta.className} /* onClick={() => handleCapituloChange('III', 'Um Banquete para Porcos')} */>Um Banquete para Porcos</h2>
+            <h1  /* onClick={() => handleCapituloChange('III', 'Um Banquete para Porcos')} */>III</h1>
+            <h2  /* onClick={() => handleCapituloChange('III', 'Um Banquete para Porcos')} */>Um Banquete para Porcos</h2>
           </div>
           <div>
-            <h1 className={potta.className} /* onClick={() => handleCapituloChange('IV', 'O Caminho Revelado')} */>IV</h1>
-            <h2 className={potta.className} /* onClick={() => handleCapituloChange('IV', 'O Caminho Revelado')} */>O Caminho Revelado</h2>
+            <h1  /* onClick={() => handleCapituloChange('IV', 'O Caminho Revelado')} */>IV</h1>
+            <h2  /* onClick={() => handleCapituloChange('IV', 'O Caminho Revelado')} */>O Caminho Revelado</h2>
           </div>
           <div>
-            <h1 className={potta.className} /* onClick={() => handleCapituloChange('V', 'A Cabana na Clareira')} */>V</h1>
-            <h2 className={potta.className} /* onClick={() => handleCapituloChange('V', 'A Cabana na Clareira')} */>A Cabana na Clareira</h2>
+            <h1  /* onClick={() => handleCapituloChange('V', 'A Cabana na Clareira')} */>V</h1>
+            <h2  /* onClick={() => handleCapituloChange('V', 'A Cabana na Clareira')} */>A Cabana na Clareira</h2>
           </div>
           <div>
-            <h1 className={potta.className} /* onClick={() => handleCapituloChange('VI', 'Sangue e Sacrifício')} */>VI</h1>
-            <h2 className={potta.className} /* onClick={() => handleCapituloChange('VI', 'Sangue e Sacrifício')} */>Sangue e Sacrifício</h2>
+            <h1  /* onClick={() => handleCapituloChange('VI', 'Sangue e Sacrifício')} */>VI</h1>
+            <h2  /* onClick={() => handleCapituloChange('VI', 'Sangue e Sacrifício')} */>Sangue e Sacrifício</h2>
           </div>
           <div>
-            <h1 className={potta.className} /* onClick={() => handleCapituloChange('VII', 'Xa’ru Xaruna')} */>VII</h1>
-            <h2 className={potta.className} /* onClick={() => handleCapituloChange('VII', 'Xa’ru Xaruna')} */>Xa’ru Xaruna</h2>
+            <h1  /* onClick={() => handleCapituloChange('VII', 'Xa’ru Xaruna')} */>VII</h1>
+            <h2  /* onClick={() => handleCapituloChange('VII', 'Xa’ru Xaruna')} */>Xa’ru Xaruna</h2>
           </div>
           <div>
-            <h1 className={potta.className} /* onClick={() => handleCapituloChange('VIII', 'Um Sonho Impossível')} */>VIII</h1>
-            <h2 className={potta.className} /* onClick={() => handleCapituloChange('VIII', 'Um Sonho Impossível')} */>Um Sonho Impossível</h2>
+            <h1  /* onClick={() => handleCapituloChange('VIII', 'Um Sonho Impossível')} */>VIII</h1>
+            <h2  /* onClick={() => handleCapituloChange('VIII', 'Um Sonho Impossível')} */>Um Sonho Impossível</h2>
           </div>
           <div>
-            <h1 className={potta.className} /* onClick={() => handleCapituloChange('IX', 'Obsidiana Vermelha')} */>IX</h1>
-            <h2 className={potta.className} /* onClick={() => handleCapituloChange('IX', 'Obsidiana Vermelha')} */>Obsidiana Vermelha</h2>
+            <h1  /* onClick={() => handleCapituloChange('IX', 'Obsidiana Vermelha')} */>IX</h1>
+            <h2  /* onClick={() => handleCapituloChange('IX', 'Obsidiana Vermelha')} */>Obsidiana Vermelha</h2>
           </div>
           <div>
-            <h1 className={potta.className} /* onClick={() => handleCapituloChange('X', 'Torokar')} */>X</h1>
-            <h2 className={potta.className} /* onClick={() => handleCapituloChange('X', 'Torokar')} */>Torokar</h2>
+            <h1  /* onClick={() => handleCapituloChange('X', 'Torokar')} */>X</h1>
+            <h2  /* onClick={() => handleCapituloChange('X', 'Torokar')} */>Torokar</h2>
           </div>
           <div>
-            <h1 className={potta.className} /* onClick={() => handleCapituloChange('XI', 'O Verdadeiro Propósito')} */>XI</h1>
-            <h2 className={potta.className} /* onClick={() => handleCapituloChange('XI', 'O Verdadeiro Propósito')} */>O Verdadeiro Propósito</h2>
+            <h1  /* onClick={() => handleCapituloChange('XI', 'O Verdadeiro Propósito')} */>XI</h1>
+            <h2  /* onClick={() => handleCapituloChange('XI', 'O Verdadeiro Propósito')} */>O Verdadeiro Propósito</h2>
           </div>
 
 
@@ -162,10 +162,10 @@ export default function Home() {
         </img>
 
       </div>
-      <Link href="/">
-        <div className={styles.voltar}>
+      <Link href="/" className={styles.voltar}>
+        
           <h1>Voltar</h1>
-        </div>
+        
       </Link>
       <div className={styles.controlaPaginas}>
         <Image src='/img/setaDireita.png' loading='lazy'
@@ -194,8 +194,8 @@ export default function Home() {
       <div className={styles.conteudoLeitura} onTouchEnd={() => setMenu(false)}>
         <div>
 
-          <h1 className={potta.className}>{capitulo.numero}</h1>
-          <h2 className={potta.className}>{capitulo.titulo}</h2>
+          <h1 >{capitulo.numero}</h1>
+          <h2 >{capitulo.titulo}</h2>
         </div>
         <motion.div
 

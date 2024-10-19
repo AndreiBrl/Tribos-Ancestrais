@@ -1,18 +1,10 @@
 import styles from "../../app/leitura/home.module.css";
-import { Potta_One } from 'next/font/google';
-
-const potta = Potta_One({
-    subsets: ['latin'],
-    weight: ['400']
-})
 
 const Page = () => (
 
 
     <div className={styles.sub_container_1} >
       
-       
-        <img className={styles.capaEdit} src="img/cap1/paku_1.png" />
 
         <p>Perguntou Paku3.</p>
         <p>Abak lançou-lhe um olhar seco, esporou o cavalo, afastandose. Paku o acompanhou.</p>

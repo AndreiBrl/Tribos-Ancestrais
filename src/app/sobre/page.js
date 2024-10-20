@@ -1,6 +1,7 @@
 'use client';
 import Image from "next/image";
 import styles from "./home.module.css";
+import Link from "next/link";
 
 
 export default function Home() {
@@ -24,12 +25,14 @@ export default function Home() {
         </div>
       </div>
       <div className={styles.containerSobreTexto}>
-        {/* <img
-          style={{ position: "absolute", top: '5vw', zIndex: 5 }}
-          className={styles.volta}
-          src="/img/setaVolta.png"
-         
-        /> */}
+        <Link href='/'>
+          <img
+            style={{ position: "absolute", top: '5vw', zIndex: 5 }}
+            className={styles.volta}
+            src="/img/setaVolta.png"
+
+          />
+        </Link>
         <img className={styles.barraSobre} src="/img/barraSobre.png" />
         <div className={styles.textoSobre}>
           <div className={styles.textoSobre2}>

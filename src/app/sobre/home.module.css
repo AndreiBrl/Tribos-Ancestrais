@@ -11,6 +11,9 @@
     background-size: cover;
     background-repeat: no-repeat;
     position: relative;
+    opacity: 0;
+    animation: apareceHome 1s linear forwards;
+    animation-delay: .5s;
 
 
 }
@@ -195,5 +198,18 @@
         /* font-family: serif; */
         font-family: 'Times New Roman', Times, serif;
         padding-left: 3vw;
+    }
+    .volta {
+        filter: brightness(0);
+        transform: rotateY(180deg);
+        width: 15vw;
+        height: 15vw;
+
+    }
+}
+@keyframes apareceHome {
+
+    to {
+        opacity: 1;
     }
 }

@@ -16,7 +16,7 @@ export default function Home() {
 
   const [menu, setMenu] = useState(false)
   const [Component, setComponent] = useState(null);
-  const [pagina, setPagina] = useState(1);
+  const [pagina, setPagina] = useState(0);
   const [capitulo, setCapitulo] = useState({ numero: 'I', titulo: 'O Eco do Irmão Perdido' });
   const [primeiraRender, setPrimeiraRender] = useState(true);
 

@@ -11,15 +11,16 @@
     background-size: cover;
     background-repeat: no-repeat;
     position: relative;
+    opacity: 0;
+    animation: apareceHome 1s linear forwards;
+    animation-delay: .5s;
 
 
 }
 
 .titulosApoie {
     display: flex;
-
     flex-direction: column;
-
     align-items: center;
 }
 
@@ -176,5 +177,12 @@
         width: 15vw;
         height: 15vw;
 
+    }
+}
+
+@keyframes apareceHome {
+
+    to {
+        opacity: 1;
     }
 }

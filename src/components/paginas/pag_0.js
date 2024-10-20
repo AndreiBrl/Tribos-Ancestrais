@@ -8,7 +8,7 @@ const Page = () => (
 
 
         <img style={{ width: '70vw', height: '40vw' }} src="img/tituloWordTribo.png" />
-        <div style={{fontFamily:'Garamond', paddingTop:'5vw'}}>
+        <div style={{fontFamily:'Garamond', paddingTop:'16vw'}}>
 
             <h1>
                 Escrito por

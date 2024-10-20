@@ -27,7 +27,10 @@ export default function Home() {
 
   };
   const decrementarPagina = () => {
-    setPagina(prevPagina => prevPagina - 1);
+    if (pagina > 0) {
+
+      setPagina(prevPagina => prevPagina - 1);
+    }
   };
 
   useEffect(() => {
@@ -41,6 +44,10 @@ export default function Home() {
     else {
 
       localStorage.setItem('pagina', pagina);
+    }
+    if (pagina == 0) {
+
+      setCapitulo('', '')
     }
 
   }, [pagina])

@@ -63,11 +63,6 @@ export default function Home() {
 
   return (
     <div className={styles.container}>
-      <div className={styles.aviso}>
-        <h1> Modo Leitura disponível apenas para formato Celular</h1>
-
-      </div>
-
       <div className={menu ? styles.menuLeituraAberto : styles.menuLeituraFechado}  >
 
         <Image
@@ -94,8 +89,8 @@ export default function Home() {
         </img>
         <div className={`${styles.capitulos} ${menu ? styles.ativado : styles.desativado}`}>
           <div>
-            <h1  onClick={() => handleCapituloChange('I', 'O Eco do irmão Perdido')}>I</h1>
-            <h2  onClick={() => handleCapituloChange('I', 'O Eco do irmão Perdido')}>O Eco do Irmão Perdido</h2>
+            <h1 onClick={() => handleCapituloChange('I', 'O Eco do irmão Perdido')}>I</h1>
+            <h2 onClick={() => handleCapituloChange('I', 'O Eco do irmão Perdido')}>O Eco do Irmão Perdido</h2>
           </div>
           <div>
             <h1  /* onClick={() => handleCapituloChange('II', 'A Dor que Desperta')} */>II</h1>
@@ -143,14 +138,14 @@ export default function Home() {
         </div>
 
         {/* <Image
-          src="/img/galhoMenuFinal2.png"
-          width={100}
-          height={150}
-          loading='lazy'
-          quality={100}
-          className={styles.galhoMenuFinal}
+              src="/img/galhoMenuFinal2.png"
+              width={100}
+              height={150}
+              loading='lazy'
+              quality={100}
+              className={styles.galhoMenuFinal}
 
-        ></Image> */}
+            ></Image> */}
         <img
 
           src="/img/galhoMenuFinal2.png"
@@ -162,12 +157,22 @@ export default function Home() {
         </img>
 
       </div>
-      <Link href="/" className={styles.voltar}>
-        
-          <h1>Voltar</h1>
-        
+      <div className={styles.aviso}>
+        <h1> Modo Leitura disponível apenas para formato Celular</h1>
+
+      </div>
+
+
+      <Link href="/" className={styles.voltar} style={{
+        filter: menu ? 'blur(10px)' : 'none',
+      }}>
+
+        <h1>Voltar</h1>
+
       </Link>
-      <div className={styles.controlaPaginas}>
+      <div className={styles.controlaPaginas} style={{
+        filter: menu ? 'blur(10px)' : 'none',
+      }}>
         <Image src='/img/setaDireita.png' loading='lazy'
           width={30}
           height={30}
@@ -191,7 +196,9 @@ export default function Home() {
         </Image>
 
       </div>
-      <div className={styles.conteudoLeitura} onTouchEnd={() => setMenu(false)}>
+      <div className={styles.conteudoLeitura} onTouchEnd={() => setMenu(false)} style={{
+        filter: menu ? 'blur(10px)' : 'none',
+      }}>
         <div>
 
           <h1 >{capitulo.numero}</h1>

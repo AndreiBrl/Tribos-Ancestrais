@@ -198,14 +198,15 @@
         /* div com nome do capítulo */
         &>div:nth-child(1)>h1 {
            
-            font-size: 5vw;
+            font-size: 10vw;
             text-transform: uppercase;
-            font-family: 'potta';
+            font-family: 'Garamond';
+            color: #823535;
         }
 
         &>div:nth-child(1)>h2 {
-            font-size: 4vw;
-            font-family: 'potta';
+            font-size: 8vw;
+            font-family: 'Garamond';
         }
     }
 

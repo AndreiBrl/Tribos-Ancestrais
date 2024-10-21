@@ -23,7 +23,9 @@ export default function Home() {
 
 
   const incrementarPagina = () => {
-    setPagina(prevPagina => prevPagina + 1);
+    if (pagina < 6) {
+      setPagina(prevPagina => prevPagina + 1);
+    }
 
   };
   const decrementarPagina = () => {
@@ -45,9 +47,10 @@ export default function Home() {
 
       localStorage.setItem('pagina', pagina);
     }
-    if (pagina == 0) {
-
-      setCapitulo('', '')
+    if (pagina === 0) {
+      setCapitulo({ numero: '', titulo: '' });
+    } else if (pagina > 0 && pagina <= 6) {
+      setCapitulo({ numero: 'I', titulo: 'O Eco do Irmão Perdido' });
     }
     window.scrollTo({ top: 0, behavior: 'smooth' });
 
@@ -209,8 +212,12 @@ export default function Home() {
       }}>
         <div>
 
-          <h1 >{capitulo.numero}</h1>
-          <h2 >{capitulo.titulo}</h2>
+          <h1 style={{
+            fontSize: pagina != 1 || 0 ? '5vw' : '12vw'
+          }}>{capitulo.numero}</h1>
+          <h2 style={{
+            fontSize: pagina != 1 || 0 ? '5vw' : '10vw'
+          }}>{capitulo.titulo}</h2>
         </div>
         <motion.div
 

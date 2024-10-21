@@ -8,11 +8,18 @@ const Page = () => (
 
         <p>Conhecia Fakuri como amigo há muitos anos, desde muito antes dele ser chefe da tribo, eram como irmãos.  </p>
         <p>— Me preocupo com Akin. — Lançou Kizuno, rompendo o silêncio.</p>
-        {/* <img style={{width:'50vw',height:'5vw', marginTop:'10vw',marginBottom:'10vw'}} src="/img/divisor.png"></img> */}
+        <img  src="/img/cap1/kizuno_fakuri.png"></img>
 
-        <p>Enquanto a lua tomava seu lugar na escuridão banhando os seres com sua luz, Fakuri cavalgava em silêncio ao lado de Kizuno. Era um homem robusto de pele preta e cabeça raspada. Aparentava ter cinquenta anos e usava roupas de couro trabalhado pelo corpo. Fakuri havia passado por mais batalhas que qualquer um da aldeia e carregava na face a dureza de anos de liderança. </p>
-        <p>Kizuno tinha quase a mesma idade, na verdade, era um pouco mais novo, tinha a pele preta e também usava couros por seu corpo.</p>
-    
+        <p>Fakuri encarava o luar com olhar sereno, como se momentos como aquele fossem raros.</p>
+        <p>— Como foi sua primeira viagem para o banquete de Torokar, meu amigo? — Perguntou o chefe, voltando seu olhar para Kizuno.</p>
+        <p>— Fui desafiado. — Respondeu Kizuno secamente </p>
+        <p>— E o que você fez? — Devolveu Fakuri.</p>
+        <p>— Enfrentei o guerreiro que me desafiava e garanti meu lugar na guarda do chefe. — Respondeu Kizuno, agora com a voz mais aliviada.</p>
+        <p>— Pois então, permita que o garoto mostre seu valor.</p>
+        <p>Kizuno fez uma pausa breve, respirou, sabia que ele tinha razão. </p>
+        <p>— Se te preocupa. — Fakuri acrescentou — Ordenei Paku a não se envolver. Abak dará apenas um susto no garoto. — Disse o chefe, enquanto voltava seu olhar pensativo ao luar.</p>
+        <img style={{width:'50vw',height:'5vw', marginTop:'10vw',marginBottom:'10vw'}} src="/img/divisor.png"></img>
+
        
 
 
@@ -23,3 +30,4 @@ const Page = () => (
 );
 
 export default Page;
+  

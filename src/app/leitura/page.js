@@ -213,10 +213,10 @@ export default function Home() {
         <div>
 
           <h1 style={{
-            fontSize: pagina != 1 || 0 ? '8vw' : '12vw'
+            fontSize: pagina != 1 || 0 ? '7vw' : '12vw'
           }}>{capitulo.numero}</h1>
           <h2 style={{
-            fontSize: pagina != 1 || 0 ? '6vw' : '10vw'
+            fontSize: pagina != 1 || 0 ? '5vw' : '10vw'
           }}>{capitulo.titulo}</h2>
         </div>
         <motion.div
@@ -224,9 +224,9 @@ export default function Home() {
           drag="x" // Detecta o arrastar horizontalmente
           dragConstraints={{ left: 0, right: 0 }}
           onDragEnd={(event, info) => {
-            if (info.offset.x < -100) {
+            if (info.offset.x < -100 && pagina<6) {
               setPagina(prevPagina => prevPagina + 1);
-            } else if (info.offset.x > 100) {
+            } else if (info.offset.x > 100 && pagina>0) {
               setPagina(prevPagina => prevPagina - 1);
             }
 

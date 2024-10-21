@@ -49,6 +49,7 @@ export default function Home() {
 
       setCapitulo('', '')
     }
+    window.scrollTo({ top: 0, behavior: 'smooth' });
 
   }, [pagina])
 
@@ -221,6 +222,7 @@ export default function Home() {
             } else if (info.offset.x > 100) {
               setPagina(prevPagina => prevPagina - 1);
             }
+
           }}
         >
 

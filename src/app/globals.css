@@ -4,10 +4,6 @@
 body {
 
   background-color: #F2E3D0;
-  user-select: none; /* Navegadores modernos */
-  -webkit-user-select: none; /* Safari e Chrome */
-  -moz-user-select: none; /* Firefox */
-  -ms-user-select: none; /* IE/Edge */
   unicode-bidi: plaintext;
 }
 

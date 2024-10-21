@@ -16,11 +16,9 @@ export default function Home() {
       </div>
 
       <div className={styles.menu}>
+        <img className={styles.mDesk} src="/img/menuDesk.png"></img>
 
 
-
-
-        <Image width={100} height={100} className={styles.mDesk} src="/img/menuDesk.png" alt="Menu Desk" quality={100} />
         <Image width={100} height={100} className={styles.palavraMenu} src="/img/palavraMenu.png" alt="Palavra Menu" quality={100} />
         
         {/* <Image width={100} height={100} className={styles.mMobile} src="/img/menu.png" alt="Menu Mobile" quality={100} /> */}

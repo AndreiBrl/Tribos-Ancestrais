@@ -17,7 +17,10 @@
 
 
 }
+.volta {
+    display: none;
 
+}
 .titulosApoie {
     display: flex;
     flex-direction: column;
@@ -43,9 +46,9 @@
 
 .apoie {
     margin-bottom: 2vw;
-    width: 28vw;
+    width: 25vw;
     transition: 0.1s all linear;
-    padding-left: 16vw;
+    margin-left: 16vw;
 }
 
 
@@ -55,6 +58,8 @@
     position: relative;
     background-color: #F4E2C7;
     height: 50vw;
+    animation: apareceHome 1s linear forwards;
+    animation-delay: .5s;
 }
 
 .barraApoie {
@@ -128,14 +133,11 @@
     .apoie {
         margin-top: 5vw;
         margin-bottom: 2vw;
-        width: 65vw;
+        width: 45vw;
         transition: 0.3s all linear;
-        padding-left: 17vw;
+        margin-left: 29vw;
     }
 
-    
-
-  
 
     .containerApoieTexto {
         margin-left: 0vw;
@@ -172,6 +174,7 @@
     }
     
     .volta {
+        display: block;
         filter: brightness(0);
         transform: rotateY(180deg);
         width: 15vw;

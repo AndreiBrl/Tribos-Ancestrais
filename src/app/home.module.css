@@ -1,7 +1,8 @@
 /* pagina HOME */
 /* desktop */
 
-.mMobile {
+.mMobile,
+.backHome {
     display: none;
 }
 
@@ -23,16 +24,17 @@
 
 @keyframes apareceHome {
 
-    to{
+    to {
         opacity: 1;
     }
 
 
-    
+
 }
+
 .vilage {
     padding-top: 1vw;
-    margin-bottom: 8vw;
+    margin-bottom: 5vw;
 
 
     text-align: center;
@@ -42,6 +44,7 @@
 
 
     width: 50vw;
+    height: 10vw;
 }
 
 .menu {
@@ -54,6 +57,7 @@
 .mDesk {
 
     width: 30vw;
+    height: 30vw;
 }
 
 .homenzin {
@@ -61,6 +65,7 @@
     left: 44.6vw;
     position: absolute;
     width: 10.9vw;
+    height: 10.9vw;
     filter: grayscale(1);
     transition: all 0.2s linear;
     cursor: pointer;
@@ -70,8 +75,9 @@
 .livroAkin {
     bottom: 0;
     width: 13.8vw;
+    height: 13.8vw;
     left: 34vw;
-    top: 14vw;
+    top: 16vw;
     position: absolute;
     transition: all 0.2s linear;
     filter: grayscale(1);
@@ -82,9 +88,10 @@
 .saco {
     transition: all 0.2s linear;
     position: absolute;
-    bottom: 2.3vw;
+    bottom: 3.5vw;
     left: 51.7vw;
     width: 14vw;
+    height: 14vw;
     filter: grayscale(1);
 }
 
@@ -95,7 +102,7 @@
     scale: 1.09;
 }
 
-.palavraMenu{
+.palavraMenu {
     display: none;
 }
 
@@ -133,6 +140,7 @@
     top: 2vw;
     left: 52vw
 }
+
 /* Coloca em breve na Home */
 /* .emBreve {
     position: absolute;
@@ -152,23 +160,25 @@
 
 /* Para celular */
 @media only screen and (max-width: 768px) {
-    
+
 
     .mDesk {
         display: none;
     }
 
     .mMobile {
-       height: 63vw;
+        height: 63vw;
         display: block;
     }
 
-        .backHome{
-            position: absolute;
-            top: 0;
-            width: 100vw;
-            height: 114vh;
-        }
+    .backHome {
+        display: block;
+        position: absolute;
+        top: 0;
+        width: 100vw;
+        height: 114vh;
+    }
+
     .containerHome {
 
         background-color: #F2E3D0;
@@ -205,8 +215,8 @@
         width: 120vw;
     } */
 
-    
-    
+
+
     .saco {
         top: 28.5vw;
         left: 55vw;
@@ -215,29 +225,36 @@
         animation: cresceLivro 0.5s linear infinite alternate;
         filter: grayscale(0);
     }
-    .livroAkin{
+
+    .livroAkin {
         top: 36.5vw;
         left: 22.2vw;
-        width: 26vw ;
+        width: 26vw;
         height: 20vw;
         animation: cresceLivro 0.5s linear infinite alternate;
         filter: grayscale(0);
     }
-    .homenzin{
+
+    .homenzin {
         filter: grayscale(0);
         top: 0vw;
         left: 42vw;
-        width:21vw;
-        height:21vw;        
-        animation: cresceLivro 0.5s linear infinite alternate ;
-        
+        width: 21vw;
+        height: 21vw;
+        animation: cresceLivro 0.5s linear infinite alternate;
+
     }
 
     @keyframes cresceLivro {
-        0% { transform: scale(1); } 
-        100% { transform: scale(1.05); } 
-      }
-    
+        0% {
+            transform: scale(1);
+        }
+
+        100% {
+            transform: scale(1.05);
+        }
+    }
+
     .about {
         width: 20vw;
         height: 20vw;
@@ -285,7 +302,7 @@
         text-shadow: 0.8px 0.8px 0.8px;
         opacity: 70%;
     } */
-    .palavraMenu{
+    .palavraMenu {
         bottom: 62vw;
         width: 21vw !important;
         height: 12vw;
@@ -293,6 +310,7 @@
         display: block;
         position: absolute;
     }
+
     /* @keyframes setaAzul {
         0% { left: 8vw;} 
         100% {left: 3vw; }

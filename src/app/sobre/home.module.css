@@ -17,6 +17,9 @@
 
 
 }
+.volta{
+    display: none;
+}
 
 .titulosSobre {
     display: flex;
@@ -70,9 +73,12 @@
 .containerSobreTexto {
     margin-left: 20vw;
     margin-right: 20vw;
+    padding-bottom: 5vw;
     position: relative;
     background-color: #F4E2C7;
-    height: 50vw;
+    height: fit-content;
+    animation: apareceHome 1s linear forwards;
+    animation-delay: .5s;
 }
 
 .barraSobre {
@@ -200,6 +206,7 @@
         padding-left: 3vw;
     }
     .volta {
+        display: block;
         filter: brightness(0);
         transform: rotateY(180deg);
         width: 15vw;

@@ -213,10 +213,10 @@ export default function Home() {
         <div>
 
           <h1 style={{
-            fontSize: pagina != 1 || 0 ? '5vw' : '12vw'
+            fontSize: pagina != 1 || 0 ? '8vw' : '12vw'
           }}>{capitulo.numero}</h1>
           <h2 style={{
-            fontSize: pagina != 1 || 0 ? '5vw' : '10vw'
+            fontSize: pagina != 1 || 0 ? '6vw' : '10vw'
           }}>{capitulo.titulo}</h2>
         </div>
         <motion.div

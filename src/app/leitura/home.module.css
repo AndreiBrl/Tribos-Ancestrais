@@ -200,13 +200,13 @@
            
             font-size: 10vw;
             text-transform: uppercase;
-            font-family: 'Garamond';
+          
             color: #823535;
         }
 
         &>div:nth-child(1)>h2 {
             font-size: 8vw;
-            font-family: 'Garamond';
+            
         }
     }
 

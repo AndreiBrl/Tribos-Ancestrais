@@ -20,7 +20,7 @@
     .menuLeituraAberto,
     .menuLeituraFechado,
     .controlaPaginas,
-    .conteudoLeitura {
+    .conteudoLeitura,.voltar {
         display: none;
     }
 }

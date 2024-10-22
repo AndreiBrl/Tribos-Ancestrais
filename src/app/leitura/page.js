@@ -67,6 +67,7 @@ export default function Home() {
       setPagina(Number(1))
     }
     setMenu(false);
+    window.scrollTo({ top: 0, behavior: 'smooth' });
 
   };
 

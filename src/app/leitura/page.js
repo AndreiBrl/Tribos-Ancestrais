@@ -79,8 +79,8 @@ export default function Home() {
         <Image
 
           src="/img/galhoSeco.png"
-          width={100}
-          height={150}
+          width={90}
+          height={130}
           loading='lazy'
           quality={100}
           className={menu ? styles.galhoOff : styles.galhoOn}

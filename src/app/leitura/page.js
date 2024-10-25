@@ -23,7 +23,7 @@ export default function Home() {
 
 
   const incrementarPagina = () => {
-    if (pagina < 6) {
+    if (pagina < 12) {
       setPagina(prevPagina => prevPagina + 1);
     }
 
@@ -52,6 +52,9 @@ export default function Home() {
     } else if (pagina > 0 && pagina <= 6) {
       setCapitulo({ numero: 'I', titulo: 'O Eco do Irmão Perdido' });
     }
+    else if (pagina > 6 && pagina <= 10) {
+      setCapitulo({ numero: 'II', titulo: 'A Dor que Desperta' });
+    }
     window.scrollTo({ top: 0, behavior: 'smooth' });
 
   }, [pagina])
@@ -65,6 +68,10 @@ export default function Home() {
     setCapitulo({ numero, titulo });
     if (numero == 'I') {
       setPagina(Number(1))
+    }
+    else if (numero == 'II') {
+      setPagina(Number(7))
+
     }
     setMenu(false);
     window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -105,8 +112,8 @@ export default function Home() {
             <h2 onClick={() => handleCapituloChange('I', 'O Eco do irmão Perdido')}>O Eco do Irmão Perdido</h2>
           </div>
           <div>
-            <h1  /* onClick={() => handleCapituloChange('II', 'A Dor que Desperta')} */>II</h1>
-            <h2  /* onClick={() => handleCapituloChange('II', 'A Dor que Desperta')} */>A Dor que Desperta</h2>
+            <h1 onClick={() => handleCapituloChange('II', 'A Dor que Desperta')} >II</h1>
+            <h2 onClick={() => handleCapituloChange('II', 'A Dor que Desperta')} >A Dor que Desperta</h2>
           </div>
           <div>
             <h1  /* onClick={() => handleCapituloChange('III', 'Um Banquete para Porcos')} */>III</h1>
@@ -182,9 +189,17 @@ export default function Home() {
         <h1>Voltar</h1>
 
       </Link>
+     
       <div className={styles.controlaPaginas} style={{
         filter: menu ? 'blur(10px)' : 'none',
       }}>
+         <Link href="/mapa" className={styles.mapa} style={{
+        filter: menu ? 'blur(10px)' : 'none',
+      }}>
+
+        <Image width={80} height={80} src='/img/iconeMap.png'></Image>
+
+      </Link>
         <Image src='/img/setaDireita.png' loading='lazy'
           width={30}
           height={30}
@@ -214,20 +229,25 @@ export default function Home() {
         <div>
 
           <h1 style={{
-            fontSize: pagina != 1 || 0 ? '7vw' : '12vw'
-          }}>{capitulo.numero}</h1>
+            fontSize: pagina !== 1 && pagina !== 0 && pagina !== 7 ? '7vw' : '12vw'
+          }}>
+            {capitulo.numero}
+          </h1>
+
           <h2 style={{
-            fontSize: pagina != 1 || 0 ? '5vw' : '10vw'
-          }}>{capitulo.titulo}</h2>
+            fontSize: pagina !== 1 && pagina !== 0 && pagina !== 7 ? '5vw' : '9vw'
+          }}>
+            {capitulo.titulo}
+          </h2>
         </div>
         <motion.div
 
           drag="x" // Detecta o arrastar horizontalmente
           dragConstraints={{ left: 0, right: 0 }}
           onDragEnd={(event, info) => {
-            if (info.offset.x < -100 && pagina<6) {
+            if (info.offset.x < -100 && pagina < 12) {
               setPagina(prevPagina => prevPagina + 1);
-            } else if (info.offset.x > 100 && pagina>0) {
+            } else if (info.offset.x > 100 && pagina > 0) {
               setPagina(prevPagina => prevPagina - 1);
             }
 

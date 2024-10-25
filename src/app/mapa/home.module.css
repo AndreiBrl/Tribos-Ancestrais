@@ -1,0 +1,43 @@
+@font-face {
+    font-family: 'potta';
+    src: url('/fonts/PottaOne-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+.containerMapa {
+    opacity: 0;
+    animation: apareceHome 1s linear forwards;
+    animation-delay: .5s;
+}
+
+.titulo {
+    width: 100%;
+    margin-top: 10vw;
+    margin-bottom: 10vw;
+    text-align: center;
+    font-family: 'potta';
+}
+
+.mapa {
+    width: 100vw;
+    height: 90vw;
+}
+
+.volta {
+    display: block;
+    filter: brightness(0);
+    transform: rotateY(180deg);
+    width: 20vw;
+    height: 20vw;
+    position: absolute;
+    top: 6vw;
+}
+
+@keyframes apareceHome {
+
+    to {
+        opacity: 1;
+    }
+
+}

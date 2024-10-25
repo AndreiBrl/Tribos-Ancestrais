@@ -1,6 +1,6 @@
 import localFont from "next/font/local";
 import "./globals.css";
-import Head from "next/head";
+import Script from "next/script";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -31,26 +31,20 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html translate="no" lang="pt">
-      <Head>
-        {/* Google Analytics */}
-        <script
+ 
+   {/* Google Analytics */}
+   <Script
           async
-          src={`https://www.googletagmanager.com/gtag/js?id=G-NRE6FBE7VZ`}
-        ></script>
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `
-              window.dataLayer = window.dataLayer || [];
-              function gtag(){dataLayer.push(arguments);}
-              gtag('js', new Date());
-              gtag('config', 'G-NRE6FBE7VZ', {
-                page_path: window.location.pathname,
-              });
-            `,
-          }}
-        />
-      </Head>
-
+          src="https://www.googletagmanager.com/gtag/js?id=G-NRE6FBE7VZ"
+        ></Script>
+        <Script id="google-analytics">
+          {`
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'G-NRE6FBE7VZ');
+        `}
+        </Script>
       <body className={`${geistSans.variable} ${geistMono.variable}`}>
         {children}
       </body>

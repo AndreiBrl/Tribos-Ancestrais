@@ -52,7 +52,7 @@ export default function Home() {
     } else if (pagina > 0 && pagina <= 6) {
       setCapitulo({ numero: 'I', titulo: 'O Eco do Irmão Perdido' });
     }
-    else if (pagina > 6 && pagina <= 10) {
+    else if (pagina > 6 && pagina <= 12) {
       setCapitulo({ numero: 'II', titulo: 'A Dor que Desperta' });
     }
     window.scrollTo({ top: 0, behavior: 'smooth' });

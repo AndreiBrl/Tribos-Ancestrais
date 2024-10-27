@@ -19,7 +19,7 @@ export const metadata = {
   openGraph: {
     images: [
       {
-        url: "https://tribos-ancestrais.vercel.app/img/pixelArt.png",
+        url: "https://tribos-ancestrais.vercel.app/img/capaEdit.png",
         width: 800,
         height: 600,
         alt: "Imagem de Andrei Barbuto",

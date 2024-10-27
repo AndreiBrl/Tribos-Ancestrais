@@ -31,20 +31,28 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html translate="no" lang="pt">
- 
-   {/* Google Analytics */}
-   <Script
-          async
-          src="https://www.googletagmanager.com/gtag/js?id=G-NRE6FBE7VZ"
-        ></Script>
-        <Script id="google-analytics">
-          {`
+      <head>
+        <meta property="og:title" content="Tribos Ancestrais" />
+        <meta property="og:description" content="Escrito por Andrei Barbuto" />
+        <meta property="og:image" content="https://www.tribosancestrais.com.br/img/capaEdit.png" />
+        <meta property="og:image:width" content="800" />
+        <meta property="og:image:height" content="600" />
+        <meta property="og:image:alt" content="Imagem de Andrei Barbuto" />
+        <meta property="og:type" content="website" />
+      </head>
+      {/* Google Analytics */}
+      <Script
+        async
+        src="https://www.googletagmanager.com/gtag/js?id=G-NRE6FBE7VZ"
+      ></Script>
+      <Script id="google-analytics">
+        {`
           window.dataLayer = window.dataLayer || [];
           function gtag(){dataLayer.push(arguments);}
           gtag('js', new Date());
           gtag('config', 'G-NRE6FBE7VZ');
         `}
-        </Script>
+      </Script>
       <body className={`${geistSans.variable} ${geistMono.variable}`}>
         {children}
       </body>

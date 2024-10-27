@@ -15,7 +15,7 @@ const Page = () => (
         <br></br>
         <p>Avistou Iyamora empoleirada em uma árvore e ao menor sinal ela estava à sua frente. </p>
         <p>As tribos daquele continente nomearam essas criaturas como Xamãs há muito tempo. Eram seres que outrora foram humanos e que um dia receberam um chamado à natureza e por fim nunca mais voltaram à sociedade. Seus poderes eram desconhecidos, assim como seu tempo de existência. A xamã de frente para Yacamim aparentava ser jovem, embora ele soubesse que ela poderia ser dez vezes mais velha que ele. A pequena tinha cabelos longos escuros e o corpo inteiro coberto por marcas e sinais de todos os tipos e formatos, os olhos eram grandes maiores do que de um humano comum e de um verde muito forte. </p>
-        <p>— Eu finalmente senti o fluxo de energia e as vibrações do meu irmão — Disse ele, olhando para a pequena.</p>
+        <p>— Eu finalmente senti o fluxo de energia e as vibrações de meu irmão — Disse ele, olhando para a pequena.</p>
         <p>Iyamora o fitou por instantes, os cabelos longos sujos balançavam ao vento forte, andou alguns metros para trás até uma árvore, enfiou-se atrás dela e não voltou mais. Os encontros com ela sempre foram deste jeito, Yacamim não sabia como, ou de que jeito acontecia, mas ela se comunicava com ele apenas por estar perto, sem dizer uma única palavra. Agora, ele sabia de alguma forma o que tinha que fazer. </p>
         {/* <br></br>
         <br></br> */}

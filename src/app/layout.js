@@ -21,7 +21,7 @@ export const metadata = {
   openGraph: {
     images: [
       {
-        url: "https://www.tribosancestrais.com.br/img/pixelArt.png",
+        url: "https://tribos-ancestrais.vercel.app/img/pixelArt.png",
         width: 800,
         height: 600,
         alt: "Imagem de Andrei Barbuto",

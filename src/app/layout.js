@@ -2,8 +2,6 @@ import localFont from "next/font/local";
 import "./globals.css";
 import Script from "next/script";
 
-
-
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
   variable: "--font-geist-sans",
@@ -21,7 +19,7 @@ export const metadata = {
   openGraph: {
     images: [
       {
-        url: "https://tribos-ancestrais.vercel.app/img/pixelArt.png",
+        url: "https://tribos-ancestrais.vercel.app/api/og", // URL da rota API geradora de imagem
         width: 800,
         height: 600,
         alt: "Imagem de Andrei Barbuto",
@@ -33,7 +31,6 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html translate="no" lang="pt">
-
       {/* Google Analytics */}
       <Script
         async

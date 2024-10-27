@@ -19,7 +19,7 @@ export const metadata = {
   openGraph: {
     images: [
       {
-        url: "https://tribos-ancestrais.vercel.app/api/og", // URL da rota API geradora de imagem
+        url: "https://tribos-ancestrais.vercel.app/img/pixelArt.png",
         width: 800,
         height: 600,
         alt: "Imagem de Andrei Barbuto",

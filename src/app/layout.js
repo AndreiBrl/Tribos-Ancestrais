@@ -1,6 +1,8 @@
 import localFont from "next/font/local";
 import "./globals.css";
 import Script from "next/script";
+import Head from "next/head";
+
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -31,7 +33,7 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html translate="no" lang="pt">
-      <head>
+      <Head>
         <meta property="og:title" content="Tribos Ancestrais" />
         <meta property="og:description" content="Escrito por Andrei Barbuto" />
         <meta property="og:image" content="https://www.tribosancestrais.com.br/img/capaEdit.png" />
@@ -39,7 +41,7 @@ export default function RootLayout({ children }) {
         <meta property="og:image:height" content="600" />
         <meta property="og:image:alt" content="Imagem de Andrei Barbuto" />
         <meta property="og:type" content="website" />
-      </head>
+      </Head>
       {/* Google Analytics */}
       <Script
         async

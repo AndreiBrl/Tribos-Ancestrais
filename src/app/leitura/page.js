@@ -23,7 +23,7 @@ export default function Home() {
 
 
   const incrementarPagina = () => {
-    if (pagina < 12) {
+    if (pagina < 24) {
       setPagina(prevPagina => prevPagina + 1);
     }
 
@@ -55,6 +55,9 @@ export default function Home() {
     else if (pagina > 6 && pagina <= 12) {
       setCapitulo({ numero: 'II', titulo: 'A Dor que Desperta' });
     }
+    else if (pagina > 6 && pagina <= 24) {
+      setCapitulo({ numero: 'III', titulo: 'Um Banquete para Porcos' });
+    }
     window.scrollTo({ top: 0, behavior: 'smooth' });
 
   }, [pagina])
@@ -71,6 +74,10 @@ export default function Home() {
     }
     else if (numero == 'II') {
       setPagina(Number(7))
+
+    }
+    else if (numero == 'III') {
+      setPagina(Number(13))
 
     }
     setMenu(false);
@@ -116,8 +123,8 @@ export default function Home() {
             <h2 onClick={() => handleCapituloChange('II', 'A Dor que Desperta')} >A Dor que Desperta</h2>
           </div>
           <div>
-            <h1  /* onClick={() => handleCapituloChange('III', 'Um Banquete para Porcos')} */>III</h1>
-            <h2  /* onClick={() => handleCapituloChange('III', 'Um Banquete para Porcos')} */>Um Banquete para Porcos</h2>
+            <h1 onClick={() => handleCapituloChange('III', 'Um Banquete para Porcos')} >III</h1>
+            <h2 onClick={() => handleCapituloChange('III', 'Um Banquete para Porcos')} >Um Banquete para Porcos</h2>
           </div>
           <div>
             <h1  /* onClick={() => handleCapituloChange('IV', 'O Caminho Revelado')} */>IV</h1>
@@ -189,17 +196,17 @@ export default function Home() {
         <h1>Voltar</h1>
 
       </Link>
-     
+
       <div className={styles.controlaPaginas} style={{
         filter: menu ? 'blur(10px)' : 'none',
       }}>
-         <Link href="/mapa" className={styles.mapa} style={{
-        filter: menu ? 'blur(10px)' : 'none',
-      }}>
+        <Link href="/mapa" className={styles.mapa} style={{
+          filter: menu ? 'blur(10px)' : 'none',
+        }}>
 
-        <Image width={80} height={80} src='/img/iconeMap.png'></Image>
+          <Image width={80} height={80} src='/img/iconeMap.png'></Image>
 
-      </Link>
+        </Link>
         <Image src='/img/setaDireita.png' loading='lazy'
           width={30}
           height={30}
@@ -229,13 +236,13 @@ export default function Home() {
         <div>
 
           <h1 style={{
-            fontSize: pagina !== 1 && pagina !== 0 && pagina !== 7 ? '7vw' : '12vw'
+            fontSize: pagina !== 1 && pagina !== 0 && pagina !== 7 && pagina !== 13 ? '7vw' : '12vw'
           }}>
             {capitulo.numero}
           </h1>
 
           <h2 style={{
-            fontSize: pagina !== 1 && pagina !== 0 && pagina !== 7 ? '5vw' : '9vw'
+            fontSize: pagina !== 1 && pagina !== 0 && pagina !== 7 && pagina !== 13 ? '5vw' : '9vw'
           }}>
             {capitulo.titulo}
           </h2>
@@ -245,7 +252,7 @@ export default function Home() {
           drag="x" // Detecta o arrastar horizontalmente
           dragConstraints={{ left: 0, right: 0 }}
           onDragEnd={(event, info) => {
-            if (info.offset.x < -100 && pagina < 12) {
+            if (info.offset.x < -100 && pagina < 24) {
               setPagina(prevPagina => prevPagina + 1);
             } else if (info.offset.x > 100 && pagina > 0) {
               setPagina(prevPagina => prevPagina - 1);

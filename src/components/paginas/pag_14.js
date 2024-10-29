@@ -12,11 +12,9 @@ const Page = () => (
         <p>Akin engoliu em seco e agarrou as rédeas do cavalo. Fakuri e Kizuno eram amigos, mas ele sabia que o chefe tomava suas decisões pensando na tribo e não em agradar seus companheiros.</p>
         <p>Kizuno deixou que Fakuri se adiantasse, esperando até que Akin chegasse ao seu lado.</p>
         <p>— Como você está? — Perguntou em tom gentil.</p>
-        <p>— Estou bem, só não consigo entender. — Disse o garoto olhando para o mestre. — Paku estava louco de ódio e pareceu realmente tentar me matar.</p>
+        <p>— Estou bem, só não consigo entender. — Disse o garoto, olhando para o mestre. — Paku estava louco de ódio e pareceu realmente tentar me matar.</p>
         <p>Kizuno suspirou.</p>
-        <p>aaaaaa</p>
-        <p>aaaaaa</p>
-        <p>aaaaaa</p>
+        
         {/* <br></br>
         <br></br> */}
         {/* <img  src="/img/cap1/kizuno_fakuri.png"></img> */}

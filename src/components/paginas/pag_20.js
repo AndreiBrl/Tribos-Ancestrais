@@ -10,7 +10,7 @@ const Page = () => (
         <p>Antes do festival Torokar, era tradição que os líderes das tribos se reunissem para um banquete no acampamento Aimor, acompanhados de suas guardas pessoais e dos participantes do evento. Por isso, o grupo permaneceria por ali nos próximos dias. </p>
         <p>Akin levou seu cavalo, que na verdade era de Abak, para um pequeno estábulo que tinha água e comida ao lado da cabana. Amarrou o animal ali e seguiu para a entrada. </p>
         <p>Ao entrar, logo sentiu um aroma cítrico refrescante, olhou procurando e avistou uma cumbuca de madeira com ervas em brasa. <i>Capim limão</i>, pensou ele. O ambiente era acolhedor e tinha sido preparado para receber cinco pessoas, contava com redes grandes nos cantos e bancos de madeira entalhada envolta de uma pequena fogueira apagada no centro. Ao lado da fogueira, estavam algumas jarras com água e um pouco de madeira para o fogo.</p>
-        <p>A tarde já caminhava para fim e Fakuri entrou na cabana seguido por Kizuno.</p>
+        <p>A tarde já caminhava para o fim e Fakuri entrou na cabana seguido por Kizuno.</p>
         <p>— Deixem seus pertences, o anfitrião nos espera para o banquete. — Avisou ele olhando para Akin que já acariciava a rede com olhar cansado. O garoto franziu o cenho, mas assentiu em obediência.</p>
         {/* <br></br>
         <br></br> */}

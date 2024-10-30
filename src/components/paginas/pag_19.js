@@ -7,13 +7,13 @@ const Page = () => (
 
 
         <p>— Kizuno! — Chamou ele, adiantando seu cavalo até o lado do mestre. — Que som é esse?</p>
-        <p>Kizuno olhou para o jovem sabendo que não adiantava pedr para não perguntar.</p>
+        <p>Kizuno olhou para o jovem sabendo que não adiantava pedir para não perguntar.</p>
         <p>— Este som vem dos instrumentos da tribo Oin. — Respondeu ele, vendo o olhar do jovem varrer o acampamento em procura. — Você não vai encontrá-los. — Continuou — A tradição dos tambores não é mais permitida aqui e a tribo Oin acampa fora de Aimor para poder manter seus costumes.</p>
         <br></br>
         <br></br>
         <img  style={{height:'80vw'}}src="/img/cap3/kizuno_akin2.png"></img>
         <br></br>
-        
+
         <br></br>
         <p>— São apenas instrumentos musicais...por que são proibidos? — Retrucou Akin sem compreender. Kizuno suspirou.</p>
         <p>— Os tambores sempre foram ligados a magia, Akin. — Disse o mestre em tom de voz baixo bem próximo do garoto. — Mas este é um assunto para outra hora! Vamos! — Afirmou ele, apertando o passo do cavalo para alcançar Fakuri.</p>

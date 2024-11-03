@@ -23,7 +23,7 @@ export default function Home() {
 
 
   const incrementarPagina = () => {
-    if (pagina < 24) {
+    if (pagina < 31) {
       setPagina(prevPagina => prevPagina + 1);
     }
 
@@ -55,8 +55,11 @@ export default function Home() {
     else if (pagina > 6 && pagina <= 12) {
       setCapitulo({ numero: 'II', titulo: 'A Dor que Desperta' });
     }
-    else if (pagina > 6 && pagina <= 24) {
+    else if (pagina > 12 && pagina <= 24) {
       setCapitulo({ numero: 'III', titulo: 'Um Banquete para Porcos' });
+    }
+    else if (pagina > 24 && pagina <= 31) {
+      setCapitulo({ numero: 'IV', titulo: 'O Caminho Revelado' });
     }
     window.scrollTo({ top: 0, behavior: 'smooth' });
 
@@ -78,7 +81,9 @@ export default function Home() {
     }
     else if (numero == 'III') {
       setPagina(Number(13))
-
+    }
+    else if (numero == 'IV') {
+      setPagina(Number(25))
     }
     setMenu(false);
     window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -127,8 +132,8 @@ export default function Home() {
             <h2 onClick={() => handleCapituloChange('III', 'Um Banquete para Porcos')} >Um Banquete para Porcos</h2>
           </div>
           <div>
-            <h1  /* onClick={() => handleCapituloChange('IV', 'O Caminho Revelado')} */>IV</h1>
-            <h2  /* onClick={() => handleCapituloChange('IV', 'O Caminho Revelado')} */>O Caminho Revelado</h2>
+            <h1   onClick={() => handleCapituloChange('IV', 'O Caminho Revelado')} >IV</h1>
+            <h2   onClick={() => handleCapituloChange('IV', 'O Caminho Revelado')} >O Caminho Revelado</h2>
           </div>
           <div>
             <h1  /* onClick={() => handleCapituloChange('V', 'A Cabana na Clareira')} */>V</h1>
@@ -236,13 +241,13 @@ export default function Home() {
         <div>
 
           <h1 style={{
-            fontSize: pagina !== 1 && pagina !== 0 && pagina !== 7 && pagina !== 13 ? '7vw' : '12vw'
+            fontSize: pagina !== 1 && pagina !== 0 && pagina !== 7 && pagina !== 13 && pagina !== 25 ? '7vw' : '12vw'
           }}>
             {capitulo.numero}
           </h1>
 
           <h2 style={{
-            fontSize: pagina !== 1 && pagina !== 0 && pagina !== 7 && pagina !== 13 ? '5vw' : '9vw'
+            fontSize: pagina !== 1 && pagina !== 0 && pagina !== 7 && pagina !== 13 && pagina !== 25 ? '5vw' : '9vw'
           }}>
             {capitulo.titulo}
           </h2>
@@ -252,7 +257,7 @@ export default function Home() {
           drag="x" // Detecta o arrastar horizontalmente
           dragConstraints={{ left: 0, right: 0 }}
           onDragEnd={(event, info) => {
-            if (info.offset.x < -100 && pagina < 24) {
+            if (info.offset.x < -100 && pagina < 31) {
               setPagina(prevPagina => prevPagina + 1);
             } else if (info.offset.x > 100 && pagina > 0) {
               setPagina(prevPagina => prevPagina - 1);

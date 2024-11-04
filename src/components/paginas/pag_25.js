@@ -12,7 +12,7 @@ const Page = () => (
         <img style={{height:'80vw'}} src="/img/cap4/YacamimJavali.png"></img>
         <br></br>
         <br></br>
-        <p>Subitamente um javali enorme saiu em velocidade de um arbusto em sua direção. Yacamim saltou, agarrando-se a um galho no último minuto da arremetida da fera. Olhou para o bicho que já dava meia volta. O javali disparou novamente e acertou árvore onde Yacamim estava, fazendo-o cair no chão.  </p>
+        <p>Subitamente um javali enorme saiu em velocidade de um arbusto em sua direção. Yacamim saltou, agarrando-se a um galho no último minuto da arremetida da fera. Olhou para o bicho que já dava meia volta. O javali disparou novamente e acertou a árvore onde Yacamim estava, fazendo-o cair no chão.  </p>
         <p>Yacamim se levantou rapidamente e apontou o cajado na direção do monstro.</p>
         <p>— Xa’ru Orokun Sec’to —Proclamou ele, em tom grave e firme.</p>
         <br></br>

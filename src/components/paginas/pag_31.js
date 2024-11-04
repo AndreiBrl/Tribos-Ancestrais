@@ -9,7 +9,7 @@ const Page = () => (
         <p>Iyamora se virou e o encarou. Os olhos verdes refletiam a fogueira intensamente. Ela respirou fundo.</p>
         <p>Yacamim abriu a boca para falar.</p>
         <p>— Você me salvou? </p>
-        <p>Dentro de sua cabeça, Yacamim escutou uma voz que não tinha som, mas falava com ele. <i>&quot;Você nunca esteve lá de verdade. Tudo que você viu e sentiu foram parte de uma visão que lhe concedi. Você precisava sentir na própria pele o que aconteceu naquele lugar, mas não estava preparado para enfrentá-lo de verdade.&quot;</i> — Ecoou a voz em sua mente — <i>&quot; Então  lhe dei uma visão do que aconteceria se você tentasse se aproximar.&quo;t</i></p>
+        <p>Dentro de sua cabeça, Yacamim escutou uma voz que não tinha som, mas falava com ele. <i>&quot;Você nunca esteve lá de verdade. Tudo que você viu e sentiu foram parte de uma visão que lhe concedi. Você precisava sentir na própria pele o que aconteceu naquele lugar, mas não estava preparado para enfrentá-lo de verdade.&quot;</i> — Ecoou a voz em sua mente — <i>&quot; Então  lhe dei uma visão do que aconteceria se você tentasse se aproximar.&quot;</i></p>
         <p>Quieto olhando para Iyamora, Yacamim se assustava. Ele teve certeza de que estivera perto da árvore, mas tudo fora uma ilusão.  </p>
         <p><i>Os xamãs são seres magníficos</i> pensou ele, <i>ela esteve em minha mente o tempo todo.</i></p>
         <p>— Por que me mostrou tudo aquilo? — Perguntou ele, e logo soube que em sua jornada atrás de seus irmãos enfrentaria algo parecido, então lembrou-se da batalha violenta que teve com as criaturas do vale e de quanto seus poderes foram necessários. </p>

@@ -18,7 +18,7 @@ const Page = () => (
         <br></br>
         <br></br>
         <p>Raízes brotaram de sua pele mudando a composição de seu braço completamente, em instantes seu membro virou uma lança orgânica composta por seu próprio corpo transmutado pela energia Xaruna.</p>
-        <p>Naquele instante, um macaco pulou na direção de seu rosto, Yacamim enterrou seu braço lança bem no peito do animal que morreu imediatamente. Os gritos surgiam de todas as direções. Ele se abaixou, colocou suas duas mãos na terra e ao seu redor brotaram raízes grossas que agarraram as criaturas mais próximas. Estendeu sua mão para chão e uma lança brotou em segundos, arremessou-a na cabeça de uma mulher grotesca que avançava pelas raízes. Puxou do chão outra lança e continuou a batalha feroz contra as criaturas. </p>
+        <p>Naquele instante, um macaco pulou na direção de seu rosto, Yacamim enterrou seu braço enraizado bem no peito do animal que morreu imediatamente. Os gritos surgiam de todas as direções. Ele se abaixou, colocou suas duas mãos na terra e ao seu redor brotaram raízes grossas que agarraram as criaturas mais próximas. Estendeu sua mão para chão e uma lança brotou em segundos, arremessou-a na cabeça de uma mulher grotesca que avançava pelas raízes. Puxou do chão outra lança e continuou a batalha feroz contra as criaturas. </p>
         
 
         {/* <img  src="/img/cap1/kizuno_fakuri.png"></img> */}

@@ -6,7 +6,7 @@ const Page = () => (
     <div className={styles.sub_container_1} >
 
         <p>— Vou manter meus olhos em você, estou intrigada com seu vômito e mais ainda com as marcas no chão que você diz ter visto. — Disse Chinu friamente.</p>
-        <p>Eles ficaram em silêncio por alguns instantes encarando uns aos outros. Momentos depois, a noite caiu então Onay e Aina se despediram de Akin e voltaram para aldeia.</p>
+        <p>Eles ficaram em silêncio por alguns instantes encarando uns aos outros. Momentos depois, a noite caiu, então Onay e Aina se despediram de Akin e voltaram para aldeia.</p>
         <br></br>
         <br></br>
         <p>Naquela noite, Uthane e Chinu acordaram com barulhos estranhos do outro lado da cabana. As brasas da fogueira forneciam uma luz bruxuleante que batia na face de Akin, que estava sentado em sua cama olhando para o nada. O silêncio da madrugada foi cortado por palavras indecifráveis que saiam da boca do jovem, as duas mulheres se olharam aterrorizadas. </p>

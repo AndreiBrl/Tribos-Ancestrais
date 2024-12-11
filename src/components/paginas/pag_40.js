@@ -10,7 +10,7 @@ const Page = () => (
         <br></br>
         <br></br>
         
-        <p>No dia seguinte, ao raiar do sol Uthane saiu para colher algumas plantas, enquanto a velha curandeira preparava o ritual de Akin, que ainda dormia em sono profundo. </p>
+        <p>No dia seguinte, ao raiar do sol. Uthane saiu para colher algumas plantas, enquanto a velha curandeira preparava o ritual de Akin, que ainda dormia em sono profundo. </p>
         <p>Abaixada enquanto colhia um pouco de gengibre, Uthane pensava em seu filho e temia por sua vida, não conseguia imaginar falhar com ele. Levantou-se, e foi caminhando para próximo da cabana, ali, hesitou por um instante, lembrando de como Chinu tinha sido boa para ela todos esses anos. Sentiu uma sensação de alívio no corpo e então adentrou a cabana. </p>
         <br></br>
         <br></br>
@@ -23,7 +23,7 @@ const Page = () => (
         <p>Chinu ajoelhou-se ao lado de Akin, levou a cuia até sua boca e derramou o líquido segurando levemente sua cabeça para cima. Levantou-se e começou a fazer movimentos com as mãos em cima de Akin. Uthane observou atentamente, sua mente estava vidrada em Chinu, ela se mexia como se puxasse algo de dentro do jovem, as mãos iam e vinham de baixo para cima.</p>
         <p>A energia da cabana ficou pesada e o ar denso, algo estava vindo. A boca de Akin se abriu e uma fumaça fina começou a sair dela. Chinu intensificou os movimentos e olhou de relance para Uthane indicando que o momento estava chegando. Uthane concentrou suas energias em seu filho, iria salvá-lo a qualquer custo. A fumaça continuava a transbordar da boca de Akin e agora possuía um tom roxo tenebroso, infectante.</p>
         <p>Chinu fez um movimento ágil e a fumaça saiu por completo chegando ao teto da cabana. Uthane sentiu um frenesi em seu corpo, estava com a mente paralisada. Precisava inalar aquela fumaça, podia quase escutar ela a chamando.</p>
-        <p>A velha olhou para Uthane, pulou por cima de Akin e pegou saquinho de couro da mão da mulher, sem hesitar o arremessou nas brasas.</p>
+        <p>A velha olhou para Uthane, pulou por cima de Akin e pegou o saquinho de couro da mão da mulher, sem hesitar o arremessou nas brasas.</p>
         <p>Um estouro subiu da fogueira com contato das substâncias, uma fumaça esverdeada encheu completamente a cabana. Chinu e Uthane afastaram-se subitamente.</p>
         <p>— O que deu em você mulher!? — Perguntou Chinu, ofegante. Uthane olhou para ela atônita sem conseguir responder. A velha franziu o rosto.</p>
         <p>— Seja o que for, nós espantamos. — Disse ela, enquanto massageava a própria coluna — Estou velha demais para isso! — Afirmou com leve sorriso, então caminhou até Akin para cobri-lo com um tecido.  </p>

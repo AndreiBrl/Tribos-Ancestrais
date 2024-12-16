@@ -14,7 +14,7 @@ const Page = () => (
         <p>Na tenda central, os três irmãos ainda dormiam quando o mensageiro entrou.</p>
         <p>— Chefe Akinar!! — Disse o mensageiro subitamente e logo se ajoelhou por estar na presença de seu líder. </p>
         <p>Um homem de pele morena clara avermelhada se levantou da rede e olhou para ele, tinha os cabelos longos trançados, e o corpo pintado com inscrições tribais em tinta vermelha. </p>
-        <p>Akinar fez sinal para que o mensageiro se levanta-se, então olhou para seu pequeno irmão Yacamin que também acordara.</p>
+        <p>Akinar fez sinal para que o mensageiro se levantasse, então olhou para seu pequeno irmão Yacamin que também acordara.</p>
         <p>— O comandante do povoado vizinho está no portão e diz que precisa vê-lo urgentemente. — Afirmou o mensageiro. Akinar franziu o cenho e assentiu que iria. Então caminhou até Yacamim. </p>
         <p>— Continue dormindo meu irmãozinho, mais tarde vamos treinar um pouco. — Disse afagando o cabelo do garoto. Olhou para outro lado para onde estava Bukora, seu o outro irmão, este ainda dormia virado para canto.</p>
         <p>Akinar saiu da tenda e dirigiu-se a entrada do assentamento onde alguns homens o esperavam. Ao aproximar-se, ele notou que alguns seguravam lanças e outros arcos.</p>

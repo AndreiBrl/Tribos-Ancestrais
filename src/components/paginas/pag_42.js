@@ -13,7 +13,7 @@ const Page = () => (
         <img style={{ height: '80vw' }} src="/img/cap6/eusouzarak.png"></img>
         <br></br>
         <br></br>
-        <p>Disse o homem com um sorriso no rosto. — Queremos sua ajuda para tomar uma tribo chamada Tuk, que fica a dois dias daqui. — Antes que homem terminasse, Akinar já balançava a cabeça olhando para o chão.</p>
+        <p>Disse o homem com um sorriso no rosto. — Queremos sua ajuda para tomar uma tribo chamada Tuk, que fica a dois dias daqui. — Antes que o homem terminasse, Akinar já balançava a cabeça olhando para o chão.</p>
         <br></br>
         <br></br>
         <img style={{ height: '80vw' }} src="/img/cap6/akinar.png"></img>

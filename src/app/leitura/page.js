@@ -23,7 +23,7 @@ export default function Home() {
 
 
   const incrementarPagina = () => {
-    if (pagina < 45) {
+    if (pagina < 47) {
       setPagina(prevPagina => prevPagina + 1);
     }
 
@@ -64,7 +64,7 @@ export default function Home() {
     else if (pagina > 31 && pagina <= 40) {
       setCapitulo({ numero: 'V', titulo: 'A Cabana na Clareira' });
     }
-    else if (pagina > 40 && pagina <= 45) {
+    else if (pagina > 40 && pagina <= 47) {
       setCapitulo({ numero: 'VI', titulo: 'Sangue e Sacrifício' });
     }
     window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -269,7 +269,7 @@ export default function Home() {
           drag="x" // Detecta o arrastar horizontalmente
           dragConstraints={{ left: 0, right: 0 }}
           onDragEnd={(event, info) => {
-            if (info.offset.x < -100 && pagina < 45) {
+            if (info.offset.x < -100 && pagina < 47) {
               setPagina(prevPagina => prevPagina + 1);
             } else if (info.offset.x > 100 && pagina > 0) {
               setPagina(prevPagina => prevPagina - 1);

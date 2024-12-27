@@ -13,7 +13,7 @@ const Page = () => (
     <p>— Essa pedra em sua tiara, é uma obsidiana?</p>
     <p>— Sim, minha avó me deu quando eu era pequena. — Respondeu ela.</p>
     <p>Yacamim pegou uma cumbuca com pigmento amarelo e estendeu para Dara. </p>
-    <p>— A pedra amarela em sua tiara armazena a Xaruna responsável pela fluidez da energia pelo corpo, ela é capaz de aumentar sua velocidade e precisão de seus movimentos. — Disse ele, percebendo a surpresa no rosto de Dara. — Acredito que o pigmento amarelo vai potencializar mais ainda a sua pedra, o passe em seu corpo — Disse ele voltando seu olhar para o outro — Rakori, você deve experimentar o vermelho que está ligado a força. — Disse levantando-se.</p>
+    <p>— A pedra amarela em sua tiara armazena a Xaruna responsável pela fluidez da energia pelo corpo, ela é capaz de aumentar sua velocidade e precisão de seus movimentos. — Disse ele, percebendo a surpresa no rosto de Dara. — Acredito que o pigmento amarelo vai potencializar mais ainda a sua pedra, passe por sua pele para abrir o caminho por onde energia irá fluir — Disse ele voltando seu olhar para o outro — Rakori, você deve experimentar o vermelho que está ligado a força. — Disse levantando-se.</p>
     {/* <br></br>
         <br></br>
         <img style={{ height: '80vw' }} src="/img/cap4/YacamimIrAtras.png"></img>

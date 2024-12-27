@@ -14,7 +14,7 @@ const Page = () => (
     <img style={{ height: '80vw' }} src="/img/cap7/yacamim_dara_rakori.png"></img>
     <br></br>
     <br></br>
-    <p>— É obsidiana vermelha. Akinar fez para meu pai há muitos anos. — Respondeu Rakori agora olhando para a pedra avermelhada. Yacamin olhou para a arma. Meu irmão sempre descumprindo as próprias regras, pensou ele. </p>
+    <p>— É obsidiana vermelha. Akinar fez para meu pai há muitos anos. — Respondeu Rakori agora olhando para a pedra avermelhada. Yacamin olhou para a arma. <i>Meu irmão sempre descumprindo as próprias regras</i>, pensou ele. </p>
     <p>— Belo arco Dara! — Disse Yacamim olhando para a jovem.</p>
     <p>— Você mesmo que fez. — Disse ela, sem entender.</p>
     <p>— Eu sei. — Completou Yacamim, convencido. — Vamos entrando. — Disse ele apontando para dentro de sua tenda.</p>

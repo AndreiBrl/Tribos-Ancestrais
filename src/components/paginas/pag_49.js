@@ -10,8 +10,8 @@ const Page = () => (
 <p>— Eu confio na Xamã. Senti que ela me dizia que estou preparado.  Preciso apenas de uma pequena equipe— Disse Yacamim com certeza em suas palavras.  — Preciso de um barqueiro para me guiar no trajeto e alguns homens para remar. — Continuou ele. Ibau olhou para seu amigo sabendo que não conseguiria impedi-lo.</p>
 <p>— Como ficaremos sem você nas linhas de defesa contra as criaturas que tem atacado a aldeia? — Perguntou o chefe preocupado. Yacamim olhou para ele.</p>
 <p>— Eu não vou demorar, meu amigo. — Respondeu colocando a mão nos ombros de Ibau.  — Além disso, instalei armadilhas e criei barreiras por toda extensão da aldeia. Estamos seguros por um tempo. — Ibau estava sério e então seu rosto se abriu em uma feição tranquila</p>
-<p>— Que seja! — Convenceu-se finalmente. — Ninguém saberá disso, apenas eu, você e sua equipe. ¬— Alertou ele — Escolherei os melhores para te acompanhar. Encontre-me aqui pela manhã de amanhã e terei sua equipe.</p>
-<p>Yacamim agradeceu Ibau e deu costas saindo da tenda do chefe.</p>
+<p>— Que seja! — Convenceu-se finalmente. — Ninguém saberá disso, apenas eu, você e sua equipe. — Alertou ele — Escolherei os melhores para te acompanhar. Encontre-me aqui pela manhã de amanhã e terei sua equipe.</p>
+<p>Yacamim agradeceu Ibau e deu costas saindo da cabana do chefe.</p>
 <img style={{ width: '50vw', height: '5vw', marginTop: '10vw', marginBottom: '10vw' }} src="/img/divisor.png"></img>
 
     {/* <br></br>

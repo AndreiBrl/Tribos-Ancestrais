@@ -5,7 +5,7 @@ const Page = () => (
 
   <div className={styles.sub_container_1} >
 
-    <p>Akin saiu da floresta e tomou o caminho mais curto até Or'ri. Passou pelas plantações e logo avistou os portões da aldeia. Dois guardas acenaram para ele enquanto ele passava.</p>
+    <p>Akin saiu da floresta e tomou o caminho mais curto até Or&apos;ri. Passou pelas plantações e logo avistou os portões da aldeia. Dois guardas acenaram para ele enquanto ele passava.</p>
     <p>— Bom dia, Akin! — Disse o primeiro aldeão que passou por ele, o garoto o encarou por instantes e continuou andando em direção ao interior da vila.</p>
     <p>A aldeia estava em plena movimentação, pessoas trabalhavam, carregavam comida e ferramentas de um lado para outro. Não havia sinais do tumulto do dia em que chegara da viagem com seus companheiros. As coisas voltaram ao normal, pensou Akin.</p>
     <p>Ele apressou o passo até tenda do chefe, esperando encontrar seu mestre Kizuno. Na entrada os guardas sorriram para ele e abriram caminho. </p>

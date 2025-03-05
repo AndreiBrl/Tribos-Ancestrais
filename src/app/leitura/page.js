@@ -23,7 +23,7 @@ export default function Home() {
 
 
   const incrementarPagina = () => {
-    if (pagina < 73) {
+    if (pagina < 81) {
       setPagina(prevPagina => prevPagina + 1);
     }
 
@@ -73,6 +73,9 @@ export default function Home() {
     else if (pagina > 56 && pagina <= 73) {
       setCapitulo({ numero: 'VIII', titulo: `Um Sonho Impossível` });
     }
+    else if (pagina > 73 && pagina <= 81) {
+      setCapitulo({ numero: 'IX', titulo: `Obsidiana Vermelha` });
+    }
     window.scrollTo({ top: 0, behavior: 'smooth' });
 
   }, [pagina])
@@ -108,6 +111,9 @@ export default function Home() {
     }
     else if (numero == 'VIII') {
       setPagina(Number(57))
+    }
+    else if (numero == 'IX') {
+      setPagina(Number(74))
     }
     setMenu(false);
     window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -176,8 +182,8 @@ export default function Home() {
             <h2   onClick={() => handleCapituloChange('VIII', 'Um Sonho Impossível')} >Um Sonho Impossível</h2>
           </div>
           <div>
-            <h1  /* onClick={() => handleCapituloChange('IX', 'Obsidiana Vermelha')} */>IX</h1>
-            <h2  /* onClick={() => handleCapituloChange('IX', 'Obsidiana Vermelha')} */>Obsidiana Vermelha</h2>
+            <h1   onClick={() => handleCapituloChange('IX', 'Obsidiana Vermelha')} >IX</h1>
+            <h2   onClick={() => handleCapituloChange('IX', 'Obsidiana Vermelha')} >Obsidiana Vermelha</h2>
           </div>
           <div>
             <h1  /* onClick={() => handleCapituloChange('X', 'Torokar')} */>X</h1>
@@ -265,13 +271,13 @@ export default function Home() {
         <div>
 
           <h1 style={{
-            fontSize: pagina !== 1 && pagina !== 0 && pagina !== 7 && pagina !== 13 && pagina !== 25 && pagina !== 32 && pagina !== 41 && pagina !== 48 && pagina !== 57 ? '7vw' : '12vw'
+            fontSize: pagina !== 1 && pagina !== 0 && pagina !== 7 && pagina !== 13 && pagina !== 25 && pagina !== 32 && pagina !== 41 && pagina !== 48 && pagina !== 57 && pagina !== 74 ? '7vw' : '12vw'
           }}>
             {capitulo.numero}
           </h1>
 
           <h2 style={{
-            fontSize: pagina !== 1 && pagina !== 0 && pagina !== 7 && pagina !== 13 && pagina !== 25 && pagina !== 32 && pagina !== 41 && pagina !== 48 && pagina !== 57 ? '5vw' : '9vw'
+            fontSize: pagina !== 1 && pagina !== 0 && pagina !== 7 && pagina !== 13 && pagina !== 25 && pagina !== 32 && pagina !== 41 && pagina !== 48 && pagina !== 57 && pagina !== 74 ? '5vw' : '9vw'
           }}>
             {capitulo.titulo}
           </h2>
@@ -281,7 +287,7 @@ export default function Home() {
           drag="x" // Detecta o arrastar horizontalmente
           dragConstraints={{ left: 0, right: 0 }}
           onDragEnd={(event, info) => {
-            if (info.offset.x < -100 && pagina < 73) {
+            if (info.offset.x < -100 && pagina < 81) {
               setPagina(prevPagina => prevPagina + 1);
             } else if (info.offset.x > 100 && pagina > 0) {
               setPagina(prevPagina => prevPagina - 1);

@@ -7,6 +7,18 @@ import { gsap } from "@/lib/gsap";
 import Link from "next/link";
 import { useEffect, useMemo, useRef, useState } from "react";
 
+const SPARKLE_INDICES = [0, 1, 2, 3, 4, 5, 6, 7];
+
+function HotspotSparkles() {
+	return (
+		<span className="hotspot-sparkles" aria-hidden="true">
+			{SPARKLE_INDICES.map((i) => (
+				<i key={i} />
+			))}
+		</span>
+	);
+}
+
 export default function HomePage() {
 	const { savedPage } = useGhibli();
 	const [mushroomOnCave, setMushroomOnCave] = useState(false);
@@ -165,6 +177,7 @@ export default function HomePage() {
 						className="island-hotspot orb-hotspot"
 						aria-label="Esfera Mágica — Ler"
 					>
+						<HotspotSparkles />
 						<span className="orb-aura" aria-hidden="true" />
 						<span className="orb-sphere" aria-hidden="true">
 							<FadeImage className="orb-img" src="/ghibli/magic-orb.png" alt="" />
@@ -180,6 +193,7 @@ export default function HomePage() {
 						className="island-hotspot golem-hotspot"
 						aria-label="Golem Ancestral — Autor"
 					>
+						<HotspotSparkles />
 						<span className="stone-tag">
 							<strong>Autor</strong>
 						</span>
@@ -200,6 +214,7 @@ export default function HomePage() {
 						}}
 						aria-label="Espírito Cogumelo — Capítulos"
 					>
+						<HotspotSparkles />
 						<FadeImage className="mushroom-img" src="/ghibli/mini-mushroom.png" alt="" />
 						<span className="mushroom-chapter-num" id="mushroom-chapter-num">
 							{chapterIndex}
@@ -215,6 +230,7 @@ export default function HomePage() {
 						className="island-hotspot cave-hotspot"
 						aria-label="Caverna Tribal — Mapa"
 					>
+						<HotspotSparkles />
 						<span className="stone-tag">
 							<strong>Mapa</strong>
 						</span>
@@ -226,6 +242,7 @@ export default function HomePage() {
 						className="island-hotspot weapons-hotspot"
 						aria-label="Armas Tribais — Apoie"
 					>
+						<HotspotSparkles />
 						<span className="stone-tag">
 							<strong>Apoie</strong>
 						</span>

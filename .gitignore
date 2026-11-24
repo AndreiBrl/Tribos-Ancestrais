@@ -34,3 +34,6 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# pnpm 12 auto-generated file (incompatible with Vercel pnpm 9 without packages field)
+pnpm-workspace.yaml

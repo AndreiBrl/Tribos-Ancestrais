@@ -2,33 +2,31 @@
 
 import { useGhibli } from "@/context/GhibliContext";
 import { BOOK_CHAPTERS } from "@/data/book";
-import { gsap } from "@/lib/gsap";
 import Link from "next/link";
-import { useEffect, useRef } from "react";
+import { useEffect, useState } from "react";
 
 export default function CapitulosPage() {
 	const { savedPage, showToast } = useGhibli();
-	const gridRef = useRef<HTMLDivElement>(null);
+	const [loadedCards, setLoadedCards] = useState<Record<string, boolean>>({});
 
 	useEffect(() => {
-		const el = gridRef.current;
-		if (!el) return;
-		const ctx = gsap.context(() => {
-			gsap.fromTo(
-				".ghibli-card",
-				{ opacity: 0, y: 18, scale: 0.96 },
-				{
-					opacity: 1,
-					y: 0,
-					scale: 1,
-					duration: 0.48,
-					stagger: 0.045,
-					ease: "power2.out",
-					clearProps: "transform",
-				},
-			);
-		}, el);
-		return () => ctx.revert();
+		let cancelled = false;
+		BOOK_CHAPTERS.forEach((ch, idx) => {
+			const img = new window.Image();
+			const markReady = () => {
+				if (cancelled) return;
+				setLoadedCards((prev) => (prev[ch.number] ? prev : { ...prev, [ch.number]: true }));
+			};
+			img.onload = markReady;
+			img.onerror = markReady;
+			img.src = `/ghibli/card-${idx + 1}.png`;
+			if (img.complete && img.naturalWidth > 0) {
+				markReady();
+			}
+		});
+		return () => {
+			cancelled = true;
+		};
 	}, []);
 
 	return (
@@ -57,9 +55,10 @@ export default function CapitulosPage() {
 					</div>
 				</header>
 
-				<div className="chapters-grid" id="chapters-grid" ref={gridRef}>
+				<div className="chapters-grid" id="chapters-grid">
 					{BOOK_CHAPTERS.map((ch, idx) => {
 						const cardUrl = `/ghibli/card-${idx + 1}.png`;
+						const isReady = Boolean(loadedCards[ch.number]);
 						const isReading = ch.available && savedPage >= ch.startPage && savedPage <= ch.endPage;
 						const isDone = ch.available && savedPage > ch.endPage;
 						const badge = !ch.available
@@ -75,7 +74,7 @@ export default function CapitulosPage() {
 								<button
 									key={ch.number}
 									type="button"
-									className="ghibli-card is-locked"
+									className={`ghibli-card is-locked${isReady ? " is-card-ready" : ""}`}
 									data-chapter={ch.number}
 									style={{ backgroundImage: `url('${cardUrl}')` }}
 									onClick={() => showToast(`Capítulo ${ch.number} ainda está sendo escrito!`)}
@@ -93,7 +92,7 @@ export default function CapitulosPage() {
 							<Link
 								key={ch.number}
 								href={`/leitura?page=${ch.startPage}`}
-								className={`ghibli-card ghibli-card-link${isReading ? " is-current" : ""}`}
+								className={`ghibli-card ghibli-card-link${isReading ? " is-current" : ""}${isReady ? " is-card-ready" : ""}`}
 								data-chapter={ch.number}
 								style={{ backgroundImage: `url('${cardUrl}')` }}
 							>

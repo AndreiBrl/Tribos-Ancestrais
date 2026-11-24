@@ -1899,7 +1899,6 @@ body[data-screen="ler"] .ghibli-branch-tab {
 	display: grid;
 	place-items: center;
 	filter: drop-shadow(0 12px 20px rgba(12, 20, 16, 0.34));
-	animation: organicFloat 5.2s ease-in-out infinite;
 }
 
 .author-crest-photo {
@@ -1953,7 +1952,6 @@ body[data-screen="ler"] .ghibli-branch-tab {
 	width: 100%;
 	height: auto;
 	filter: drop-shadow(0 8px 14px rgba(24, 34, 22, 0.24));
-	animation: organicFloat 4.2s ease-in-out infinite;
 }
 
 .oracle-spirit-img.is-hopping {
@@ -2306,4 +2304,27 @@ dialog.sky-modal-card {
 	margin: 0;
 	position: relative;
 	color: inherit;
+}
+
+/* Fade-in suave de opacidade para todas as imagens (sem piscar/quebrar) */
+.fade-img {
+	opacity: 0;
+	transition: opacity 0.52s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.fade-img.is-loaded {
+	opacity: 1;
+}
+
+.ghibli-card {
+	opacity: 0;
+	transition: opacity 0.52s cubic-bezier(0.22, 1, 0.36, 1), transform 0.26s ease, filter 0.26s ease;
+}
+
+.ghibli-card.is-card-ready {
+	opacity: 1;
+}
+
+.ghibli-card.is-locked.is-card-ready {
+	opacity: 0.72;
 }

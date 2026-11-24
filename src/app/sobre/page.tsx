@@ -1,5 +1,6 @@
 "use client";
 
+import { FadeImage } from "@/components/ui/FadeImage";
 import { useGhibli } from "@/context/GhibliContext";
 import { gsap } from "@/lib/gsap";
 import Link from "next/link";
@@ -16,7 +17,6 @@ export default function SobrePage() {
 	const { copyText } = useGhibli();
 	const [secretIdx, setSecretIdx] = useState(0);
 	const stageRef = useRef<HTMLDivElement>(null);
-	const spiritRef = useRef<HTMLImageElement>(null);
 	const quoteRef = useRef<HTMLParagraphElement>(null);
 
 	useEffect(() => {
@@ -25,8 +25,8 @@ export default function SobrePage() {
 		const ctx = gsap.context(() => {
 			gsap.fromTo(
 				el,
-				{ opacity: 0, y: 20 },
-				{ opacity: 1, y: 0, duration: 0.55, ease: "power2.out" },
+				{ opacity: 0, y: 14 },
+				{ opacity: 1, y: 0, duration: 0.52, ease: "power2.out" },
 			);
 		}, el);
 		return () => ctx.revert();
@@ -34,27 +34,11 @@ export default function SobrePage() {
 
 	const cycleSecret = () => {
 		setSecretIdx((prev) => (prev + 1) % AUTHOR_SECRETS.length);
-		if (spiritRef.current) {
-			gsap.fromTo(
-				spiritRef.current,
-				{ y: 0, rotate: 0, scale: 1 },
-				{
-					y: -14,
-					rotate: -6,
-					scale: 1.06,
-					duration: 0.22,
-					yoyo: true,
-					repeat: 1,
-					ease: "power2.out",
-					clearProps: "transform",
-				},
-			);
-		}
 		if (quoteRef.current) {
 			gsap.fromTo(
 				quoteRef.current,
-				{ opacity: 0.35, y: 4 },
-				{ opacity: 1, y: 0, duration: 0.3, ease: "power2.out" },
+				{ opacity: 0.3 },
+				{ opacity: 1, duration: 0.32, ease: "power2.out" },
 			);
 		}
 	};
@@ -87,8 +71,8 @@ export default function SobrePage() {
 
 				<div className="organic-stage author-stage" ref={stageRef}>
 					<div className="author-wreath-crest">
-						<img className="author-crest-photo" src="/img/perfil.png" alt="Andrei Barbuto" />
-						<img
+						<FadeImage className="author-crest-photo" src="/img/perfil.png" alt="Andrei Barbuto" />
+						<FadeImage
 							className="author-crest-wreath"
 							src="/ghibli/author-wreath.png"
 							alt=""
@@ -115,7 +99,7 @@ export default function SobrePage() {
 							</p>
 						</div>
 
-						<img
+						<FadeImage
 							className="organic-branch-divider"
 							src="/ghibli/organic-divider.png"
 							alt=""
@@ -129,8 +113,7 @@ export default function SobrePage() {
 								onClick={cycleSecret}
 								aria-label="Tocar no espírito da floresta para outro segredo"
 							>
-								<img
-									ref={spiritRef}
+								<FadeImage
 									className="oracle-spirit-img"
 									src="/ghibli/author-spirit.png"
 									alt="Espírito da floresta segurando um pergaminho"

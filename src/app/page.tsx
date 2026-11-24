@@ -1,5 +1,6 @@
 "use client";
 
+import { FadeImage } from "@/components/ui/FadeImage";
 import { useGhibli } from "@/context/GhibliContext";
 import { BOOK_CHAPTERS, getChapterForPage } from "@/data/book";
 import { gsap } from "@/lib/gsap";
@@ -42,7 +43,7 @@ export default function HomePage() {
 		<section className="screen screen-home active" data-screen="inicio">
 			<main className="home-stage-wrap" data-parallax="0.02">
 				<div className="island-stage" id="island-stage" ref={stageRef}>
-					<img
+					<FadeImage
 						className="island-img"
 						src="/ghibli/floating-island.png"
 						alt="Ilha flutuante musgosa com caverna de pedra tribal, fogueira central, golem ancestral de madeira com barba de folhas e árvore"
@@ -164,7 +165,7 @@ export default function HomePage() {
 					>
 						<span className="orb-aura" aria-hidden="true" />
 						<span className="orb-sphere" aria-hidden="true">
-							<img className="orb-img" src="/ghibli/magic-orb.png" alt="" />
+							<FadeImage className="orb-img" src="/ghibli/magic-orb.png" alt="" />
 						</span>
 						<span className="stone-tag">
 							<strong>Ler</strong>
@@ -192,7 +193,7 @@ export default function HomePage() {
 						}
 						aria-label="Espírito Cogumelo — Capítulos"
 					>
-						<img className="mushroom-img" src="/ghibli/mini-mushroom.png" alt="" />
+						<FadeImage className="mushroom-img" src="/ghibli/mini-mushroom.png" alt="" />
 						<span className="mushroom-chapter-num" id="mushroom-chapter-num">
 							{chapterIndex}
 						</span>

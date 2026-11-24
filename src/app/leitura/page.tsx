@@ -1,6 +1,7 @@
 "use client";
 
 import { BookPageRenderer } from "@/components/ui/BookPageRenderer";
+import { FadeImage } from "@/components/ui/FadeImage";
 import { useGhibli } from "@/context/GhibliContext";
 import { BOOK_CHAPTERS, BOOK_PAGES, TOTAL_BOOK_PAGES, getChapterForPage } from "@/data/book";
 import { gsap } from "@/lib/gsap";
@@ -146,7 +147,7 @@ function LeituraContent() {
 				aria-controls="reader-drawer"
 				onClick={openDrawer}
 			>
-				<img src="/ghibli/menu-tab.png" alt="" />
+				<FadeImage src="/ghibli/menu-tab.png" alt="" />
 			</button>
 
 			{/* Gaveta do menu do leitor */}

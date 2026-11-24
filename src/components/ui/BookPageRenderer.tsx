@@ -1,5 +1,5 @@
+import { FadeNextImage } from "@/components/ui/FadeNextImage";
 import type { BookPageData, PageBlock, ParagraphSegment } from "@/data/book";
-import Image from "next/image";
 
 interface BookPageRendererProps {
 	pageData: BookPageData;
@@ -19,7 +19,7 @@ function renderBlock(block: PageBlock, index: number, pageNumber: number) {
 		case "cover":
 			return (
 				<div key={key} className="reader-book-cover">
-					<Image
+					<FadeNextImage
 						src={block.imageSrc}
 						alt="Tribos Ancestrais"
 						width={block.intrinsicWidth}
@@ -56,7 +56,7 @@ function renderBlock(block: PageBlock, index: number, pageNumber: number) {
 
 		case "divider":
 			return (
-				<Image
+				<FadeNextImage
 					key={key}
 					src="/img/divisor.png"
 					alt="Divisor de cena"
@@ -68,7 +68,7 @@ function renderBlock(block: PageBlock, index: number, pageNumber: number) {
 
 		case "image":
 			return (
-				<Image
+				<FadeNextImage
 					key={key}
 					src={block.src}
 					alt={block.alt ?? `Ilustração da página ${pageNumber}`}

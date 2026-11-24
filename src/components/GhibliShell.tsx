@@ -1,5 +1,6 @@
 "use client";
 
+import { FadeImage } from "@/components/ui/FadeImage";
 import { useGhibli } from "@/context/GhibliContext";
 import { gsap } from "@/lib/gsap";
 import { usePathname } from "next/navigation";
@@ -405,7 +406,7 @@ export function GhibliShell({ children }: { children: ReactNode }) {
 
 				<div className="clouds-layer clouds-back" id="clouds-back" data-parallax="0.014">
 					{backClouds.map((c) => (
-						<img
+						<FadeImage
 							key={c.id}
 							src="/ghibli/cloud.png"
 							alt=""
@@ -524,7 +525,7 @@ export function GhibliShell({ children }: { children: ReactNode }) {
 				aria-hidden="true"
 			>
 				{frontClouds.map((c) => (
-					<img
+					<FadeImage
 						key={c.id}
 						src="/ghibli/cloud.png"
 						alt=""

@@ -1,5 +1,6 @@
 "use client";
 
+import { FadeImage } from "@/components/ui/FadeImage";
 import { useGhibli } from "@/context/GhibliContext";
 import { gsap } from "@/lib/gsap";
 import Link from "next/link";
@@ -112,7 +113,7 @@ export default function ApoiePage() {
 							<i />
 							<i />
 						</span>
-						<img
+						<FadeImage
 							ref={hearthImgRef}
 							className="support-hearth-img"
 							src="/ghibli/support-hearth.png"
@@ -149,7 +150,7 @@ export default function ApoiePage() {
 							</button>
 						</div>
 
-						<img
+						<FadeImage
 							className="organic-branch-divider"
 							src="/ghibli/organic-divider.png"
 							alt=""

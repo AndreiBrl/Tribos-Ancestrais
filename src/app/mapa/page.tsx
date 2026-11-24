@@ -1,5 +1,6 @@
 "use client";
 
+import { FadeImage } from "@/components/ui/FadeImage";
 import { gsap } from "@/lib/gsap";
 import Link from "next/link";
 import { useEffect, useRef } from "react";
@@ -47,7 +48,7 @@ export default function MapaPage() {
 				</header>
 
 				<div className="map-frame" ref={frameRef}>
-					<img
+					<FadeImage
 						className="world-map-img"
 						src="/img/mapOri.jpg"
 						alt="Mapa original de Tribos Ancestrais"

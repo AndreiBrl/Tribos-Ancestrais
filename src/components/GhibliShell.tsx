@@ -266,8 +266,10 @@ export function GhibliShell({ children }: { children: ReactNode }) {
 		root.setProperty("--sky-mid", lerpRgb(a.mid, b.mid, t));
 		root.setProperty("--sky-low", lerpRgb(a.low, b.low, t));
 		root.setProperty("--abyss-color", lerpRgba(a.abyss, b.abyss, t));
+		const fireVal = lerp(a.fire, b.fire, t);
 		root.setProperty("--stars-opacity", lerp(a.stars, b.stars, t).toFixed(2));
-		root.setProperty("--fire-opacity", lerp(a.fire, b.fire, t).toFixed(2));
+		root.setProperty("--fire-opacity", fireVal.toFixed(2));
+		root.setProperty("--fire-lit", fireVal >= 0.35 ? "1" : "0");
 		root.setProperty(
 			"--scenery-filter",
 			`brightness(${lerp(a.bri, b.bri, t).toFixed(2)}) saturate(${lerp(a.sat, b.sat, t).toFixed(2)})`,

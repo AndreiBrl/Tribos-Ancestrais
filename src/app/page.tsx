@@ -63,79 +63,19 @@ export default function HomePage() {
 						alt="Ilha flutuante musgosa com caverna de pedra tribal, fogueira central, golem ancestral de madeira com barba de folhas e árvore"
 					/>
 
-					{/* Fogueira central em SVG detalhado + fumaça sutil */}
+					{/* Fogueira central: imagem estática + brilho ao redor + pontinhos cor de fogo */}
 					<div className="fire-fx-overlay" id="fire-fx" aria-hidden="true">
 						<div className="fire-core-glow" />
-						<div className="fire-smoke">
-							<span className="smoke-wisp s1" />
-							<span className="smoke-wisp s2" />
-							<span className="smoke-wisp s3" />
-						</div>
-						<svg
-							className="svg-flame svg-flame-camp"
-							viewBox="0 0 120 130"
-							fill="none"
-							xmlns="http://www.w3.org/2000/svg"
-						>
-							<title>Fogueira central</title>
-							<defs>
-								<linearGradient
-									id="campOuter"
-									x1="60"
-									y1="12"
-									x2="60"
-									y2="124"
-									gradientUnits="userSpaceOnUse"
-								>
-									<stop offset="0%" stopColor="#ff6a1a" />
-									<stop offset="55%" stopColor="#f28424" />
-									<stop offset="100%" stopColor="#cc3b0c" />
-								</linearGradient>
-								<linearGradient
-									id="campMid"
-									x1="60"
-									y1="30"
-									x2="60"
-									y2="122"
-									gradientUnits="userSpaceOnUse"
-								>
-									<stop offset="0%" stopColor="#ffd04d" />
-									<stop offset="100%" stopColor="#ff7e1c" />
-								</linearGradient>
-								<linearGradient
-									id="campCore"
-									x1="60"
-									y1="62"
-									x2="60"
-									y2="120"
-									gradientUnits="userSpaceOnUse"
-								>
-									<stop offset="0%" stopColor="#fff8c8" />
-									<stop offset="100%" stopColor="#ffcf52" />
-								</linearGradient>
-							</defs>
-							<path
-								className="flame-tongue t-outer"
-								d="M60 12 C69 34 86 48 87 74 C93 64 100 58 98 48 C108 66 105 94 90 109 C80 120 68 123 60 123 C50 123 36 119 27 107 C14 91 13 65 24 46 C23 58 29 64 34 72 C35 46 51 34 60 12 Z"
-								fill="url(#campOuter)"
-								stroke="#7a2a0d"
-								strokeWidth="2"
-								strokeLinejoin="round"
-							/>
-							<path
-								className="flame-tongue t-mid"
-								d="M60 32 C66 50 78 60 77 82 C83 75 86 70 86 64 C91 78 88 99 77 110 C70 117 65 119 60 119 C53 119 45 115 39 107 C31 96 30 78 36 63 C37 70 40 75 44 80 C44 60 54 49 60 32 Z"
-								fill="url(#campMid)"
-							/>
-							<path
-								className="flame-tongue t-core"
-								d="M60 64 C66 76 72 86 70 100 C69 110 65 115 60 115 C54 115 49 109 48 99 C47 86 53 76 60 64 Z"
-								fill="url(#campCore)"
-							/>
-							<circle className="ember e1" cx="42" cy="30" r="2.2" fill="#ffd966" />
-							<circle className="ember e2" cx="78" cy="24" r="1.8" fill="#ffb84d" />
-							<circle className="ember e3" cx="62" cy="6" r="1.6" fill="#ffe699" />
-						</svg>
+						<img className="camp-flames-img" src="/ghibli/flames.png" alt="" />
+						<span className="camp-fire-embers" aria-hidden="true">
+							<i />
+							<i />
+							<i />
+							<i />
+							<i />
+							<i />
+							<i />
+						</span>
 					</div>
 
 					{/* 3 Tochas da ilha em SVG detalhado */}
@@ -226,19 +166,7 @@ export default function HomePage() {
 						</span>
 					</Link>
 
-					{/* 4. CAVERNA DE PEDRA TRIBAL (-> Mapa) */}
-					<Link
-						href="/mapa"
-						className="island-hotspot cave-hotspot"
-						aria-label="Caverna Tribal — Mapa"
-					>
-						<HotspotSparkles />
-						<span className="stone-tag">
-							<strong>Mapa</strong>
-						</span>
-					</Link>
-
-					{/* 5. CHINU (-> Apoie) — alterna de lugar com o Cogumelo ao recarregar */}
+					{/* 4. CHINU (-> Apoie) — alterna de lugar com o Cogumelo ao recarregar */}
 					<Link
 						href="/apoie"
 						className={`island-hotspot chinu-hotspot${mushroomOnCave ? " is-on-ground" : " is-on-cave"}`}

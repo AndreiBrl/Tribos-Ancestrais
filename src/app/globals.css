@@ -869,7 +869,8 @@ button {
 	transition: opacity 0.25s ease, transform 0.25s ease;
 }
 
-.toast.show {
+.toast.show,
+.toast.visible {
 	opacity: 1;
 	transform: translate(-50%, 0);
 }
@@ -908,8 +909,15 @@ button {
 		padding-top: 3.5rem;
 	}
 	.island-stage {
-		width: min(88vw, calc(74dvh * 1270 / 718));
-		max-width: 88vw;
+		width: min(104vw, calc(82dvh * 1270 / 718));
+		max-width: 104vw;
+	}
+	.mushroom-hotspot {
+		width: 9.8%;
+	}
+	.mushroom-chapter-num {
+		font-size: clamp(0.56rem, 2.25vw, 0.86rem);
+		top: 21%;
 	}
 	.stone-tag {
 		opacity: 1;
@@ -2309,7 +2317,7 @@ dialog.sky-modal-card {
 /* Fade-in suave de opacidade para todas as imagens (sem piscar/quebrar) */
 .fade-img {
 	opacity: 0;
-	transition: opacity 0.52s cubic-bezier(0.22, 1, 0.36, 1);
+	transition: opacity 1.15s cubic-bezier(0.22, 1, 0.36, 1) 0.06s;
 }
 
 .fade-img.is-loaded {
@@ -2318,7 +2326,8 @@ dialog.sky-modal-card {
 
 .ghibli-card {
 	opacity: 0;
-	transition: opacity 0.52s cubic-bezier(0.22, 1, 0.36, 1), transform 0.26s ease, filter 0.26s ease;
+	transition: opacity 1.15s cubic-bezier(0.22, 1, 0.36, 1) 0.06s, transform 0.26s ease, filter 0.26s
+		ease;
 }
 
 .ghibli-card.is-card-ready {

@@ -19,7 +19,7 @@ import {
 
 function LeituraContent() {
 	const searchParams = useSearchParams();
-	const { savedPage, setSavedPage } = useGhibli();
+	const { setSavedPage } = useGhibli();
 
 	const [currentPage, setCurrentPage] = useState(0);
 	const [jumpValue, setJumpValue] = useState("0");
@@ -29,31 +29,24 @@ function LeituraContent() {
 	const screenRef = useRef<HTMLElement>(null);
 	const paperRef = useRef<HTMLElement>(null);
 	const touchStartRef = useRef<{ x: number; y: number } | null>(null);
-	const initializedRef = useRef(false);
+	const pageParam = searchParams.get("page");
 
-	// Initialize page from ?page= query param or savedPage
+	// Initialize page from ?page= query param or localStorage (never snap back when turning pages)
 	useEffect(() => {
-		const pageParam = searchParams.get("page");
 		if (pageParam !== null && Number.isFinite(Number(pageParam))) {
 			const p = Math.max(0, Math.min(TOTAL_BOOK_PAGES, Math.round(Number(pageParam))));
 			setCurrentPage(p);
 			setJumpValue(String(p));
 			setSavedPage(p);
-			initializedRef.current = true;
 			return;
 		}
-		if (!initializedRef.current) {
-			const raw = localStorage.getItem("pagina");
-			const parsed = raw !== null ? Number(raw) : savedPage;
-			const p =
-				Number.isFinite(parsed) && parsed >= 0 && parsed <= TOTAL_BOOK_PAGES
-					? Math.round(parsed)
-					: 0;
-			setCurrentPage(p);
-			setJumpValue(String(p));
-			initializedRef.current = true;
-		}
-	}, [searchParams, savedPage, setSavedPage]);
+		const raw = localStorage.getItem("pagina");
+		const parsed = raw !== null ? Number(raw) : 0;
+		const p =
+			Number.isFinite(parsed) && parsed >= 0 && parsed <= TOTAL_BOOK_PAGES ? Math.round(parsed) : 0;
+		setCurrentPage(p);
+		setJumpValue(String(p));
+	}, [pageParam, setSavedPage]);
 
 	const goToPage = useCallback(
 		(nextPage: number, direction: -1 | 0 | 1 = 0) => {
@@ -61,6 +54,11 @@ function LeituraContent() {
 			setCurrentPage(clamped);
 			setJumpValue(String(clamped));
 			setSavedPage(clamped);
+			if (typeof window !== "undefined") {
+				const url = new URL(window.location.href);
+				url.searchParams.set("page", String(clamped));
+				window.history.replaceState(null, "", url.toString());
+			}
 			if (screenRef.current) {
 				screenRef.current.scrollTo({ top: 0, behavior: "smooth" });
 			}

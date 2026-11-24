@@ -10,13 +10,15 @@ import { useEffect, useMemo, useRef, useState } from "react";
 export default function HomePage() {
 	const { savedPage } = useGhibli();
 	const [mushroomOnCave, setMushroomOnCave] = useState(false);
+	const [mushroomReady, setMushroomReady] = useState(false);
 	const stageRef = useRef<HTMLDivElement>(null);
 
 	useEffect(() => {
 		const mspot = new URLSearchParams(window.location.search).get("mspot");
 		if (mspot === "cave") setMushroomOnCave(true);
 		else if (mspot === "fire") setMushroomOnCave(false);
-		else setMushroomOnCave(Math.random() < 0.4);
+		else setMushroomOnCave(Math.random() < 0.5);
+		setMushroomReady(true);
 	}, []);
 
 	useEffect(() => {
@@ -188,9 +190,14 @@ export default function HomePage() {
 						href="/capitulos"
 						className={`island-hotspot mushroom-hotspot${mushroomOnCave ? " is-on-cave" : ""}`}
 						id="mushroom-hotspot"
-						style={
-							mushroomOnCave ? { left: "25.0%", top: "-9.5%" } : { left: "34.5%", top: "40.5%" }
-						}
+						style={{
+							...(mushroomOnCave
+								? { left: "25.0%", top: "-9.5%" }
+								: { left: "34.5%", top: "40.5%" }),
+							opacity: mushroomReady ? 1 : 0,
+							transition:
+								"opacity 1.15s cubic-bezier(0.22, 1, 0.36, 1) 0.08s, transform 0.25s ease",
+						}}
 						aria-label="Espírito Cogumelo — Capítulos"
 					>
 						<FadeImage className="mushroom-img" src="/ghibli/mini-mushroom.png" alt="" />

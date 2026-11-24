@@ -199,15 +199,12 @@ export default function HomePage() {
 						</span>
 					</Link>
 
-					{/* 3. COGUMELO SENTADO NO CHÃO COM PLACA ACIMA DA CABEÇA (-> Capítulos) */}
+					{/* 3. COGUMELO (-> Capítulos) — alterna de lugar com a Chinu ao recarregar */}
 					<Link
 						href="/capitulos"
 						className={`island-hotspot mushroom-hotspot${mushroomOnCave ? " is-on-cave" : ""}`}
 						id="mushroom-hotspot"
 						style={{
-							...(mushroomOnCave
-								? { left: "25.0%", top: "-9.5%" }
-								: { left: "34.5%", top: "40.5%" }),
 							opacity: mushroomReady ? 1 : 0,
 							transition:
 								"opacity 1.15s cubic-bezier(0.22, 1, 0.36, 1) 0.08s, transform 0.25s ease",
@@ -215,7 +212,12 @@ export default function HomePage() {
 						aria-label="Espírito Cogumelo — Capítulos"
 					>
 						<HotspotSparkles />
-						<FadeImage className="mushroom-img" src="/ghibli/mini-mushroom.png" alt="" />
+						<FadeImage
+							key={mushroomOnCave ? "mush-cave" : "mush-ground"}
+							className="mushroom-img"
+							src={mushroomOnCave ? "/ghibli/mushroom-pipe-cave.png" : "/ghibli/mini-mushroom.png"}
+							alt=""
+						/>
 						<span className="mushroom-chapter-num" id="mushroom-chapter-num">
 							{chapterIndex}
 						</span>
@@ -236,13 +238,25 @@ export default function HomePage() {
 						</span>
 					</Link>
 
-					{/* 5. ARMAS APOIADAS (-> Apoie) */}
+					{/* 5. CHINU (-> Apoie) — alterna de lugar com o Cogumelo ao recarregar */}
 					<Link
 						href="/apoie"
-						className="island-hotspot weapons-hotspot"
-						aria-label="Armas Tribais — Apoie"
+						className={`island-hotspot chinu-hotspot${mushroomOnCave ? " is-on-ground" : " is-on-cave"}`}
+						id="chinu-hotspot"
+						style={{
+							opacity: mushroomReady ? 1 : 0,
+							transition:
+								"opacity 1.15s cubic-bezier(0.22, 1, 0.36, 1) 0.08s, transform 0.25s ease",
+						}}
+						aria-label="Chinu — Apoie o Mangá"
 					>
 						<HotspotSparkles />
+						<FadeImage
+							key={mushroomOnCave ? "chinu-ground" : "chinu-cave"}
+							className="chinu-img"
+							src={mushroomOnCave ? "/ghibli/chinu-ground.png" : "/ghibli/chinu-pipe-cave.png"}
+							alt=""
+						/>
 						<span className="stone-tag">
 							<strong>Apoie</strong>
 						</span>

@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="pt-BR" translate="no">
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+	<meta name="theme-color" content="#2b1a10" />
+	<title>Tribos Ancestrais</title>
+	<link rel="preconnect" href="https://fonts.googleapis.com" />
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+	<link
+		href="https://fonts.googleapis.com/css2?family=Lilita+One&family=Literata:ital,opsz,wght@0,7..72,400;0,7..72,600;1,7..72,400&display=swap"
+		rel="stylesheet"
+	/>
+	<link rel="stylesheet" href="./styles.css" />
+</head>
+<body>
+	<!-- ===================== SVG SPRITES ===================== -->
+	<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+		<defs>
+			<symbol id="i-back" viewBox="0 0 24 24"><path d="M15 4 7 12l8 8" fill="none" stroke="currentColor" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+			<symbol id="i-next" viewBox="0 0 24 24"><path d="m9 4 8 8-8 8" fill="none" stroke="currentColor" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+			<symbol id="i-home" viewBox="0 0 24 24"><path d="M3 11 12 3l9 8v10h-6v-6H9v6H3z" fill="currentColor"/></symbol>
+			<symbol id="i-scroll" viewBox="0 0 24 24"><path d="M6 3h11a3 3 0 0 1 3 3v1h-3v11a3 3 0 0 1-3 3H5a3 3 0 0 1-3-3v-2h3V6a3 3 0 0 1 1-3Zm3 5v2h7V8Zm0 4v2h7v-2Z" fill="currentColor"/></symbol>
+			<symbol id="i-map" viewBox="0 0 24 24"><path d="m3 6 6-3 6 3 6-3v15l-6 3-6-3-6 3Zm6-1v13m6-10v13" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linejoin="round"/></symbol>
+			<symbol id="i-lock" viewBox="0 0 24 24"><path d="M7 10V8a5 5 0 0 1 10 0v2h1a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2v-8a2 2 0 0 1 2-2Zm3 0h4V8a2 2 0 0 0-4 0Zm2 4a2 2 0 0 0-1 3.7V19h2v-1.3a2 2 0 0 0-1-3.7Z" fill="currentColor"/></symbol>
+			<symbol id="i-check" viewBox="0 0 24 24"><path d="m4 12 5 5L20 6" fill="none" stroke="currentColor" stroke-width="3.6" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+			<symbol id="i-insta" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="5" fill="none" stroke="currentColor" stroke-width="2.6"/><circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="2.6"/><circle cx="17.5" cy="6.5" r="1.5" fill="currentColor"/></symbol>
+			<symbol id="i-mail" viewBox="0 0 24 24"><path d="M3 5h18v14H3z" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linejoin="round"/><path d="m3 6 9 7 9-7" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linejoin="round"/></symbol>
+			<symbol id="i-plus" viewBox="0 0 24 24"><path d="M12 4v16M4 12h16" stroke="currentColor" stroke-width="3.6" stroke-linecap="round"/></symbol>
+			<symbol id="i-minus" viewBox="0 0 24 24"><path d="M4 12h16" stroke="currentColor" stroke-width="3.6" stroke-linecap="round"/></symbol>
+			<symbol id="i-target" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8" fill="none" stroke="currentColor" stroke-width="2.6"/><circle cx="12" cy="12" r="2.5" fill="currentColor"/></symbol>
+			<symbol id="i-feather" viewBox="0 0 24 24"><path d="M20 4c-6 0-12 4-13 12l-3 4h2l2-3c7-1 11-6 12-13Zm-11 11 6-6" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+			<symbol id="i-flame" viewBox="0 0 24 24"><path d="M12 2c1 4 6 6 6 12a6 6 0 0 1-12 0c0-3 2-5 3-6 0 2 1 3 2 3 0-3-1-6 1-9Z" fill="currentColor"/></symbol>
+
+			<!-- Galho de canto (moldura de madeira) -->
+			<symbol id="twig" viewBox="0 0 120 120">
+				<g fill="none" stroke="#2b1a10" stroke-linecap="round" stroke-linejoin="round">
+					<path d="M8 112C30 80 52 60 112 10" stroke-width="13"/>
+					<path d="M40 74C30 62 26 48 28 34" stroke-width="9"/>
+					<path d="M70 48c12 4 22 2 34-6" stroke-width="8"/>
+					<path d="M20 96c-8-2-14-8-16-16" stroke-width="7"/>
+				</g>
+				<g fill="none" stroke="#7a4e2c" stroke-linecap="round" stroke-linejoin="round">
+					<path d="M8 112C30 80 52 60 112 10" stroke-width="7"/>
+					<path d="M40 74C30 62 26 48 28 34" stroke-width="4"/>
+					<path d="M70 48c12 4 22 2 34-6" stroke-width="3.5"/>
+					<path d="M20 96c-8-2-14-8-16-16" stroke-width="3"/>
+				</g>
+			</symbol>
+
+			<!-- Tufo de folhas -->
+			<symbol id="leaves" viewBox="0 0 160 120">
+				<g stroke="#1f3a12" stroke-width="3.5" stroke-linejoin="round">
+					<path d="M80 110C60 80 30 70 6 74c14-24 46-34 74-14Z" fill="#5fa236"/>
+					<path d="M84 108c4-36 26-60 60-70-2 30-22 58-60 70Z" fill="#7cc142"/>
+					<path d="M78 104C70 70 74 36 96 8c14 30 8 66-18 96Z" fill="#94d655"/>
+				</g>
+				<g stroke="#1f3a12" stroke-width="2" fill="none" stroke-linecap="round">
+					<path d="M80 108 30 76M84 106l50-56M80 102l14-82"/>
+				</g>
+			</symbol>
+		</defs>
+	</svg>
+
+	<!-- =========================================================
+	     TELA: INÍCIO (Title screen estilo jogo)
+	     ========================================================= -->
+	<main id="app">
+		<section class="screen screen-home is-active" data-screen="inicio">
+			<div class="home-scene" aria-hidden="true">
+				<img class="home-scene-art" src="../../public/img/backHome.png" alt="" />
+				<div class="home-scene-fog"></div>
+			</div>
+
+			<div class="home-column">
+				<header class="logo-block">
+					<img class="logo-mascot" src="../../public/img/homenzin.png" alt="" aria-hidden="true" />
+					<h1 class="stone-logo" aria-label="Tribos Ancestrais">
+						<span class="stone-logo-top">TRIBOS</span>
+						<span class="stone-logo-bottom">ANCESTRAIS</span>
+					</h1>
+					<p class="logo-tagline">Uma saga de fantasia tribal escrita por Andrei Barbuto</p>
+				</header>
+
+				<nav class="home-menu" aria-label="Menu principal">
+					<button class="plank plank-tan plank-xl" type="button" data-action="start">
+						Começar Jornada
+					</button>
+
+					<button class="plank plank-red plank-continue" type="button" data-action="continue" id="btn-continue">
+						<span class="continue-label">Continuar</span>
+						<span class="continue-meta" id="continue-meta">Cap. I · Pág. 1 / 93</span>
+						<span class="continue-gem" aria-hidden="true"></span>
+					</button>
+
+					<button class="plank plank-olive" type="button" data-go="capitulos">Capítulos</button>
+					<button class="plank plank-stone" type="button" data-go="mapa">Mapa do Mundo</button>
+				</nav>
+
+				<nav class="tile-row" aria-label="Atalhos">
+					<button class="tile tile-tan" type="button" data-go="autor">
+						<img src="../../public/img/homenzin.png" alt="" />
+						<span class="tile-label">Autor</span>
+					</button>
+					<button class="tile tile-olive" type="button" data-go="apoie">
+						<img src="../../public/img/saco.png" alt="" />
+						<span class="tile-label">Apoie</span>
+					</button>
+					<button class="tile tile-stone" type="button" data-go="mapa">
+						<svg><use href="#i-map" /></svg>
+						<span class="tile-label">Mapa</span>
+					</button>
+					<a class="tile tile-red" href="https://www.instagram.com/tribos_ancestrais?igsh=MWwybzNtZ3dyd2I5dQ==" target="_blank" rel="noopener noreferrer">
+						<svg><use href="#i-insta" /></svg>
+						<span class="tile-label">Insta</span>
+					</a>
+				</nav>
+			</div>
+		</section>
+
+		<!-- =========================================================
+		     TELA: SELEÇÃO DE CAPÍTULOS (cartas)
+		     ========================================================= -->
+		<section class="screen screen-chapters" data-screen="capitulos">
+			<header class="screen-bar">
+				<button class="tile tile-stone tile-sm" type="button" data-go="inicio" aria-label="Voltar ao início">
+					<svg><use href="#i-back" /></svg>
+				</button>
+				<div class="title-plaque"><span>Escolha o Capítulo</span></div>
+				<span class="screen-bar-spacer"></span>
+			</header>
+
+			<div class="journey-summary">
+				<div class="journey-summary-text">
+					<span class="journey-kicker">Sua jornada</span>
+					<strong id="summary-text">Página 1 de 93</strong>
+				</div>
+				<div class="xp-bar xp-bar-lg"><i id="summary-bar"></i></div>
+			</div>
+
+			<div class="card-grid" id="card-grid"></div>
+		</section>
+
+		<!-- =========================================================
+		     TELA: LEITURA
+		     ========================================================= -->
+		<section class="screen screen-reader" data-screen="ler">
+			<header class="reader-hud">
+				<button class="tile tile-stone tile-sm" type="button" data-go="inicio" aria-label="Menu inicial">
+					<svg><use href="#i-home" /></svg>
+				</button>
+
+				<div class="hud-center">
+					<div class="hud-chapter">
+						<span class="hud-roman" id="hud-roman">I</span>
+						<span class="hud-title" id="hud-title">O Eco do Irmão Perdido</span>
+					</div>
+					<div class="xp-bar" title="Progresso na história"><i id="hud-bar"></i></div>
+				</div>
+
+				<button class="tile tile-olive tile-sm" type="button" data-go="capitulos" aria-label="Capítulos">
+					<svg><use href="#i-scroll" /></svg>
+				</button>
+			</header>
+
+			<div class="reader-stage" id="reader-stage">
+				<button class="tap-zone tap-prev" type="button" data-turn="-1" aria-label="Página anterior">
+					<svg><use href="#i-back" /></svg>
+				</button>
+				<button class="tap-zone tap-next" type="button" data-turn="1" aria-label="Próxima página">
+					<svg><use href="#i-next" /></svg>
+				</button>
+
+				<div class="wood-frame">
+					<svg class="twig twig-tl" aria-hidden="true"><use href="#twig" /></svg>
+					<svg class="twig twig-br" aria-hidden="true"><use href="#twig" /></svg>
+					<svg class="leaf-cluster" aria-hidden="true"><use href="#leaves" /></svg>
+
+					<article class="parchment" id="page-sheet" aria-live="polite">
+						<!-- Conteúdo da página -->
+					</article>
+				</div>
+			</div>
+
+			<nav class="reader-dock" aria-label="Navegação de páginas">
+				<button class="plank plank-stone dock-btn" type="button" data-turn="-1" id="dock-prev">
+					<svg><use href="#i-back" /></svg>
+					<span>Voltar</span>
+				</button>
+
+				<button class="page-medallion" type="button" id="btn-jump" aria-label="Ir para página">
+					<span class="medallion-num" id="medallion-num">1</span>
+					<span class="medallion-total">de 93</span>
+				</button>
+
+				<button class="plank plank-tan dock-btn" type="button" data-turn="1" id="dock-next">
+					<span>Avançar</span>
+					<svg><use href="#i-next" /></svg>
+				</button>
+			</nav>
+		</section>
+
+		<!-- =========================================================
+		     TELA: MAPA
+		     ========================================================= -->
+		<section class="screen screen-map" data-screen="mapa">
+			<header class="screen-bar">
+				<button class="tile tile-stone tile-sm" type="button" data-back aria-label="Voltar">
+					<svg><use href="#i-back" /></svg>
+				</button>
+				<div class="title-plaque"><span>Mapa do Mundo</span></div>
+				<span class="screen-bar-spacer"></span>
+			</header>
+
+			<div class="map-frame">
+				<span class="card-corner c-tl"></span><span class="card-corner c-tr"></span>
+				<span class="card-corner c-bl"></span><span class="card-corner c-br"></span>
+				<div class="map-viewport" id="map-viewport">
+					<img id="map-img" src="../../public/img/mapOri.jpg" alt="Mapa de Tribos Ancestrais" draggable="false" />
+				</div>
+				<div class="map-tools">
+					<button class="tile tile-tan tile-sm" type="button" id="map-in" aria-label="Aproximar"><svg><use href="#i-plus" /></svg></button>
+					<button class="tile tile-tan tile-sm" type="button" id="map-out" aria-label="Afastar"><svg><use href="#i-minus" /></svg></button>
+					<button class="tile tile-stone tile-sm" type="button" id="map-reset" aria-label="Centralizar"><svg><use href="#i-target" /></svg></button>
+				</div>
+			</div>
+			<p class="hint-ink">Arraste para explorar · pinça ou roda do mouse para zoom</p>
+		</section>
+
+		<!-- =========================================================
+		     TELA: AUTOR (ficha de personagem)
+		     ========================================================= -->
+		<section class="screen screen-sheet" data-screen="autor">
+			<header class="screen-bar">
+				<button class="tile tile-stone tile-sm" type="button" data-go="inicio" aria-label="Voltar ao início">
+					<svg><use href="#i-back" /></svg>
+				</button>
+				<div class="title-plaque"><span>Ficha do Autor</span></div>
+				<span class="screen-bar-spacer"></span>
+			</header>
+
+			<div class="status-panel">
+				<svg class="twig twig-tl" aria-hidden="true"><use href="#twig" /></svg>
+				<svg class="twig twig-br" aria-hidden="true"><use href="#twig" /></svg>
+				<svg class="leaf-cluster leaf-left" aria-hidden="true"><use href="#leaves" /></svg>
+				<svg class="leaf-cluster" aria-hidden="true"><use href="#leaves" /></svg>
+
+				<div class="status-portrait">
+					<img src="../../public/img/perfil.png" alt="Andrei Barbuto" />
+				</div>
+
+				<div class="status-body parchment">
+					<h2 class="ink-title">Andrei Barbuto</h2>
+					<p class="ink-subtitle">Autor &amp; Idealizador</p>
+
+					<ul class="trait-list">
+						<li><svg><use href="#i-feather" /></svg><span><b>Primeira obra</b> Tribos Ancestrais</span></li>
+						<li><svg><use href="#i-flame" /></svg><span><b>Influências</b> Dragon Ball Z · Hollywood · Mangás</span></li>
+						<li><svg><use href="#i-scroll" /></svg><span><b>Ofício</b> Estudante de programação</span></li>
+					</ul>
+
+					<div class="lore-divider"><span>Lore</span></div>
+
+					<div class="lore-text">
+						<p>Olá! Meu nome é Andrei, e vou contar aqui como me tornei apaixonado por histórias! Tudo começou com os desenhos animados que assistia todos os dias e as idas ao cinema com meus pais. Cresci influenciado pelo Goku de DBZ e por inúmeros filmes de Hollywood. Hoje, sou um consumidor de histórias de todos os tipos, como livros, mangás, séries e filmes. Histórias sempre me ajudaram a entender melhor o mundo, e por isso as admiro.</p>
+						<p>Nunca me canso de assistir a um personagem brilhando na tela depois de ter batalhado tanto. É sempre inspirador absorver uma boa história.</p>
+						<p>Atualmente, estudo para me tornar programador e, nas horas vagas, me dedico a escrever minha primeira narrativa, "Tribos Ancestrais". A história nasceu de muitas caminhadas pelas ruas com o fone de ouvido no máximo e aquela boa música de ação. Não sei ao certo quando comecei a querer escrever, e mesmo que soubesse, no início, minhas ideias eram apenas personagens malucos pulando por aí. Comecei a escrever os primeiros capítulos de "Tribos Ancestrais" durante a pandemia, enquanto fazia alguns cursos de criação literária, juntamente com muitos vídeos do YouTube. Todo esse processo sempre foi divertido para mim, e, apesar das dificuldades, é isso que me move até hoje!</p>
+						<p><strong>Bom... é isso. Espero que gostem de "Tribos Ancestrais"!</strong></p>
+					</div>
+
+					<div class="action-row">
+						<a class="plank plank-red plank-sm" href="https://www.instagram.com/tribos_ancestrais?igsh=MWwybzNtZ3dyd2I5dQ==" target="_blank" rel="noopener noreferrer">
+							<svg><use href="#i-insta" /></svg> Instagram
+						</a>
+						<button class="plank plank-stone plank-sm" type="button" data-copy="contatoandreibr@gmail.com" data-copy-msg="E-mail copiado!">
+							<svg><use href="#i-mail" /></svg> Copiar e-mail
+						</button>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<!-- =========================================================
+		     TELA: APOIE (oferenda)
+		     ========================================================= -->
+		<section class="screen screen-sheet" data-screen="apoie">
+			<header class="screen-bar">
+				<button class="tile tile-stone tile-sm" type="button" data-go="inicio" aria-label="Voltar ao início">
+					<svg><use href="#i-back" /></svg>
+				</button>
+				<div class="title-plaque"><span>Apoie a Jornada</span></div>
+				<span class="screen-bar-spacer"></span>
+			</header>
+
+			<div class="status-panel">
+				<svg class="twig twig-tl" aria-hidden="true"><use href="#twig" /></svg>
+				<svg class="twig twig-br" aria-hidden="true"><use href="#twig" /></svg>
+				<svg class="leaf-cluster" aria-hidden="true"><use href="#leaves" /></svg>
+
+				<div class="status-portrait status-portrait-warm">
+					<img src="../../public/img/pixelArt.png" alt="Arte em pixel do projeto" />
+				</div>
+
+				<div class="status-body parchment">
+					<h2 class="ink-title">Está curtindo?</h2>
+					<p class="ink-subtitle">Ajude a história a virar mangá</p>
+
+					<div class="lore-text">
+						<p>Iniciamente, criei a história de "Tribos ancestrais" para ser no formato de livro, totalmente escrita e sem imagens. Um tempo depois, comecei a criar imagens com IA e mudei completamente de ideia. A história começou a fazer muito mais sentido se fosse um mangá do que um livro. Então, decidi que começaria a aprender a desenhar para transformar essa obra em um mangá.</p>
+						<p>Se você está curtindo todo o conteúdo e quer ver essa história virar um mangá de verdade, pode fazer uma doação para me ajudar a aprender a desenhar e continuar criando mais!</p>
+						<p><strong>Obrigado por tudo galera!!</strong></p>
+					</div>
+
+					<div class="item-slot">
+						<div class="item-icon"><img src="../../public/img/saco.png" alt="" /></div>
+						<div class="item-info">
+							<span class="item-kicker">Chave PIX</span>
+							<span class="item-key">contatoandreibr@gmail.com</span>
+							<span class="item-owner">Titular: Andrei Barbuto Romanelli Lopes</span>
+						</div>
+					</div>
+
+					<button class="plank plank-red plank-wide" type="button" data-copy="contatoandreibr@gmail.com" data-copy-msg="Chave PIX copiada!">
+						Copiar Chave PIX
+					</button>
+				</div>
+			</div>
+		</section>
+	</main>
+
+	<!-- Modal: ir para página -->
+	<div class="modal" id="jump-modal" hidden>
+		<div class="modal-backdrop" data-close-modal></div>
+		<div class="modal-card">
+			<span class="card-corner c-tl"></span><span class="card-corner c-tr"></span>
+			<span class="card-corner c-bl"></span><span class="card-corner c-br"></span>
+			<h3 class="ink-title ink-title-sm">Ir para página</h3>
+			<form id="jump-form" class="jump-form">
+				<input id="jump-input" type="number" inputmode="numeric" min="0" max="93" required />
+				<button class="plank plank-tan plank-sm" type="submit">Ir</button>
+			</form>
+			<button class="link-ink" type="button" data-close-modal>Cancelar</button>
+		</div>
+	</div>
+
+	<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+	<script src="./app.js"></script>
+</body>
+</html>

@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="pt-BR" translate="no">
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+	<meta name="theme-color" content="#2b1a10" />
+	<title>Tribos Ancestrais — Protótipo 2</title>
+	<link rel="preconnect" href="https://fonts.googleapis.com" />
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+	<link
+		href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800&family=Literata:ital,opsz,wght@0,7..72,400;0,7..72,600;1,7..72,400&family=Potta+One&display=swap"
+		rel="stylesheet"
+	/>
+	<link rel="stylesheet" href="./styles.css" />
+</head>
+<body>
+	<main id="app">
+		<!-- =========================================================
+		     TELA 1: INÍCIO
+		     ========================================================= -->
+		<section class="screen screen-home is-active" data-screen="inicio">
+			<div class="home-bg" aria-hidden="true">
+				<img src="../../public/img/backHome.png" alt="" />
+				<div class="home-bg-vignette"></div>
+			</div>
+
+			<div class="home-shell">
+				<header class="home-header">
+					<img class="home-logo" src="../../public/img/tituloHome.png" alt="Tribos Ancestrais" />
+					<p class="home-subtitle">Saga de fantasia tribal • Por Andrei Barbuto</p>
+				</header>
+
+				<nav class="home-buttons" aria-label="Menu principal">
+					<button class="tex-btn tex-wood tex-xl" type="button" data-action="start">
+						<span>Começar Jornada</span>
+					</button>
+
+					<button class="tex-btn tex-crimson" type="button" data-action="continue" id="btn-continue" hidden>
+						<span>Continuar <small id="continue-meta">Pág. 1 / 93</small></span>
+					</button>
+
+					<button class="tex-btn tex-moss" type="button" data-go="capitulos">
+						<span>Capítulos</span>
+					</button>
+
+					<button class="tex-btn tex-stone" type="button" data-go="mapa">
+						<span>Mapa do Mundo</span>
+					</button>
+				</nav>
+
+				<nav class="home-tiles" aria-label="Atalhos">
+					<button class="tex-tile" type="button" data-go="ler" aria-label="Ler">
+						<img src="../../public/img/livroAkin.png" alt="" />
+						<span class="tex-tile-label">Ler</span>
+					</button>
+					<button class="tex-tile" type="button" data-go="autor" aria-label="Autor">
+						<img src="../../public/img/homenzin.png" alt="" />
+						<span class="tex-tile-label">Autor</span>
+					</button>
+					<button class="tex-tile" type="button" data-go="apoie" aria-label="Apoie">
+						<img src="../../public/img/saco.png" alt="" />
+						<span class="tex-tile-label">Apoie</span>
+					</button>
+					<button class="tex-tile" type="button" data-go="mapa" aria-label="Mapa">
+						<img src="../../public/img/iconeMap.png" alt="" />
+						<span class="tex-tile-label">Mapa</span>
+					</button>
+				</nav>
+			</div>
+		</section>
+
+		<!-- =========================================================
+		     TELA 2: CAPÍTULOS (Carta UI.jpg real com textura)
+		     ========================================================= -->
+		<section class="screen screen-chapters" data-screen="capitulos">
+			<header class="topbar">
+				<button class="tex-tile tex-tile-sm" type="button" data-go="inicio" aria-label="Voltar ao início">
+					<img class="flip-x" src="../../public/img/setaDireita.png" alt="" />
+				</button>
+				<div class="tex-banner"><span>Capítulos</span></div>
+				<span class="topbar-spacer"></span>
+			</header>
+
+			<div class="parchment-strip">
+				<span id="summary-text">Página 0 de 93</span>
+				<div class="progress-track"><i id="summary-bar"></i></div>
+			</div>
+
+			<div class="cards-grid" id="cards-grid"></div>
+		</section>
+
+		<!-- =========================================================
+		     TELA 3: LEITOR (Moldura de galhos + Pergaminho real)
+		     ========================================================= -->
+		<section class="screen screen-reader" data-screen="ler">
+			<header class="topbar reader-topbar">
+				<button class="tex-tile tex-tile-sm" type="button" data-go="inicio" aria-label="Início">
+					<img class="flip-x" src="../../public/img/setaDireita.png" alt="" />
+				</button>
+
+				<div class="reader-hud-plaque">
+					<span class="hud-roman" id="hud-roman">I</span>
+					<span class="hud-title" id="hud-title">O Eco do Irmão Perdido</span>
+				</div>
+
+				<button class="tex-tile tex-tile-sm" type="button" data-go="capitulos" aria-label="Capítulos">
+					<img src="../../public/img/livroAkin.png" alt="" />
+				</button>
+			</header>
+
+			<div class="reader-progress">
+				<div class="progress-track"><i id="hud-bar"></i></div>
+			</div>
+
+			<div class="reader-stage" id="reader-stage">
+				<button class="edge-tap edge-prev" type="button" data-turn="-1" aria-label="Página anterior">
+					<img class="flip-x" src="../../public/img/setaDireita.png" alt="" />
+				</button>
+				<button class="edge-tap edge-next" type="button" data-turn="1" aria-label="Próxima página">
+					<img src="../../public/img/setaDireita.png" alt="" />
+				</button>
+
+				<article class="branch-parchment-panel" id="page-sheet" aria-live="polite">
+					<!-- Conteúdo renderizado via JS -->
+				</article>
+			</div>
+
+			<nav class="reader-dock" aria-label="Navegação de páginas">
+				<button class="tex-btn tex-stone tex-sm" type="button" data-turn="-1" id="dock-prev">
+					<span>← Anterior</span>
+				</button>
+
+				<button class="tex-tile tex-tile-md page-badge" type="button" id="btn-jump" aria-label="Ir para página">
+					<strong id="medallion-num">0</strong>
+					<small>de 93</small>
+				</button>
+
+				<button class="tex-btn tex-wood tex-sm" type="button" data-turn="1" id="dock-next">
+					<span>Próxima →</span>
+				</button>
+			</nav>
+		</section>
+
+		<!-- =========================================================
+		     TELA 4: MAPA DO MUNDO
+		     ========================================================= -->
+		<section class="screen screen-map" data-screen="mapa">
+			<header class="topbar">
+				<button class="tex-tile tex-tile-sm" type="button" data-back aria-label="Voltar">
+					<img class="flip-x" src="../../public/img/setaDireita.png" alt="" />
+				</button>
+				<div class="tex-banner"><span>Mapa do Mundo</span></div>
+				<span class="topbar-spacer"></span>
+			</header>
+
+			<div class="branch-panel map-panel">
+				<div class="map-viewport" id="map-viewport">
+					<img id="map-img" src="../../public/img/mapOri.jpg" alt="Mapa de Tribos Ancestrais" draggable="false" />
+				</div>
+				<div class="map-controls">
+					<button class="tex-tile tex-tile-sm" type="button" id="map-in" aria-label="Aproximar"><span>+</span></button>
+					<button class="tex-tile tex-tile-sm" type="button" id="map-out" aria-label="Afastar"><span>−</span></button>
+					<button class="tex-tile tex-tile-sm" type="button" id="map-reset" aria-label="Resetar"><span>⌖</span></button>
+				</div>
+			</div>
+			<p class="map-tip">Arraste para explorar • Use + / − ou pinça para zoom</p>
+		</section>
+
+		<!-- =========================================================
+		     TELA 5: SOBRE O AUTOR (RPG Status Panel com textura real)
+		     ========================================================= -->
+		<section class="screen screen-sheet" data-screen="autor">
+			<header class="topbar">
+				<button class="tex-tile tex-tile-sm" type="button" data-go="inicio" aria-label="Voltar ao início">
+					<img class="flip-x" src="../../public/img/setaDireita.png" alt="" />
+				</button>
+				<div class="tex-banner"><span>Sobre o Autor</span></div>
+				<span class="topbar-spacer"></span>
+			</header>
+
+			<div class="branch-parchment-panel sheet-panel">
+				<div class="sheet-portrait">
+					<img src="../../public/img/perfil.png" alt="Andrei Barbuto" />
+				</div>
+
+				<h2 class="sheet-name">Andrei Barbuto</h2>
+				<p class="sheet-role">Autor &amp; Idealizador</p>
+
+				<img class="sheet-divider" src="../../public/img/divisor.png" alt="" />
+
+				<div class="sheet-prose">
+					<p>Olá! Meu nome é Andrei, e vou contar aqui como me tornei apaixonado por histórias! Tudo começou com os desenhos animados que assistia todos os dias e as idas ao cinema com meus pais. Cresci influenciado pelo Goku de DBZ e por inúmeros filmes de Hollywood. Hoje, sou um consumidor de histórias de todos os tipos, como livros, mangás, séries e filmes. Histórias sempre me ajudaram a entender melhor o mundo, e por isso as admiro.</p>
+					<p>Nunca me canso de assistir a um personagem brilhando na tela depois de ter batalhado tanto. É sempre inspirador absorver uma boa história.</p>
+					<p>Atualmente, estudo para me tornar programador e, nas horas vagas, me dedico a escrever minha primeira narrativa, "Tribos Ancestrais". A história nasceu de muitas caminhadas pelas ruas com o fone de ouvido no máximo e aquela boa música de ação. Não sei ao certo quando comecei a querer escrever, e mesmo que soubesse, no início, minhas ideias eram apenas personagens malucos pulando por aí. Comecei a escrever os primeiros capítulos de "Tribos Ancestrais" durante a pandemia, enquanto fazia alguns cursos de criação literária, juntamente com muitos vídeos do YouTube. Todo esse processo sempre foi divertido para mim, e, apesar das dificuldades, é isso que me move até hoje!</p>
+					<p><strong>Bom... é isso. Espero que gostem de "Tribos Ancestrais"!</strong></p>
+				</div>
+
+				<div class="sheet-actions">
+					<a class="tex-btn tex-crimson tex-sm" href="https://www.instagram.com/tribos_ancestrais?igsh=MWwybzNtZ3dyd2I5dQ==" target="_blank" rel="noopener noreferrer">
+						<span>Instagram</span>
+					</a>
+					<button class="tex-btn tex-stone tex-sm" type="button" data-copy="contatoandreibr@gmail.com" data-copy-msg="E-mail copiado!">
+						<span>Copiar E-mail</span>
+					</button>
+				</div>
+			</div>
+		</section>
+
+		<!-- =========================================================
+		     TELA 6: APOIE
+		     ========================================================= -->
+		<section class="screen screen-sheet" data-screen="apoie">
+			<header class="topbar">
+				<button class="tex-tile tex-tile-sm" type="button" data-go="inicio" aria-label="Voltar ao início">
+					<img class="flip-x" src="../../public/img/setaDireita.png" alt="" />
+				</button>
+				<div class="tex-banner"><span>Apoie o Projeto</span></div>
+				<span class="topbar-spacer"></span>
+			</header>
+
+			<div class="branch-parchment-panel sheet-panel">
+				<div class="sheet-portrait sheet-portrait-pixel">
+					<img src="../../public/img/pixelArt.png" alt="Arte pixel de Tribos Ancestrais" />
+				</div>
+
+				<h2 class="sheet-name">Está curtindo?</h2>
+				<p class="sheet-role">Ajude a história a virar mangá</p>
+
+				<img class="sheet-divider" src="../../public/img/divisor.png" alt="" />
+
+				<div class="sheet-prose">
+					<p>Iniciamente, criei a história de "Tribos ancestrais" para ser no formato de livro, totalmente escrita e sem imagens. Um tempo depois, comecei a criar imagens com IA e mudei completamente de ideia. A história começou a fazer muito mais sentido se fosse um mangá do que um livro. Então, decidi que começaria a aprender a desenhar para transformar essa obra em um mangá.</p>
+					<p>Se você está curtindo todo o conteúdo e quer ver essa história virar um mangá de verdade, pode fazer uma doação para me ajudar a aprender a desenhar e continuar criando mais!</p>
+					<p><strong>Obrigado por tudo galera!!</strong></p>
+				</div>
+
+				<div class="pix-card">
+					<img src="../../public/img/saco.png" alt="" />
+					<div>
+						<small>Chave PIX</small>
+						<strong>contatoandreibr@gmail.com</strong>
+						<span>Titular: Andrei Barbuto Romanelli Lopes</span>
+					</div>
+				</div>
+
+				<button class="tex-btn tex-crimson tex-sm tex-wide" type="button" data-copy="contatoandreibr@gmail.com" data-copy-msg="Chave PIX copiada!">
+					<span>Copiar Chave PIX</span>
+				</button>
+			</div>
+		</section>
+	</main>
+
+	<!-- Modal: Ir para página -->
+	<div class="modal" id="jump-modal" hidden>
+		<div class="modal-backdrop" data-close-modal></div>
+		<div class="modal-card">
+			<h3>Ir para página</h3>
+			<form id="jump-form" class="jump-form">
+				<input id="jump-input" type="number" inputmode="numeric" min="0" max="93" required />
+				<button class="tex-btn tex-wood tex-sm" type="submit"><span>Ir</span></button>
+			</form>
+			<button class="modal-cancel" type="button" data-close-modal>Cancelar</button>
+		</div>
+	</div>
+
+	<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+	<script src="./app.js"></script>
+</body>
+</html>

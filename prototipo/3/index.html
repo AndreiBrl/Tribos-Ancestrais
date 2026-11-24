@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="pt-BR" translate="no">
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+	<meta name="theme-color" content="#10181a" />
+	<title>Tribos Ancestrais — Protótipo 3 (Totem Tribal)</title>
+	<link rel="preconnect" href="https://fonts.googleapis.com" />
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+	<link
+		href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700;900&family=Cinzel:wght@600;700;800&family=Literata:ital,opsz,wght@0,7..72,400;0,7..72,600;1,7..72,400&display=swap"
+		rel="stylesheet"
+	/>
+	<link rel="stylesheet" href="./styles.css" />
+</head>
+<body>
+	<main id="app">
+		<!-- =========================================================
+		     TELA 1: INÍCIO — TOTEM DOS GUARDIÕES
+		     ========================================================= -->
+		<section class="screen screen-home is-active" data-screen="inicio">
+			<!-- Fundo baseado nas artes da história (floresta noturna de Akin) -->
+			<div class="home-backdrop" aria-hidden="true">
+				<img src="../../public/img/cap1/akin.png" alt="" />
+				<div class="home-backdrop-vignette"></div>
+				<div class="tribal-tattoo-bg"></div>
+				<div class="spirit-embers" id="spirit-embers"></div>
+			</div>
+
+			<div class="home-stage">
+				<header class="tribal-header">
+					<div class="tribal-emblem" aria-hidden="true">◆ ◇ ◆</div>
+					<h1 class="tribal-title">
+						<span>TRIBOS</span>
+						<span>ANCESTRAIS</span>
+					</h1>
+					<p class="tribal-subtitle">Toque em um guardião do totem para despertar seu caminho</p>
+				</header>
+
+				<!-- TOTEM INTERATIVO -->
+				<div class="totem-altar">
+					<div class="totem-wrap" id="totem-wrap">
+						<img class="totem-img" src="./assets/totem.png" alt="Totem Tribal com cinco animais entalhados" />
+
+						<!-- 1. LOBO (Ler História) -->
+						<button
+							type="button"
+							class="totem-zone zone-wolf"
+							data-action="continue-or-start"
+							data-animal="wolf"
+							style="--eye-color: #2cf7ff; --eye-glow: rgba(44, 247, 255, 0.95);"
+							aria-label="Lobo — Ler História"
+						>
+							<span class="eye eye-l" style="left: 41%; top: 55.5%;"></span>
+							<span class="eye eye-r" style="left: 59%; top: 55.5%;"></span>
+							<span class="totem-tag tag-right">
+								<strong>Ler História</strong>
+								<small id="wolf-meta">Iniciar jornada</small>
+							</span>
+						</button>
+
+						<!-- 2. ÁGUIA / CORUJA (Mapa do Mundo) -->
+						<button
+							type="button"
+							class="totem-zone zone-owl"
+							data-go="mapa"
+							data-animal="owl"
+							style="--eye-color: #ffd24c; --eye-glow: rgba(255, 210, 76, 0.95);"
+							aria-label="Águia — Mapa do Mundo"
+						>
+							<span class="eye eye-l" style="left: 42%; top: 50.7%;"></span>
+							<span class="eye eye-r" style="left: 58%; top: 50.7%;"></span>
+							<span class="totem-tag tag-left">
+								<strong>Mapa do Mundo</strong>
+								<small>Visão das terras</small>
+							</span>
+						</button>
+
+						<!-- 3. JAVALI (Capítulos) -->
+						<button
+							type="button"
+							class="totem-zone zone-boar"
+							data-go="capitulos"
+							data-animal="boar"
+							style="--eye-color: #e25cff; --eye-glow: rgba(226, 92, 255, 0.95);"
+							aria-label="Javali — Capítulos"
+						>
+							<span class="eye eye-l" style="left: 41.5%; top: 46.3%;"></span>
+							<span class="eye eye-r" style="left: 58.5%; top: 46.3%;"></span>
+							<span class="totem-tag tag-right">
+								<strong>Capítulos</strong>
+								<small>10 disponíveis</small>
+							</span>
+						</button>
+
+						<!-- 4. URSO (Sobre o Autor) -->
+						<button
+							type="button"
+							class="totem-zone zone-bear"
+							data-go="autor"
+							data-animal="bear"
+							style="--eye-color: #ff4733; --eye-glow: rgba(255, 71, 51, 0.95);"
+							aria-label="Urso — Sobre o Autor"
+						>
+							<span class="eye eye-l" style="left: 41.5%; top: 33.8%;"></span>
+							<span class="eye eye-r" style="left: 58.5%; top: 33.8%;"></span>
+							<span class="totem-tag tag-left">
+								<strong>O Autor</strong>
+								<small>Andrei Barbuto</small>
+							</span>
+						</button>
+
+						<!-- 5. SERPENTE (Apoie) -->
+						<button
+							type="button"
+							class="totem-zone zone-serpent"
+							data-go="apoie"
+							data-animal="serpent"
+							style="--eye-color: #3cffb4; --eye-glow: rgba(60, 255, 180, 0.95);"
+							aria-label="Serpente — Apoie o Projeto"
+						>
+							<span class="eye eye-l" style="left: 45.2%; top: 19.3%;"></span>
+							<span class="eye eye-r" style="left: 54.8%; top: 19.3%;"></span>
+							<span class="totem-tag tag-right">
+								<strong>Apoie</strong>
+								<small>Ajude a virar mangá</small>
+							</span>
+						</button>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<!-- =========================================================
+		     TELA 2: CAPÍTULOS (Cartas + Tatuagens Tribais)
+		     ========================================================= -->
+		<section class="screen screen-chapters" data-screen="capitulos">
+			<div class="screen-bg-story" aria-hidden="true">
+				<img src="../../public/img/cap4/ValeXaru.png" alt="" />
+			</div>
+
+			<header class="topbar">
+				<button class="tex-tile tex-tile-sm" type="button" data-go="inicio" aria-label="Voltar ao totem">
+					<span>‹</span>
+				</button>
+				<div class="tex-banner"><span>Capítulos</span></div>
+				<span class="topbar-spacer"></span>
+			</header>
+
+			<div class="tribal-progress-box">
+				<div class="tribal-progress-head">
+					<span>Progresso da Jornada</span>
+					<strong id="summary-text">Página 0 de 93</strong>
+				</div>
+				<div class="progress-track"><i id="summary-bar"></i></div>
+			</div>
+
+			<div class="cards-grid" id="cards-grid"></div>
+		</section>
+
+		<!-- =========================================================
+		     TELA 3: LEITOR
+		     ========================================================= -->
+		<section class="screen screen-reader" data-screen="ler">
+			<div class="screen-bg-story" aria-hidden="true">
+				<img src="../../public/img/cap8/A_Montanha.png" alt="" />
+			</div>
+
+			<header class="topbar reader-topbar">
+				<button class="tex-tile tex-tile-sm" type="button" data-go="inicio" aria-label="Voltar ao totem">
+					<span>‹</span>
+				</button>
+
+				<div class="reader-hud-plaque">
+					<span class="hud-roman" id="hud-roman">I</span>
+					<span class="hud-title" id="hud-title">O Eco do Irmão Perdido</span>
+				</div>
+
+				<button class="tex-tile tex-tile-sm" type="button" data-go="capitulos" aria-label="Capítulos">
+					<span>☰</span>
+				</button>
+			</header>
+
+			<div class="reader-progress">
+				<div class="progress-track"><i id="hud-bar"></i></div>
+			</div>
+
+			<div class="reader-stage" id="reader-stage">
+				<button class="edge-tap edge-prev" type="button" data-turn="-1" aria-label="Página anterior">‹</button>
+				<button class="edge-tap edge-next" type="button" data-turn="1" aria-label="Próxima página">›</button>
+
+				<article class="branch-parchment-panel" id="page-sheet" aria-live="polite"></article>
+			</div>
+
+			<nav class="reader-dock" aria-label="Navegação de páginas">
+				<button class="tex-btn tex-stone tex-sm" type="button" data-turn="-1" id="dock-prev">
+					<span>← Anterior</span>
+				</button>
+
+				<button class="tex-tile tex-tile-md page-badge" type="button" id="btn-jump" aria-label="Ir para página">
+					<strong id="medallion-num">0</strong>
+					<small>de 93</small>
+				</button>
+
+				<button class="tex-btn tex-wood tex-sm" type="button" data-turn="1" id="dock-next">
+					<span>Próxima →</span>
+				</button>
+			</nav>
+		</section>
+
+		<!-- =========================================================
+		     TELA 4: MAPA DO MUNDO
+		     ========================================================= -->
+		<section class="screen screen-map" data-screen="mapa">
+			<div class="screen-bg-story" aria-hidden="true">
+				<img src="../../public/img/cap4/ValeXaru.png" alt="" />
+			</div>
+
+			<header class="topbar">
+				<button class="tex-tile tex-tile-sm" type="button" data-back aria-label="Voltar">
+					<span>‹</span>
+				</button>
+				<div class="tex-banner"><span>Mapa do Mundo</span></div>
+				<span class="topbar-spacer"></span>
+			</header>
+
+			<div class="branch-panel map-panel">
+				<div class="map-viewport" id="map-viewport">
+					<img id="map-img" src="../../public/img/mapOri.jpg" alt="Mapa de Tribos Ancestrais" draggable="false" />
+				</div>
+				<div class="map-controls">
+					<button class="tex-tile tex-tile-sm" type="button" id="map-in" aria-label="Aproximar"><span>+</span></button>
+					<button class="tex-tile tex-tile-sm" type="button" id="map-out" aria-label="Afastar"><span>−</span></button>
+					<button class="tex-tile tex-tile-sm" type="button" id="map-reset" aria-label="Resetar"><span>⌖</span></button>
+				</div>
+			</div>
+			<p class="map-tip">Arraste para explorar • Use + / − ou pinça para zoom</p>
+		</section>
+
+		<!-- =========================================================
+		     TELA 5: SOBRE O AUTOR
+		     ========================================================= -->
+		<section class="screen screen-sheet" data-screen="autor">
+			<div class="screen-bg-story" aria-hidden="true">
+				<img src="../../public/img/cap6/lobos.png" alt="" />
+			</div>
+
+			<header class="topbar">
+				<button class="tex-tile tex-tile-sm" type="button" data-go="inicio" aria-label="Voltar ao totem">
+					<span>‹</span>
+				</button>
+				<div class="tex-banner"><span>O Autor</span></div>
+				<span class="topbar-spacer"></span>
+			</header>
+
+			<div class="branch-parchment-panel sheet-panel">
+				<div class="sheet-portrait">
+					<img src="../../public/img/perfil.png" alt="Andrei Barbuto" />
+				</div>
+
+				<h2 class="sheet-name">Andrei Barbuto</h2>
+				<p class="sheet-role">Autor &amp; Idealizador</p>
+
+				<div class="tribal-rune-divider" aria-hidden="true"><span>◆</span><span>◈</span><span>◆</span></div>
+
+				<div class="sheet-prose">
+					<p>Olá! Meu nome é Andrei, e vou contar aqui como me tornei apaixonado por histórias! Tudo começou com os desenhos animados que assistia todos os dias e as idas ao cinema com meus pais. Cresci influenciado pelo Goku de DBZ e por inúmeros filmes de Hollywood. Hoje, sou um consumidor de histórias de todos os tipos, como livros, mangás, séries e filmes. Histórias sempre me ajudaram a entender melhor o mundo, e por isso as admiro.</p>
+					<p>Nunca me canso de assistir a um personagem brilhando na tela depois de ter batalhado tanto. É sempre inspirador absorver uma boa história.</p>
+					<p>Atualmente, estudo para me tornar programador e, nas horas vagas, me dedico a escrever minha primeira narrativa, "Tribos Ancestrais". A história nasceu de muitas caminhadas pelas ruas com o fone de ouvido no máximo e aquela boa música de ação. Não sei ao certo quando comecei a querer escrever, e mesmo que soubesse, no início, minhas ideias eram apenas personagens malucos pulando por aí. Comecei a escrever os primeiros capítulos de "Tribos Ancestrais" durante a pandemia, enquanto fazia alguns cursos de criação literária, juntamente com muitos vídeos do YouTube. Todo esse processo sempre foi divertido para mim, e, apesar das dificuldades, é isso que me move até hoje!</p>
+					<p><strong>Bom... é isso. Espero que gostem de "Tribos Ancestrais"!</strong></p>
+				</div>
+
+				<div class="sheet-actions">
+					<a class="tex-btn tex-crimson tex-sm" href="https://www.instagram.com/tribos_ancestrais?igsh=MWwybzNtZ3dyd2I5dQ==" target="_blank" rel="noopener noreferrer">
+						<span>Instagram</span>
+					</a>
+					<button class="tex-btn tex-stone tex-sm" type="button" data-copy="contatoandreibr@gmail.com" data-copy-msg="E-mail copiado!">
+						<span>Copiar E-mail</span>
+					</button>
+				</div>
+			</div>
+		</section>
+
+		<!-- =========================================================
+		     TELA 6: APOIE A JORNADA
+		     ========================================================= -->
+		<section class="screen screen-sheet" data-screen="apoie">
+			<div class="screen-bg-story" aria-hidden="true">
+				<img src="../../public/img/cap8/fakuri_akin.png" alt="" />
+			</div>
+
+			<header class="topbar">
+				<button class="tex-tile tex-tile-sm" type="button" data-go="inicio" aria-label="Voltar ao totem">
+					<span>‹</span>
+				</button>
+				<div class="tex-banner"><span>Apoie a Jornada</span></div>
+				<span class="topbar-spacer"></span>
+			</header>
+
+			<div class="branch-parchment-panel sheet-panel">
+				<div class="sheet-portrait sheet-portrait-story">
+					<img src="../../public/img/cap2/yacamim.png" alt="Ilustração de Tribos Ancestrais" />
+				</div>
+
+				<h2 class="sheet-name">Está curtindo?</h2>
+				<p class="sheet-role">Ajude a história a virar mangá</p>
+
+				<div class="tribal-rune-divider" aria-hidden="true"><span>◆</span><span>◈</span><span>◆</span></div>
+
+				<div class="sheet-prose">
+					<p>Iniciamente, criei a história de "Tribos ancestrais" para ser no formato de livro, totalmente escrita e sem imagens. Um tempo depois, comecei a criar imagens com IA e mudei completamente de ideia. A história começou a fazer muito mais sentido se fosse um mangá do que um livro. Então, decidi que começaria a aprender a desenhar para transformar essa obra em um mangá.</p>
+					<p>Se você está curtindo todo o conteúdo e quer ver essa história virar um mangá de verdade, pode fazer uma doação para me ajudar a aprender a desenhar e continuar criando mais!</p>
+					<p><strong>Obrigado por tudo galera!!</strong></p>
+				</div>
+
+				<div class="pix-card">
+					<div class="pix-glyph" aria-hidden="true">◈</div>
+					<div>
+						<small>Chave PIX</small>
+						<strong>contatoandreibr@gmail.com</strong>
+						<span>Titular: Andrei Barbuto Romanelli Lopes</span>
+					</div>
+				</div>
+
+				<button class="tex-btn tex-crimson tex-sm tex-wide" type="button" data-copy="contatoandreibr@gmail.com" data-copy-msg="Chave PIX copiada!">
+					<span>Copiar Chave PIX</span>
+				</button>
+			</div>
+		</section>
+	</main>
+
+	<!-- Modal: Ir para página -->
+	<div class="modal" id="jump-modal" hidden>
+		<div class="modal-backdrop" data-close-modal></div>
+		<div class="modal-card">
+			<h3>Ir para página</h3>
+			<form id="jump-form" class="jump-form">
+				<input id="jump-input" type="number" inputmode="numeric" min="0" max="93" required />
+				<button class="tex-btn tex-wood tex-sm" type="submit"><span>Ir</span></button>
+			</form>
+			<button class="modal-cancel" type="button" data-close-modal>Cancelar</button>
+		</div>
+	</div>
+
+	<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+	<script src="./app.js"></script>
+</body>
+</html>

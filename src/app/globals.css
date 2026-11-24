@@ -1,21 +1,2309 @@
+@font-face {
+	font-family: "PottaOne";
+	src: url("/fonts/PottaOne-Regular.ttf") format("truetype");
+	font-weight: normal;
+	font-style: normal;
+	font-display: swap;
+}
 
+:root {
+	--sky-top: #26649c;
+	--sky-mid: #61a9d6;
+	--sky-low: #cce8f2;
+	--abyss-color: rgba(16, 26, 40, 0.72);
+	--scenery-filter: brightness(1) saturate(1.04);
+	--fire-opacity: 0;
+	--stars-opacity: 0;
+	--f-display: "Cinzel Decorative", Georgia, serif;
+	--f-ui: "Nunito", system-ui, -apple-system, sans-serif;
+}
 
+*,
+*::before,
+*::after {
+	box-sizing: border-box;
+}
 
+html,
 body {
-
-  background-color: #F2E3D0;
-  unicode-bidi: plaintext;
+	margin: 0;
+	padding: 0;
+	width: 100%;
+	height: 100%;
+	overflow: hidden;
+	font-family: var(--f-ui);
+	color: #f4f1e8;
+	user-select: none;
+	-webkit-font-smoothing: antialiased;
 }
 
-* {
-  box-sizing: border-box;
-  padding: 0;
-  margin: 0;
+button {
+	font: inherit;
+	color: inherit;
+	background: none;
+	border: 0;
+	padding: 0;
+	cursor: pointer;
 }
 
-a {
-  color: inherit;
-  text-decoration: none;
+.sr-only {
+	position: absolute;
+	width: 1px;
+	height: 1px;
+	overflow: hidden;
+	clip: rect(0 0 0 0);
+	white-space: nowrap;
 }
 
+/* =========================================================
+   CÉU DINÂMICO CONTÍNUO ESTILO GHIBLI + ABISMO SUAVE
+   ========================================================= */
+.sky-backdrop {
+	position: fixed;
+	inset: 0;
+	z-index: 0;
+	background: linear-gradient(180deg, var(--sky-top) 0%, var(--sky-mid) 54%, var(--sky-low) 100%);
+	transition: background 0.15s linear;
+}
 
+.abyss-mist {
+	position: absolute;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	height: 30%;
+	background: linear-gradient(180deg, transparent 0%, var(--abyss-color) 100%);
+	pointer-events: none;
+}
+
+.stars-field {
+	position: absolute;
+	inset: 0 0 38% 0;
+	opacity: var(--stars-opacity);
+	pointer-events: none;
+}
+
+.star-dot {
+	position: absolute;
+	width: 3px;
+	height: 3px;
+	border-radius: 50%;
+	background: #fff9df;
+	box-shadow: 0 0 6px rgba(255, 249, 223, 0.9);
+	animation: starTwinkle 2.8s ease-in-out infinite alternate;
+}
+
+@keyframes starTwinkle {
+	from {
+		opacity: 0.35;
+		transform: scale(0.8);
+	}
+	to {
+		opacity: 1;
+		transform: scale(1.2);
+	}
+}
+
+.celestial-img {
+	position: absolute;
+	transform: translate(-50%, -50%);
+	pointer-events: none;
+	transition: opacity 0.25s linear;
+}
+
+.sun-body {
+	width: clamp(68px, 9vw, 110px);
+	filter: drop-shadow(0 0 26px rgba(255, 206, 86, 0.72));
+}
+
+.moon-body {
+	width: clamp(58px, 8vw, 94px);
+	filter: drop-shadow(0 0 20px rgba(215, 232, 255, 0.6));
+}
+
+.sky-passage-lines {
+	position: absolute;
+	inset: 0;
+	width: 100%;
+	height: 100%;
+	pointer-events: none;
+	opacity: 0.78;
+}
+
+.clouds-layer {
+	position: fixed;
+	inset: 0;
+	pointer-events: none;
+	transition: transform 0.15s ease-out;
+}
+
+.clouds-back {
+	z-index: 2;
+}
+
+.clouds-front {
+	z-index: 16;
+}
+
+.cloud-img {
+	position: absolute;
+	left: 0;
+	transform: translateX(-140%);
+	opacity: 0.86;
+	filter: var(--scenery-filter);
+	animation: cloudDrift 70s linear infinite;
+}
+
+.cloud-img.is-front-cloud {
+	opacity: 0.52;
+}
+
+@keyframes cloudDrift {
+	from {
+		transform: translateX(-140%);
+	}
+	to {
+		transform: translateX(calc(100vw + 140%));
+	}
+}
+
+/* =========================================================
+   TOPO ESQUERDO: BOTÃO DE CONFIGURAÇÃO + TÍTULO GHIBLI
+   ========================================================= */
+.top-left-bar {
+	position: fixed;
+	top: 16px;
+	left: 18px;
+	z-index: 30;
+	display: flex;
+	align-items: center;
+	gap: 12px;
+}
+
+.cfg-btn {
+	width: 40px;
+	height: 40px;
+	border-radius: 50%;
+	display: grid;
+	place-items: center;
+	background: rgba(28, 36, 32, 0.52);
+	border: 1px solid rgba(244, 241, 232, 0.28);
+	color: #f4f1e8;
+	backdrop-filter: blur(8px);
+	box-shadow: 0 4px 14px rgba(0, 0, 0, 0.25);
+	transition: transform 0.25s ease, background 0.25s ease, border-color 0.25s ease;
+}
+
+.cfg-btn:hover,
+.cfg-btn:focus-visible {
+	background: rgba(38, 52, 44, 0.78);
+	border-color: rgba(244, 241, 232, 0.6);
+	transform: rotate(28deg) scale(1.05);
+}
+
+.ghibli-brand h1 {
+	margin: 0;
+	display: flex;
+	flex-direction: column;
+	line-height: 0.95;
+	text-shadow: 0 2px 10px rgba(0, 0, 0, 0.45);
+}
+
+.brand-top {
+	font-family: var(--f-display);
+	font-size: clamp(1.05rem, 2.2vw, 1.55rem);
+	font-weight: 900;
+	letter-spacing: 0.1em;
+	color: #faf3dc;
+}
+
+.brand-bottom {
+	font-family: var(--f-display);
+	font-size: clamp(0.75rem, 1.4vw, 1rem);
+	font-weight: 700;
+	letter-spacing: 0.22em;
+	color: #d6e4cc;
+	margin-top: 2px;
+}
+
+/* =========================================================
+   MODAL GENTIL DO CICLO DO CÉU (BARRA DE ROLAGEM DAS HORAS)
+   ========================================================= */
+.sky-modal-backdrop {
+	position: fixed;
+	inset: 0;
+	z-index: 50;
+	display: grid;
+	place-items: start start;
+	padding: 68px 18px 18px;
+	background: transparent;
+	opacity: 0;
+	transition: opacity 0.28s ease;
+}
+
+.sky-modal-backdrop.is-open {
+	opacity: 1;
+}
+
+.sky-modal-backdrop[hidden] {
+	display: none;
+}
+
+.sky-modal-card {
+	width: min(220px, calc(100vw - 32px));
+	padding: 12px 14px;
+	border-radius: 14px;
+	background: rgba(248, 243, 230, 0.86);
+	color: #2c312b;
+	border: 1px solid rgba(112, 126, 104, 0.28);
+	box-shadow: 0 12px 28px rgba(10, 16, 20, 0.22);
+	backdrop-filter: blur(10px);
+	transform: translateY(-6px);
+	transition: transform 0.28s ease;
+}
+
+.sky-modal-backdrop.is-open .sky-modal-card {
+	transform: translateY(0);
+}
+
+.sky-modal-head {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	margin-bottom: 10px;
+}
+
+.sky-modal-head h2 {
+	margin: 0;
+	font-family: var(--f-display);
+	font-size: 0.86rem;
+	font-weight: 700;
+	color: #2f4034;
+}
+
+.sky-modal-close {
+	width: 24px;
+	height: 24px;
+	border-radius: 50%;
+	display: grid;
+	place-items: center;
+	font-size: 0.8rem;
+	color: #556156;
+	transition: background 0.2s ease;
+}
+
+.sky-modal-close:hover {
+	background: rgba(65, 84, 68, 0.12);
+}
+
+.sky-slider-wrap {
+	display: block;
+	margin-bottom: 10px;
+}
+
+.sky-slider {
+	width: 100%;
+	height: 7px;
+	border-radius: 999px;
+	appearance: none;
+	background: rgba(92, 118, 96, 0.36);
+	outline: none;
+	cursor: pointer;
+}
+
+.sky-slider::-webkit-slider-thumb {
+	appearance: none;
+	width: 20px;
+	height: 20px;
+	border-radius: 50%;
+	background: #faf5e4;
+	border: 2px solid #48634d;
+	box-shadow: 0 2px 8px rgba(0, 0, 0, 0.28);
+	cursor: grab;
+	transition: transform 0.15s ease;
+}
+
+.sky-slider::-webkit-slider-thumb:active {
+	cursor: grabbing;
+	transform: scale(1.12);
+}
+
+.sky-slider::-moz-range-thumb {
+	width: 20px;
+	height: 20px;
+	border-radius: 50%;
+	background: #faf5e4;
+	border: 2px solid #48634d;
+	box-shadow: 0 2px 8px rgba(0, 0, 0, 0.28);
+	cursor: grab;
+}
+
+.sky-slider-marks {
+	display: flex;
+	justify-content: space-between;
+	margin-top: 5px;
+	font-size: 0.7rem;
+	font-weight: 700;
+	color: #677368;
+}
+
+.sky-auto-btn {
+	width: 100%;
+	padding: 8px 12px;
+	border-radius: 10px;
+	font-size: 0.8rem;
+	font-weight: 700;
+	color: #2f4435;
+	background: rgba(114, 146, 114, 0.16);
+	border: 1px solid rgba(90, 120, 92, 0.28);
+	transition: background 0.2s ease;
+}
+
+.sky-auto-btn:hover {
+	background: rgba(114, 146, 114, 0.28);
+}
+
+/* =========================================================
+   PALCO DA ILHA FLUTUANTE ESTILO GHIBLI
+   ========================================================= */
+.home-stage-wrap {
+	position: fixed;
+	inset: 0;
+	z-index: 10;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	padding-top: 2.5rem;
+	transition: transform 0.14s ease-out;
+}
+
+.island-stage {
+	position: relative;
+	width: min(74vw, calc(72dvh * 1270 / 718));
+	aspect-ratio: 1270 / 718;
+	flex-shrink: 0;
+	animation: islandFloat 7s ease-in-out infinite alternate;
+	filter: drop-shadow(0 28px 34px rgba(10, 16, 22, 0.48));
+}
+
+@keyframes islandFloat {
+	from {
+		transform: translateY(0px);
+	}
+	to {
+		transform: translateY(-9px);
+	}
+}
+
+.island-img {
+	width: 100%;
+	height: 100%;
+	object-fit: contain;
+	filter: var(--scenery-filter);
+	transition: filter 0.2s linear;
+	pointer-events: none;
+}
+
+/* =========================================================
+   FOGUEIRA E TOCHAS (LUZ QUENTE NATURAL CONECTADA À BASE)
+   ========================================================= */
+.fire-fx-overlay,
+.torch-fx {
+	opacity: var(--fire-opacity);
+	pointer-events: none;
+	transition: opacity 0.25s linear;
+}
+
+.fire-fx-overlay {
+	position: absolute;
+	left: 43.5%;
+	top: 41%;
+	width: 11%;
+	height: 15%;
+}
+
+.fire-core-glow {
+	position: absolute;
+	inset: -65% -85% -45% -85%;
+	border-radius: 50%;
+	background: radial-gradient(
+		closest-side,
+		rgba(255, 185, 75, 0.85) 0%,
+		rgba(255, 130, 38, 0.48) 24%,
+		rgba(255, 90, 20, 0.18) 52%,
+		rgba(255, 65, 12, 0.05) 76%,
+		rgba(255, 50, 8, 0) 100%
+	);
+	mix-blend-mode: screen;
+	animation: fireGlow 2.4s ease-in-out infinite alternate;
+}
+
+.fire-smoke {
+	position: absolute;
+	left: 15%;
+	right: 15%;
+	bottom: 58%;
+	height: 110%;
+	pointer-events: none;
+	z-index: 1;
+}
+
+.smoke-wisp {
+	position: absolute;
+	left: 50%;
+	bottom: 0;
+	width: 18px;
+	height: 18px;
+	border-radius: 50%;
+	background: radial-gradient(
+		circle,
+		rgba(226, 222, 216, 0.34),
+		rgba(180, 178, 174, 0.14) 55%,
+		transparent 78%
+	);
+	filter: blur(2px);
+	animation: smokeRise 3.8s ease-out infinite;
+}
+
+.smoke-wisp.s2 {
+	width: 24px;
+	height: 24px;
+	left: 42%;
+	animation-delay: -1.3s;
+	animation-duration: 4.3s;
+}
+
+.smoke-wisp.s3 {
+	width: 15px;
+	height: 15px;
+	left: 58%;
+	animation-delay: -2.5s;
+	animation-duration: 3.4s;
+}
+
+@keyframes smokeRise {
+	0% {
+		transform: translate(-50%, 0) scale(0.6);
+		opacity: 0;
+	}
+	25% {
+		opacity: 0.55;
+	}
+	100% {
+		transform: translate(-38%, -62px) scale(2.1);
+		opacity: 0;
+	}
+}
+
+.svg-flame {
+	position: relative;
+	z-index: 2;
+	display: block;
+	transform-origin: bottom center;
+	pointer-events: none;
+}
+
+.svg-flame-camp {
+	width: 78%;
+	height: 88%;
+	margin: 8% auto 0;
+	filter: drop-shadow(0 0 8px rgba(255, 130, 32, 0.8));
+	animation: flameDance 1.45s ease-in-out infinite alternate;
+}
+
+.svg-flame-torch {
+	width: 100%;
+	height: 100%;
+	filter: drop-shadow(0 0 6px rgba(255, 130, 32, 0.78));
+	animation: flameDance 1.25s ease-in-out infinite alternate;
+}
+
+.ember {
+	animation: emberRise 2.2s ease-out infinite;
+}
+.e2 {
+	animation-delay: -0.7s;
+}
+.e3 {
+	animation-delay: -1.4s;
+}
+
+@keyframes emberRise {
+	0% {
+		transform: translateY(4px);
+		opacity: 0;
+	}
+	25% {
+		opacity: 1;
+	}
+	100% {
+		transform: translateY(-16px);
+		opacity: 0;
+	}
+}
+
+.torch-fx {
+	position: absolute;
+}
+
+.torch-1 {
+	left: 20.8%;
+	top: 40%;
+	width: 3.2%;
+	height: 7.5%;
+}
+.torch-2 {
+	left: 58%;
+	top: 15.5%;
+	width: 3.2%;
+	height: 7.5%;
+}
+.torch-3 {
+	left: 61.3%;
+	top: 51%;
+	width: 3.2%;
+	height: 7.5%;
+}
+
+.torch-glow {
+	position: absolute;
+	inset: -95% -120% -75% -120%;
+	border-radius: 50%;
+	background: radial-gradient(
+		closest-side,
+		rgba(255, 178, 70, 0.82) 0%,
+		rgba(255, 122, 34, 0.42) 26%,
+		rgba(255, 84, 18, 0.14) 55%,
+		rgba(255, 60, 10, 0.03) 80%,
+		rgba(255, 50, 8, 0) 100%
+	);
+	mix-blend-mode: screen;
+	animation: fireGlow 2.2s ease-in-out infinite alternate;
+}
+
+.torch-flames-img {
+	position: relative;
+	z-index: 2;
+	width: 100%;
+	height: 100%;
+	object-fit: contain;
+	transform-origin: bottom center;
+	filter: drop-shadow(0 0 6px rgba(255, 130, 35, 0.8));
+	animation: flameDance 0.78s ease-in-out infinite alternate;
+}
+
+@keyframes flameDance {
+	from {
+		transform: scaleY(0.98) scaleX(0.99) skewX(-0.8deg);
+	}
+	to {
+		transform: scaleY(1.03) scaleX(1.01) skewX(0.8deg);
+	}
+}
+
+@keyframes fireGlow {
+	from {
+		transform: scale(0.95);
+		opacity: 0.84;
+	}
+	to {
+		transform: scale(1.06);
+		opacity: 1;
+	}
+}
+
+/* =========================================================
+   HOTSPOTS DA ILHA (Esfera Mágica, Golem, Cogumelo, Caverna, Armas)
+   ========================================================= */
+.island-hotspot {
+	position: absolute;
+	-webkit-tap-highlight-color: transparent;
+}
+
+/* 1. Esfera Mágica levitando e girando na palma do Golem */
+.orb-hotspot {
+	left: 52.3%;
+	top: 28%;
+	width: 8%;
+	aspect-ratio: 1 / 1;
+	z-index: 9;
+	display: grid;
+	place-items: center;
+}
+
+.orb-aura {
+	position: absolute;
+	inset: -26%;
+	border-radius: 50%;
+	background: radial-gradient(
+		circle,
+		rgba(120, 235, 220, 0.55),
+		rgba(245, 220, 140, 0.25) 52%,
+		transparent 74%
+	);
+	mix-blend-mode: screen;
+	pointer-events: none;
+	animation: orbGlow 3.6s ease-in-out infinite alternate;
+}
+
+.orb-sphere {
+	position: relative;
+	width: 112%;
+	height: 112%;
+	border-radius: 34% 66% 58% 42% / 42% 35% 65% 58%;
+	overflow: hidden;
+	-webkit-mask-image: radial-gradient(
+		ellipse 84% 90% at 50% 50%,
+		#000 45%,
+		rgba(0, 0, 0, 0.55) 70%,
+		transparent 94%
+	);
+	mask-image: radial-gradient(
+		ellipse 84% 90% at 50% 50%,
+		#000 45%,
+		rgba(0, 0, 0, 0.55) 70%,
+		transparent 94%
+	);
+	filter: drop-shadow(0 0 14px rgba(130, 232, 220, 0.7));
+	animation: orbFloat 4s ease-in-out infinite alternate, orbMorph 5.5s ease-in-out infinite
+		alternate;
+	transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+.orb-hotspot:hover .orb-sphere,
+.orb-hotspot:focus-visible .orb-sphere {
+	transform: scale(1.08);
+	filter: drop-shadow(0 0 20px rgba(155, 245, 232, 0.92));
+}
+
+.orb-img {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	transform: scale(1.16);
+	animation: orbSpin 28s linear infinite;
+	pointer-events: none;
+}
+
+@keyframes orbMorph {
+	0% {
+		border-radius: 34% 66% 58% 42% / 42% 35% 65% 58%;
+	}
+	50% {
+		border-radius: 62% 38% 41% 59% / 58% 64% 36% 42%;
+	}
+	100% {
+		border-radius: 44% 56% 64% 36% / 62% 40% 60% 38%;
+	}
+}
+
+.orb-img {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	animation: orbSpin 30s linear infinite;
+	pointer-events: none;
+}
+
+@keyframes orbSpin {
+	from {
+		transform: rotate(0deg);
+	}
+	to {
+		transform: rotate(360deg);
+	}
+}
+
+@keyframes orbFloat {
+	from {
+		transform: translateY(0px);
+	}
+	to {
+		transform: translateY(-6px);
+	}
+}
+
+@keyframes orbGlow {
+	from {
+		opacity: 0.65;
+		transform: scale(0.96);
+	}
+	to {
+		opacity: 1;
+		transform: scale(1.06);
+	}
+}
+
+/* 2. Golem Ancestral de Madeira (-> Sobre o Autor) */
+.golem-hotspot {
+	left: 62%;
+	top: 13.5%;
+	width: 17.5%;
+	height: 45%;
+	z-index: 6;
+}
+
+/* 3. Cogumelo Ghibli sentado no chão segurando placa acima da cabeça (-> Capítulos) */
+.mushroom-hotspot {
+	width: 7.4%;
+	aspect-ratio: 444 / 667;
+	z-index: 10;
+	transition: transform 0.25s ease;
+}
+
+.mushroom-hotspot::after {
+	content: "";
+	position: absolute;
+	left: 50%;
+	bottom: 2%;
+	width: 78%;
+	height: 12%;
+	transform: translateX(-50%);
+	border-radius: 50%;
+	background: radial-gradient(
+		ellipse,
+		rgba(20, 26, 18, 0.45) 0%,
+		rgba(20, 26, 18, 0.16) 55%,
+		transparent 78%
+	);
+	pointer-events: none;
+	z-index: -1;
+}
+
+.mushroom-hotspot:hover,
+.mushroom-hotspot:focus-visible {
+	transform: translateY(-2px) scale(1.06);
+}
+
+.mushroom-img {
+	width: 100%;
+	height: 100%;
+	object-fit: contain;
+	filter: var(--scenery-filter);
+	transition: filter 0.2s linear;
+	pointer-events: none;
+}
+
+.mushroom-chapter-num {
+	position: absolute;
+	left: 50%;
+	top: 21%;
+	transform: translate(-50%, -50%);
+	font-family: var(--f-display);
+	font-size: clamp(0.92rem, 1.85vw, 1.45rem);
+	font-weight: 900;
+	color: #3f2b1b;
+	filter: var(--scenery-filter);
+	transition: filter 0.2s linear;
+	line-height: 1;
+	pointer-events: none;
+}
+
+/* 4. Caverna de Pedra Tribal (-> Mapa) */
+.cave-hotspot {
+	left: 24%;
+	top: 21%;
+	width: 14.5%;
+	height: 19%;
+	z-index: 5;
+}
+
+/* 5. Armas Tribais (-> Apoie o Mangá) */
+.weapons-hotspot {
+	left: 44.5%;
+	top: 21%;
+	width: 9.5%;
+	height: 18.5%;
+	z-index: 7;
+}
+
+/* Placa em pedra musgosa Ghibli — surge suavemente apenas por opacidade */
+.stone-tag {
+	position: absolute;
+	left: 50%;
+	bottom: calc(100% + 6px);
+	transform: translateX(-50%);
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	padding: 9px 20px;
+	background: url("/ghibli/stone-slab.png") center / 100% 100% no-repeat;
+	white-space: nowrap;
+	opacity: 0;
+	pointer-events: none;
+	filter: drop-shadow(0 5px 10px rgba(0, 0, 0, 0.45));
+	transition: opacity 0.45s ease;
+	z-index: 20;
+}
+
+.stone-tag strong {
+	font-family: var(--f-display);
+	font-size: clamp(0.76rem, 1.2vw, 0.96rem);
+	font-weight: 700;
+	letter-spacing: 0.05em;
+	color: #f4f1e6;
+	text-shadow: 0 2px 4px rgba(0, 0, 0, 0.72);
+}
+
+.island-hotspot:hover .stone-tag,
+.island-hotspot:focus-visible .stone-tag {
+	opacity: 1;
+}
+
+/* Toast Ghibli */
+.toast {
+	position: fixed;
+	left: 50%;
+	bottom: 22px;
+	z-index: 60;
+	transform: translate(-50%, 14px);
+	padding: 10px 18px;
+	border-radius: 999px;
+	background: rgba(248, 243, 230, 0.92);
+	color: #2c382f;
+	font-size: 0.88rem;
+	font-weight: 700;
+	box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
+	opacity: 0;
+	pointer-events: none;
+	transition: opacity 0.25s ease, transform 0.25s ease;
+}
+
+.toast.show {
+	opacity: 1;
+	transform: translate(-50%, 0);
+}
+
+/* =========================================================
+   RESPONSIVIDADE MOBILE
+   ========================================================= */
+@media (max-width: 820px) {
+	.top-left-bar {
+		top: 12px;
+		left: 12px;
+		gap: 10px;
+	}
+	.sky-modal-backdrop {
+		place-items: end center;
+		padding: 0;
+	}
+	.sky-modal-card {
+		width: 100%;
+		max-width: 100%;
+		border-radius: 18px 18px 0 0;
+		padding: 14px 18px 22px;
+		transform: translateY(24px);
+	}
+	.stars-field {
+		inset: 0 0 46% 0;
+	}
+	.star-dot {
+		width: 2px;
+		height: 2px;
+	}
+	.star-dot:nth-child(odd) {
+		display: none;
+	}
+	.home-stage-wrap {
+		padding-top: 3.5rem;
+	}
+	.island-stage {
+		width: min(88vw, calc(74dvh * 1270 / 718));
+		max-width: 88vw;
+	}
+	.stone-tag {
+		opacity: 1;
+		padding: 2px 6px;
+		bottom: calc(100% + 2px);
+	}
+	.mushroom-hotspot .stone-tag {
+		bottom: auto;
+		top: calc(100% + 2px);
+	}
+	.mushroom-hotspot.is-on-cave .stone-tag {
+		top: auto;
+		bottom: calc(100% + 2px);
+	}
+	.orb-hotspot .stone-tag {
+		bottom: auto;
+		top: calc(100% + 4px);
+	}
+	.weapons-hotspot .stone-tag {
+		left: 65%;
+		bottom: calc(100% + 12px);
+	}
+	.stone-tag strong {
+		font-size: 0.48rem;
+		letter-spacing: 0.02em;
+	}
+}
+
+/* =========================================================
+   SISTEMA DE TELAS E TELA DE CAPÍTULOS (ESTILO GHIBLI)
+   ========================================================= */
+.screen {
+	display: none;
+}
+
+.screen.active {
+	display: block;
+}
+
+body:not([data-screen="inicio"]) .clouds-front,
+body:not([data-screen="inicio"]) .top-left-bar {
+	display: none;
+}
+
+.screen-chapters,
+.screen-inner {
+	position: fixed;
+	inset: 0;
+	width: 100%;
+	max-width: 100vw;
+	z-index: 20;
+	overflow-y: auto;
+	overflow-x: hidden;
+	background: linear-gradient(180deg, rgba(16, 24, 30, 0.25) 0%, rgba(12, 18, 24, 0.52) 100%);
+	backdrop-filter: blur(4px);
+}
+
+.chapters-shell {
+	width: 100%;
+	max-width: 1100px;
+	margin: 0 auto;
+	padding: 24px 24px 64px;
+}
+
+.chapters-topbar {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: 16px;
+	margin-bottom: 24px;
+}
+
+.ghibli-back-btn {
+	display: inline-flex;
+	align-items: center;
+	gap: 6px;
+	padding: 8px 16px;
+	border-radius: 999px;
+	background: rgba(248, 243, 230, 0.88);
+	color: #2f4034;
+	font-size: 0.88rem;
+	font-weight: 800;
+	border: 1px solid rgba(112, 126, 104, 0.35);
+	box-shadow: 0 6px 18px rgba(10, 16, 20, 0.22);
+	transition: transform 0.2s ease, background 0.2s ease;
+}
+
+.ghibli-back-btn:hover {
+	transform: translateX(-2px);
+	background: rgba(252, 248, 238, 0.98);
+}
+
+.chapters-heading {
+	text-align: right;
+}
+
+.chapters-heading h2 {
+	margin: 0;
+	font-family: var(--f-display);
+	font-size: clamp(1.35rem, 2.8vw, 2rem);
+	color: #faf3dc;
+	text-shadow: 0 2px 10px rgba(0, 0, 0, 0.45);
+}
+
+.chapters-heading p {
+	margin: 2px 0 0;
+	font-size: 0.84rem;
+	font-weight: 700;
+	color: #d6e4cc;
+	text-shadow: 0 1px 6px rgba(0, 0, 0, 0.45);
+}
+
+.chapters-grid {
+	display: grid;
+	grid-template-columns: repeat(auto-fill, minmax(210px, 1fr));
+	gap: 22px;
+}
+
+.ghibli-card {
+	position: relative;
+	width: 100%;
+	min-width: 0;
+	aspect-ratio: 3 / 3.5;
+	background-position: center;
+	background-size: contain;
+	background-repeat: no-repeat;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	text-align: center;
+	filter: drop-shadow(0 12px 22px rgba(10, 14, 18, 0.35));
+	transition: transform 0.26s ease, filter 0.26s ease;
+}
+
+.ghibli-card:hover,
+.ghibli-card:focus-visible {
+	transform: translateY(-5px) scale(1.02);
+	filter: drop-shadow(0 18px 28px rgba(10, 14, 18, 0.48));
+}
+
+.ghibli-card.is-locked {
+	opacity: 0.78;
+}
+
+.ghibli-card.is-current {
+	filter: drop-shadow(0 14px 26px rgba(240, 212, 130, 0.38));
+}
+
+.card-inner {
+	width: 100%;
+	height: 100%;
+	padding: 22% 24% 18%;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	gap: 6px;
+}
+
+.ghibli-card[data-chapter="V"] .card-inner {
+	padding: 34% 26% 20%;
+}
+
+.ghibli-card[data-chapter="IX"] .card-inner {
+	padding: 32% 28% 22%;
+}
+
+.ghibli-card[data-chapter="V"] .card-title,
+.ghibli-card[data-chapter="IX"] .card-title,
+.ghibli-card[data-chapter="XI"] .card-title {
+	font-size: 0.78rem;
+}
+
+.ghibli-card[data-chapter="XI"] .card-inner {
+	padding: 28% 26% 22%;
+}
+
+.card-num {
+	font-family: "PottaOne", var(--f-display);
+	font-size: 1.15rem;
+	font-weight: 400;
+	letter-spacing: 0.06em;
+	color: #b83b2a;
+	line-height: 1.1;
+}
+
+.card-title {
+	font-family: var(--f-display);
+	font-size: clamp(0.92rem, 1.4vw, 1.08rem);
+	font-weight: 700;
+	line-height: 1.25;
+	color: #2c2218;
+	overflow-wrap: break-word;
+	max-width: 100%;
+}
+
+.card-pages {
+	font-size: 0.76rem;
+	font-weight: 700;
+	color: #705c46;
+	margin-top: 2px;
+}
+
+.card-badge {
+	margin-top: 6px;
+	padding: 3px 10px;
+	border-radius: 999px;
+	font-size: 0.68rem;
+	font-weight: 800;
+	letter-spacing: 0.04em;
+	text-transform: uppercase;
+	background: rgba(74, 107, 72, 0.14);
+	color: #3d5e3b;
+	border: 1px solid rgba(74, 107, 72, 0.28);
+}
+
+.ghibli-card.is-locked .card-badge {
+	background: rgba(95, 86, 76, 0.14);
+	color: #5a5046;
+	border-color: rgba(95, 86, 76, 0.28);
+}
+
+@media (max-width: 820px) {
+	.chapters-shell {
+		width: 100%;
+		max-width: 100%;
+		padding: 16px 12px 48px;
+	}
+	.chapters-topbar {
+		margin-bottom: 16px;
+	}
+	.chapters-heading h2 {
+		font-size: 1.15rem;
+	}
+	.chapters-heading p {
+		font-size: 0.7rem;
+	}
+	.chapters-grid {
+		width: 100%;
+		max-width: 300px;
+		margin: 0 auto;
+		grid-template-columns: 1fr;
+		gap: 18px;
+	}
+	.card-inner {
+		padding: 20% 15% 16%;
+		gap: 3px;
+	}
+	.ghibli-card[data-chapter="V"] .card-inner {
+		padding: 34% 26% 20%;
+	}
+
+	.ghibli-card[data-chapter="IX"] .card-inner {
+		padding: 32% 28% 22%;
+	}
+
+	.ghibli-card[data-chapter="V"] .card-title,
+	.ghibli-card[data-chapter="IX"] .card-title,
+	.ghibli-card[data-chapter="XI"] .card-title {
+		font-size: 0.78rem;
+	}
+
+	.ghibli-card[data-chapter="XI"] .card-inner {
+		padding: 28% 26% 22%;
+	}
+
+	.card-num {
+		font-size: 0.68rem;
+	}
+	.card-title {
+		font-size: 0.78rem;
+	}
+	.card-pages {
+		font-size: 0.64rem;
+	}
+	.card-badge {
+		font-size: 0.56rem;
+		padding: 2px 7px;
+		margin-top: 3px;
+	}
+	.inner-shell {
+		padding: 16px 14px 48px;
+	}
+	.ghibli-parchment {
+		padding: 20px 18px;
+	}
+	.map-pin .pin-name {
+		font-size: 0.62rem;
+		padding: 2px 6px;
+	}
+	.screen-inner[data-screen="ler"] .inner-shell {
+		padding: 10px 0 0;
+	}
+	.screen-inner[data-screen="ler"] .chapters-topbar {
+		padding: 0 12px;
+		margin-bottom: 10px;
+	}
+	.screen-inner[data-screen="ler"] .reader-meta h2 {
+		font-size: 0.88rem;
+	}
+	.drawer-nav-links .ghibli-pill-btn {
+		padding: 6px 8px;
+		font-size: 0.7rem;
+	}
+	.screen-inner[data-screen="ler"] .reader-paper {
+		border-radius: 0;
+		border-left: 0;
+		border-right: 0;
+		border-bottom: 0;
+		padding: 16px 14px 36px;
+	}
+}
+
+/* =========================================================
+   TELAS INTERNAS ESTILO GHIBLI (LER, MAPA, AUTOR, APOIE)
+   ========================================================= */
+.inner-shell {
+	width: 100%;
+	max-width: 960px;
+	margin: 0 auto;
+	padding: 24px 24px 64px;
+}
+
+.narrow-shell {
+	max-width: 680px;
+}
+
+.reader-shell {
+	max-width: 760px;
+	min-height: 100dvh;
+	padding-bottom: 0;
+	display: flex;
+	flex-direction: column;
+}
+
+.reader-shell .reader-paper {
+	flex: 1;
+	border-bottom-left-radius: 0;
+	border-bottom-right-radius: 0;
+	border-bottom: 0;
+	padding-bottom: 48px;
+}
+
+.reader-topbar {
+	margin-bottom: 14px;
+}
+
+.reader-meta {
+	min-width: 0;
+	flex: 1;
+}
+
+.reader-meta h2 {
+	margin: 0;
+	font-family: var(--f-display);
+	font-size: clamp(0.95rem, 2vw, 1.3rem);
+	color: #faf3dc;
+	text-shadow: 0 2px 8px rgba(0, 0, 0, 0.45);
+}
+
+.reader-ch-roman {
+	font-family: "PottaOne", var(--f-display);
+	font-weight: 400;
+	color: #faf3dc;
+	text-shadow: 0 2px 8px rgba(0, 0, 0, 0.45);
+}
+
+.reader-meta p {
+	margin: 2px 0 0;
+	font-size: 0.78rem;
+	font-weight: 700;
+	color: #d6e4cc;
+	text-shadow: 0 1px 4px rgba(0, 0, 0, 0.45);
+}
+
+.reader-top-arrows {
+	display: flex;
+	align-items: center;
+	gap: 8px;
+	flex-shrink: 0;
+}
+
+.ghibli-arrow-btn {
+	width: 38px;
+	height: 38px;
+	border-radius: 50%;
+	display: grid;
+	place-items: center;
+	background: rgba(248, 241, 224, 0.88);
+	color: #2f4034;
+	border: 1px solid rgba(112, 126, 104, 0.38);
+	box-shadow: 0 4px 12px rgba(10, 14, 18, 0.25);
+	transition: transform 0.2s ease, background 0.2s ease;
+}
+
+.ghibli-arrow-btn:hover:not(:disabled) {
+	transform: scale(1.06);
+	background: rgba(252, 248, 238, 0.98);
+}
+
+.ghibli-arrow-btn:disabled {
+	opacity: 0.38;
+	cursor: default;
+}
+
+.page-jump-input {
+	width: 52px;
+	height: 36px;
+	border-radius: 999px;
+	border: 1px solid rgba(112, 126, 104, 0.38);
+	background: rgba(248, 241, 224, 0.9);
+	color: #2f4034;
+	font-family: var(--f-ui);
+	font-size: 0.86rem;
+	font-weight: 800;
+	text-align: center;
+	outline: none;
+	box-shadow: 0 4px 12px rgba(10, 14, 18, 0.22);
+	-moz-appearance: textfield;
+}
+
+.page-jump-input::-webkit-outer-spin-button,
+.page-jump-input::-webkit-inner-spin-button {
+	-webkit-appearance: none;
+	margin: 0;
+}
+
+.page-jump-input:focus {
+	background: #fcf8ee;
+	border-color: #476649;
+}
+
+/* Menu lateral fixado à esquerda da viewport (visível apenas em #ler) */
+.ghibli-branch-tab {
+	position: fixed;
+	left: 0;
+	top: 50%;
+	transform: translateY(-50%);
+	z-index: 45;
+	width: 56px;
+	padding: 0;
+	display: none;
+	filter: drop-shadow(3px 6px 12px rgba(0, 0, 0, 0.35));
+	transition: transform 0.25s ease;
+}
+
+body[data-screen="ler"] .ghibli-branch-tab {
+	display: block;
+}
+
+.ghibli-branch-tab img {
+	display: block;
+	width: 100%;
+	height: auto;
+	pointer-events: none;
+}
+
+.ghibli-branch-tab:hover,
+.ghibli-branch-tab:focus-visible {
+	transform: translateY(-50%) translateX(3px);
+}
+
+@media (max-width: 820px) {
+	.ghibli-branch-tab {
+		width: 40px;
+	}
+}
+
+.reader-drawer-backdrop {
+	position: fixed;
+	inset: 0;
+	z-index: 60;
+	background: rgba(12, 18, 22, 0.36);
+	backdrop-filter: blur(2px);
+	opacity: 0;
+	transition: opacity 0.26s ease;
+}
+
+.reader-drawer-backdrop.is-open {
+	opacity: 1;
+}
+
+.reader-drawer-backdrop[hidden] {
+	display: none;
+}
+
+.reader-drawer-panel {
+	position: absolute;
+	top: 0;
+	left: 0;
+	bottom: 0;
+	width: min(300px, 84vw);
+	padding: 16px 16px 20px;
+	background: #f2e3d0;
+	color: #2c241b;
+	border-right: 1px solid rgba(112, 126, 104, 0.35);
+	box-shadow: 12px 0 32px rgba(10, 14, 18, 0.32);
+	overflow-y: auto;
+	scrollbar-width: none;
+	-ms-overflow-style: none;
+	transform: translateX(-100%);
+	transition: transform 0.26s ease;
+}
+
+.reader-drawer-panel::-webkit-scrollbar {
+	display: none;
+}
+
+.reader-drawer-backdrop.is-open .reader-drawer-panel {
+	transform: translateX(0);
+}
+
+.drawer-head {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	margin-bottom: 14px;
+}
+
+.drawer-head h3 {
+	margin: 0;
+	font-family: var(--f-display);
+	font-size: 1.05rem;
+	color: #2f4034;
+}
+
+.drawer-nav-links {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	gap: 8px;
+	margin-bottom: 16px;
+}
+
+.drawer-nav-links .ghibli-pill-btn {
+	padding: 8px 10px;
+	font-size: 0.78rem;
+}
+
+.drawer-section-label {
+	margin: 0 0 8px;
+	font-size: 0.72rem;
+	font-weight: 800;
+	text-transform: uppercase;
+	letter-spacing: 0.08em;
+	color: #5e6d5b;
+}
+
+.drawer-chapters {
+	display: flex;
+	flex-direction: column;
+	gap: 6px;
+}
+
+.drawer-ch-btn {
+	width: 100%;
+	text-align: center;
+	padding: 7px 10px;
+	border-radius: 10px;
+	background: rgba(114, 136, 108, 0.08);
+	border: 1px solid rgba(92, 114, 88, 0.16);
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	gap: 1px;
+	transition: background 0.2s ease;
+}
+
+.drawer-ch-btn:hover,
+.drawer-ch-btn.is-active {
+	background: rgba(71, 102, 73, 0.18);
+	border-color: rgba(71, 102, 73, 0.4);
+}
+
+.drawer-ch-btn span {
+	font-family: "PottaOne", var(--f-display);
+	font-size: 1.22rem;
+	font-weight: 400;
+	letter-spacing: 0.04em;
+	color: #b83b2a;
+	line-height: 1.1;
+}
+
+.drawer-ch-btn strong {
+	font-family: "PottaOne", var(--f-display);
+	font-size: 0.94rem;
+	font-weight: 400;
+	line-height: 1.25;
+	color: #2c241b;
+}
+
+@media (max-width: 820px) {
+	.reader-drawer-panel {
+		width: 100%;
+		max-width: 100%;
+		border-right: 0;
+	}
+}
+
+.ghibli-parchment {
+	background: rgba(248, 241, 224, 0.94);
+	color: #2c241b;
+	border: 1px solid rgba(118, 102, 78, 0.34);
+	border-radius: 18px;
+	padding: 28px 32px;
+	box-shadow: 0 18px 40px rgba(10, 14, 18, 0.34);
+}
+
+.ghibli-pill-btn {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	gap: 6px;
+	padding: 10px 20px;
+	border-radius: 999px;
+	background: #476649;
+	color: #faf6e8;
+	font-size: 0.88rem;
+	font-weight: 800;
+	border: 1px solid rgba(36, 54, 38, 0.3);
+	box-shadow: 0 4px 12px rgba(24, 36, 26, 0.22);
+	transition: transform 0.2s ease, background 0.2s ease;
+}
+
+.ghibli-pill-btn:hover:not(:disabled) {
+	transform: translateY(-1px);
+	background: #3a563c;
+}
+
+.ghibli-pill-btn:disabled {
+	opacity: 0.4;
+	cursor: default;
+}
+
+.ghibli-pill-btn.is-secondary {
+	background: rgba(108, 126, 104, 0.16);
+	color: #2f4435;
+	border-color: rgba(90, 114, 92, 0.32);
+	box-shadow: none;
+}
+
+.ghibli-pill-btn.is-secondary:hover {
+	background: rgba(108, 126, 104, 0.26);
+}
+
+/* Leitor */
+.reader-paper {
+	min-height: 360px;
+	display: flex;
+	flex-direction: column;
+	gap: 16px;
+}
+
+.reader-cover,
+.reader-demo-note {
+	text-align: center;
+	padding: 28px 12px;
+}
+
+.cover-kicker {
+	font-size: 0.78rem;
+	font-weight: 800;
+	letter-spacing: 0.14em;
+	text-transform: uppercase;
+	color: #6b5842;
+}
+
+.reader-cover h3,
+.reader-demo-note h3,
+.prose-card h3,
+.map-lore-box h3 {
+	margin: 6px 0 10px;
+	font-family: var(--f-display);
+	font-size: 1.45rem;
+	color: #2c2218;
+}
+
+.reader-p {
+	margin: 0;
+	font-size: 1.04rem;
+	line-height: 1.72;
+	color: #2f261d;
+}
+
+.reader-fig {
+	margin: 6px 0;
+	border-radius: 10px;
+	overflow: hidden;
+	border: none;
+}
+
+.reader-fig img {
+	display: block;
+	width: 100%;
+	height: auto;
+}
+
+.reader-pager {
+	margin-top: 18px;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: 12px;
+}
+
+.pager-status {
+	font-size: 0.86rem;
+	font-weight: 800;
+	color: #f4f1e6;
+	text-shadow: 0 1px 6px rgba(0, 0, 0, 0.45);
+}
+
+/* Mapa do Mundo */
+.map-frame {
+	position: relative;
+	width: 100%;
+	border-radius: 18px;
+	overflow: hidden;
+	border: 2px solid rgba(244, 236, 214, 0.5);
+	box-shadow: 0 18px 42px rgba(8, 12, 18, 0.42);
+}
+
+.world-map-img {
+	display: block;
+	width: 100%;
+	height: auto;
+}
+
+.map-pin {
+	position: absolute;
+	transform: translate(-50%, -50%);
+	display: inline-flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 4px;
+}
+
+.pin-dot {
+	width: 16px;
+	height: 16px;
+	border-radius: 50%;
+	background: #f4e6ba;
+	border: 3px solid #3f5c41;
+	box-shadow: 0 2px 8px rgba(0, 0, 0, 0.45);
+	transition: transform 0.2s ease, background 0.2s ease;
+}
+
+.map-pin.active .pin-dot,
+.map-pin:hover .pin-dot {
+	transform: scale(1.25);
+	background: #ffb84d;
+	border-color: #6b2c12;
+}
+
+.pin-name {
+	padding: 3px 9px;
+	border-radius: 999px;
+	background: rgba(248, 241, 224, 0.92);
+	color: #2d261d;
+	font-size: 0.72rem;
+	font-weight: 800;
+	white-space: nowrap;
+	box-shadow: 0 3px 10px rgba(0, 0, 0, 0.25);
+}
+
+.map-lore-box {
+	margin-top: 16px;
+	padding: 18px 22px;
+}
+
+.map-lore-box h3 {
+	font-size: 1.15rem;
+	margin: 0 0 6px;
+}
+
+.map-lore-box p {
+	margin: 0;
+	font-size: 0.94rem;
+	line-height: 1.55;
+	color: #42362a;
+}
+
+/* Autor & Apoie */
+.prose-card p {
+	margin: 0 0 14px;
+	font-size: 0.98rem;
+	line-height: 1.68;
+	color: #3a3025;
+}
+
+.prose-actions {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 10px;
+	margin-top: 18px;
+}
+
+.support-box {
+	margin-top: 16px;
+	padding: 14px 16px;
+	border-radius: 14px;
+	background: rgba(114, 136, 108, 0.14);
+	border: 1px solid rgba(92, 114, 88, 0.28);
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	justify-content: space-between;
+	gap: 10px;
+}
+
+.support-label {
+	font-size: 0.78rem;
+	font-weight: 800;
+	text-transform: uppercase;
+	letter-spacing: 0.05em;
+	color: #4d624c;
+}
+
+.support-pix {
+	display: block;
+	font-family: ui-monospace, SFMono-Regular, monospace;
+	font-size: 0.92rem;
+	font-weight: 700;
+	color: #2c241b;
+	margin: 2px 0;
+}
+
+.support-owner {
+	display: block;
+	font-size: 0.76rem;
+	color: #5c5042;
+}
+
+/* Elementos interativos divertidos de Autor & Apoie */
+.author-hero {
+	display: flex;
+	align-items: center;
+	gap: 16px;
+	margin-bottom: 16px;
+}
+
+.author-avatar {
+	width: 72px;
+	height: 72px;
+	border-radius: 50%;
+	object-fit: cover;
+	border: 3px solid #6b8568;
+	box-shadow: 0 6px 14px rgba(32, 46, 32, 0.2);
+}
+
+.author-hero h3 {
+	margin: 0 0 2px;
+}
+
+.author-role {
+	font-size: 0.8rem;
+	font-weight: 800;
+	color: #537052;
+	text-transform: uppercase;
+	letter-spacing: 0.05em;
+}
+
+.fun-oracle-box,
+.offering-fun-box {
+	margin: 16px 0;
+	padding: 14px 16px;
+	border-radius: 14px;
+	background: rgba(110, 138, 106, 0.12);
+	border: 1px dashed rgba(82, 110, 80, 0.35);
+}
+
+.oracle-quote {
+	margin: 0 0 10px !important;
+	font-style: italic;
+	color: #2e3b2e !important;
+}
+
+.offering-fun-box {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	justify-content: space-between;
+	gap: 12px;
+}
+
+.offering-status {
+	display: flex;
+	align-items: center;
+	gap: 10px;
+}
+
+.offering-flame {
+	font-size: 1.55rem;
+	line-height: 1;
+}
+
+.offering-status strong {
+	display: block;
+	font-size: 0.94rem;
+	color: #2c241b;
+}
+
+.offering-status small {
+	display: block;
+	font-size: 0.78rem;
+	color: #546652;
+}
+
+/* =========================================================
+   TELAS ORGÂNICAS: AUTOR (GUIRLANDA DO GOLEM + ESPÍRITO)
+   E APOIE (FOGUEIRA SAGRADA + OFERENDA PIX)
+   ========================================================= */
+.organic-stage {
+	position: relative;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	margin-top: 8px;
+}
+
+.organic-scroll-sheet {
+	position: relative;
+	width: 100%;
+	border-radius: 34px 26px 38px 28px / 24px 34px 26px 36px;
+	background: radial-gradient(circle at 18% 12%, rgba(255, 252, 240, 0.94), transparent 55%),
+		radial-gradient(circle at 85% 88%, rgba(232, 217, 184, 0.42), transparent 52%),
+		linear-gradient(172deg, rgba(251, 246, 232, 0.96), rgba(242, 233, 210, 0.96));
+	border: 2px solid rgba(118, 102, 76, 0.34);
+	box-shadow: 0 22px 46px rgba(10, 18, 22, 0.34), inset 0 0 0 5px rgba(255, 250, 238, 0.45), inset 0
+		-14px 28px rgba(140, 114, 78, 0.14);
+}
+
+.organic-sheet-head {
+	text-align: center;
+	margin-bottom: 18px;
+}
+
+.organic-sheet-head h3 {
+	margin: 0 0 6px;
+	font-family: "PottaOne", var(--f-display);
+	font-weight: 400;
+	font-size: clamp(1.35rem, 3vw, 1.75rem);
+	color: #2c2218;
+	letter-spacing: 0.02em;
+}
+
+.organic-sheet-head .author-role {
+	display: inline-block;
+	padding: 4px 12px;
+	border-radius: 999px;
+	background: rgba(94, 128, 92, 0.16);
+	border: 1px solid rgba(82, 114, 80, 0.28);
+	color: #3f5d40;
+	font-size: 0.74rem;
+}
+
+.organic-prose p:first-child::first-letter {
+	float: left;
+	font-family: "PottaOne", var(--f-display);
+	font-size: 2.6rem;
+	line-height: 0.86;
+	padding: 4px 8px 0 0;
+	color: #b83b2a;
+}
+
+.organic-branch-divider {
+	display: block;
+	width: min(340px, 86%);
+	height: auto;
+	margin: 18px auto 16px;
+	filter: drop-shadow(0 4px 8px rgba(34, 28, 18, 0.16));
+	pointer-events: none;
+}
+
+.organic-actions {
+	justify-content: center;
+	margin-top: 22px;
+}
+
+/* --- AUTOR: Guirlanda de Madeira do Golem no topo --- */
+.author-wreath-crest {
+	position: relative;
+	z-index: 4;
+	width: 174px;
+	height: 174px;
+	margin-bottom: -76px;
+	display: grid;
+	place-items: center;
+	filter: drop-shadow(0 12px 20px rgba(12, 20, 16, 0.34));
+	animation: organicFloat 5.2s ease-in-out infinite;
+}
+
+.author-crest-photo {
+	width: 65%;
+	height: 65%;
+	border-radius: 50%;
+	object-fit: cover;
+	background: radial-gradient(circle at 50% 35%, #faf2dd 0%, #e4d4b0 100%);
+	position: relative;
+	z-index: 1;
+}
+
+.author-crest-wreath {
+	position: absolute;
+	inset: 0;
+	width: 100%;
+	height: 100%;
+	object-fit: contain;
+	z-index: 2;
+	pointer-events: none;
+}
+
+.author-sheet {
+	padding-top: 90px;
+}
+
+/* --- AUTOR: Espírito Oráculo com Pergaminho --- */
+.organic-oracle-stage {
+	display: flex;
+	align-items: center;
+	gap: 16px;
+	margin: 8px 0 6px;
+}
+
+.oracle-spirit-btn {
+	flex: 0 0 auto;
+	width: 108px;
+	padding: 0;
+	background: none;
+	border: 0;
+	cursor: pointer;
+	transition: transform 0.22s ease;
+}
+
+.oracle-spirit-btn:hover {
+	transform: translateY(-4px) scale(1.04);
+}
+
+.oracle-spirit-img {
+	display: block;
+	width: 100%;
+	height: auto;
+	filter: drop-shadow(0 8px 14px rgba(24, 34, 22, 0.24));
+	animation: organicFloat 4.2s ease-in-out infinite;
+}
+
+.oracle-spirit-img.is-hopping {
+	animation: spiritHop 0.55s cubic-bezier(0.22, 1.35, 0.36, 1);
+}
+
+.oracle-bubble {
+	flex: 1;
+	min-width: 0;
+	position: relative;
+	padding: 14px 18px;
+	border-radius: 22px 18px 24px 16px / 18px 24px 16px 22px;
+	background: rgba(110, 142, 102, 0.13);
+	border: 1.5px solid rgba(86, 118, 82, 0.3);
+	box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.55);
+}
+
+.oracle-tag {
+	display: inline-block;
+	font-size: 0.68rem;
+	font-weight: 800;
+	text-transform: uppercase;
+	letter-spacing: 0.08em;
+	color: #537052;
+	margin-bottom: 4px;
+}
+
+/* --- APOIE: Fogueira Sagrada + Pena de Mangá --- */
+.support-hearth-crest {
+	position: relative;
+	z-index: 4;
+	width: min(330px, 86%);
+	margin-bottom: -58px;
+	padding: 0;
+	background: none;
+	border: 0;
+	cursor: pointer;
+	display: grid;
+	place-items: center;
+	transition: transform 0.22s ease;
+}
+
+.support-hearth-crest:hover {
+	transform: translateY(-3px) scale(1.02);
+}
+
+.hearth-glow {
+	position: absolute;
+	width: 66%;
+	height: 66%;
+	border-radius: 50%;
+	background: radial-gradient(
+		circle,
+		rgba(255, 176, 68, 0.45) 0%,
+		rgba(235, 114, 36, 0.16) 52%,
+		transparent 74%
+	);
+	filter: blur(12px);
+	pointer-events: none;
+	animation: hearthPulse 3.4s ease-in-out infinite;
+}
+
+.support-hearth-img {
+	position: relative;
+	z-index: 2;
+	display: block;
+	width: 100%;
+	height: auto;
+	filter: drop-shadow(0 12px 22px rgba(14, 16, 18, 0.34));
+}
+
+.support-hearth-crest.is-stoked .support-hearth-img {
+	animation: hearthStoke 0.55s ease-out;
+}
+
+.support-hearth-crest.is-stoked .hearth-glow {
+	background: radial-gradient(
+		circle,
+		rgba(255, 206, 98, 0.72) 0%,
+		rgba(242, 120, 32, 0.28) 54%,
+		transparent 76%
+	);
+}
+
+.hearth-embers {
+	position: absolute;
+	inset: 0;
+	z-index: 3;
+	pointer-events: none;
+}
+
+.hearth-embers i {
+	position: absolute;
+	left: 44%;
+	top: 38%;
+	width: 6px;
+	height: 6px;
+	border-radius: 50%;
+	background: #ffd36a;
+	box-shadow: 0 0 8px #ff922e;
+	opacity: 0;
+	animation: emberRise 3.2s ease-out infinite;
+}
+
+.hearth-embers i:nth-child(2) {
+	left: 48%;
+	animation-delay: 0.7s;
+	animation-duration: 2.8s;
+	width: 5px;
+	height: 5px;
+}
+.hearth-embers i:nth-child(3) {
+	left: 41%;
+	animation-delay: 1.4s;
+	animation-duration: 3.5s;
+	width: 4px;
+	height: 4px;
+}
+.hearth-embers i:nth-child(4) {
+	left: 50%;
+	animation-delay: 2.1s;
+	animation-duration: 3.0s;
+}
+.hearth-embers i:nth-child(5) {
+	left: 46%;
+	animation-delay: 2.6s;
+	animation-duration: 2.6s;
+	width: 4px;
+	height: 4px;
+}
+
+.support-sheet {
+	padding-top: 66px;
+}
+
+.organic-offering-box {
+	border-radius: 22px 18px 24px 16px / 18px 24px 16px 22px;
+	background: linear-gradient(135deg, rgba(226, 128, 56, 0.14), rgba(114, 140, 102, 0.12));
+	border: 1.5px solid rgba(188, 102, 46, 0.34);
+}
+
+.ghibli-pill-btn.is-ember {
+	background: linear-gradient(135deg, #c64b2b, #d87a2e);
+	color: #fffaf0;
+	border-color: rgba(140, 44, 20, 0.45);
+	box-shadow: 0 6px 14px rgba(180, 68, 28, 0.28);
+}
+
+.ghibli-pill-btn.is-ember:hover {
+	filter: brightness(1.06);
+	transform: translateY(-1px);
+}
+
+.organic-pix-plaque {
+	border-radius: 22px 16px 24px 18px / 16px 24px 18px 22px;
+	background: radial-gradient(circle at 90% 20%, rgba(255, 250, 236, 0.6), transparent 60%),
+		rgba(110, 134, 104, 0.14);
+	border: 1.5px solid rgba(86, 114, 82, 0.34);
+	box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.5);
+}
+
+@keyframes organicFloat {
+	0%,
+	100% {
+		transform: translateY(0);
+	}
+	50% {
+		transform: translateY(-5px);
+	}
+}
+
+@keyframes spiritHop {
+	0% {
+		transform: translateY(0) rotate(0deg);
+	}
+	35% {
+		transform: translateY(-14px) rotate(-6deg) scale(1.06);
+	}
+	65% {
+		transform: translateY(-4px) rotate(4deg);
+	}
+	100% {
+		transform: translateY(0) rotate(0deg);
+	}
+}
+
+@keyframes hearthPulse {
+	0%,
+	100% {
+		transform: scale(0.96);
+		opacity: 0.72;
+	}
+	50% {
+		transform: scale(1.06);
+		opacity: 1;
+	}
+}
+
+@keyframes hearthStoke {
+	0% {
+		transform: scale(1);
+		filter: drop-shadow(0 12px 22px rgba(14, 16, 18, 0.34));
+	}
+	40% {
+		transform: scale(1.06);
+		filter: drop-shadow(0 8px 28px rgba(255, 146, 46, 0.72));
+	}
+	100% {
+		transform: scale(1);
+		filter: drop-shadow(0 12px 22px rgba(14, 16, 18, 0.34));
+	}
+}
+
+@keyframes emberRise {
+	0% {
+		transform: translate(0, 0) scale(0.6);
+		opacity: 0;
+	}
+	20% {
+		opacity: 0.95;
+	}
+	100% {
+		transform: translate(14px, -68px) scale(0.2);
+		opacity: 0;
+	}
+}
+
+@media (max-width: 640px) {
+	.author-wreath-crest {
+		width: 146px;
+		height: 146px;
+		margin-bottom: -62px;
+	}
+	.author-sheet {
+		padding-top: 74px;
+	}
+	.organic-oracle-stage {
+		flex-direction: column;
+		text-align: center;
+		gap: 10px;
+	}
+	.oracle-spirit-btn {
+		width: 92px;
+	}
+	.support-hearth-crest {
+		width: min(275px, 88%);
+		margin-bottom: -46px;
+	}
+	.support-sheet {
+		padding-top: 54px;
+	}
+	.organic-offering-box,
+	.organic-pix-plaque {
+		justify-content: center;
+		text-align: center;
+	}
+}
+
+/* =========================================================
+   NEXT.JS OFFICIAL BRIDGE: FONTES + CONTEÚDO REAL DO LIVRO
+   ========================================================= */
+:root {
+	--f-display: var(--font-cinzel-decorative), "Cinzel Decorative", Georgia, serif;
+	--f-ui: var(--font-nunito), "Nunito", system-ui, -apple-system, sans-serif;
+}
+
+.reader-book-content {
+	width: 100%;
+	text-align: center;
+}
+
+.reader-book-cover {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	text-align: center;
+	padding: 18px 8px 24px;
+	gap: 18px;
+}
+
+.reader-book-cover-img {
+	display: block;
+	width: min(460px, 86%);
+	height: auto;
+	border-radius: 14px;
+	box-shadow: 0 12px 26px rgba(24, 18, 12, 0.2);
+}
+
+.reader-book-cover-titles {
+	display: flex;
+	flex-direction: column;
+	gap: 6px;
+	margin-top: 8px;
+}
+
+.reader-book-cover-titles h1 {
+	margin: 0;
+	font-family: var(--f-display);
+	font-size: clamp(1.35rem, 3.2vw, 2rem);
+	font-weight: 700;
+	color: #2b2117;
+	letter-spacing: 0.04em;
+}
+
+.reader-book-paragraph {
+	margin: 0 0 14px;
+	font-family: "Garamond", Georgia, "Times New Roman", serif;
+	font-size: clamp(1.06rem, 1.8vw, 1.24rem);
+	line-height: 1.78;
+	text-align: justify;
+	text-indent: 28px;
+	color: #2a2118;
+	user-select: text;
+}
+
+.reader-book-divider {
+	display: block;
+	width: min(260px, 60%);
+	height: auto;
+	margin: 24px auto;
+	opacity: 0.85;
+}
+
+.reader-book-illustration {
+	display: block;
+	width: min(560px, 96%);
+	height: auto;
+	margin: 18px auto 22px;
+	border-radius: 12px;
+	box-shadow: 0 10px 24px rgba(26, 20, 14, 0.16);
+}
+
+.reader-book-spacer {
+	display: block;
+}
+
+.reader-book-spacer br {
+	display: block;
+	content: "";
+	margin-top: 10px;
+}
+
+.ghibli-card-link {
+	text-decoration: none;
+	color: inherit;
+}
+
+dialog.reader-drawer-panel,
+dialog.sky-modal-card {
+	margin: 0;
+	position: relative;
+	color: inherit;
+}

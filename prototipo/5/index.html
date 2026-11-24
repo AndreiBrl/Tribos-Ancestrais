@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Tribos Ancestrais — Protótipo 5 (Estilo Ghibli)</title>
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700;900&family=Nunito:wght@500;700;800&display=swap"
+			rel="stylesheet"
+		/>
+		<link rel="stylesheet" href="./styles.css" />
+	</head>
+	<body>
+		<!-- CÉU DINÂMICO CONTÍNUO ESTILO GHIBLI -->
+		<div class="sky-backdrop" id="sky-backdrop" aria-hidden="true">
+			<svg class="sky-passage-lines" viewBox="0 0 1440 900" preserveAspectRatio="none" fill="none" xmlns="http://www.w3.org/2000/svg">
+				<path d="M-40 190 Q 380 120 760 220 T 1490 150" stroke="rgba(255,255,255,0.16)" stroke-width="1" stroke-dasharray="6 10" />
+				<path d="M-60 340 Q 420 260 880 350 T 1500 280" stroke="rgba(255,255,255,0.11)" stroke-width="1" />
+				<path d="M120 60 Q 560 150 980 75 T 1480 120" stroke="rgba(255,255,255,0.12)" stroke-width="0.9" stroke-dasharray="3 8" />
+				<path d="M-20 510 Q 520 440 1020 520 T 1490 460" stroke="rgba(255,255,255,0.09)" stroke-width="1" />
+			</svg>
+			<div class="stars-field" id="stars-field"></div>
+			<img class="celestial-img sun-body" id="sun-body" src="./assets/sun.png" alt="" />
+			<img class="celestial-img moon-body" id="moon-body" src="./assets/moon.png" alt="" />
+			<div class="clouds-layer clouds-back" id="clouds-back" data-parallax="0.014"></div>
+			<div class="abyss-mist"></div>
+		</div>
+
+		<!-- TOPO ESQUERDO: Título + Botão de Configuração -->
+		<header class="top-left-bar">
+			<button
+				type="button"
+				class="cfg-btn"
+				id="cfg-open-btn"
+				aria-label="Configurar hora do dia"
+				aria-expanded="false"
+				aria-controls="sky-modal"
+				title="Hora do dia"
+			>
+				<svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+					<circle cx="12" cy="12" r="3.2" />
+					<path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 1 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 1 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 1 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9c.26.6.79 1.02 1.51 1H21a2 2 0 1 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z" />
+				</svg>
+			</button>
+
+			<div class="ghibli-brand">
+				<h1>
+					<span class="brand-top">TRIBOS</span>
+					<span class="brand-bottom">ANCESTRAIS</span>
+				</h1>
+			</div>
+		</header>
+
+		<!-- MODAL GENTIL DO CICLO DO CÉU (COMPACTO NO CANTO) -->
+		<div class="sky-modal-backdrop" id="sky-modal" hidden>
+			<div class="sky-modal-card" role="dialog" aria-modal="true" aria-labelledby="sky-modal-title">
+				<div class="sky-modal-head">
+					<h2 id="sky-modal-title">Ciclo do Sol</h2>
+					<button type="button" class="sky-modal-close" id="cfg-close-btn" aria-label="Fechar">✕</button>
+				</div>
+
+				<label class="sky-slider-wrap" for="sky-hour-slider">
+					<span class="sr-only">Ajustar hora do dia</span>
+					<input
+						type="range"
+						id="sky-hour-slider"
+						class="sky-slider"
+						min="0"
+						max="1439"
+						step="1"
+						value="540"
+					/>
+				</label>
+
+				<button type="button" class="sky-auto-btn" id="sky-auto-btn">
+					Hora real
+				</button>
+			</div>
+		</div>
+
+		<!-- PALCO PRINCIPAL: TELA INICIAL (ILHA FLUTUANTE ESTILO GHIBLI) -->
+		<section class="screen screen-home active" data-screen="inicio">
+			<main class="home-stage-wrap" data-parallax="0.02">
+			<div class="island-stage" id="island-stage">
+				<img
+					class="island-img"
+					src="./assets/floating-island.png"
+					alt="Ilha flutuante musgosa com caverna de pedra tribal, fogueira central, golem ancestral de madeira com barba de folhas e árvore"
+				/>
+
+				<!-- Fogueira central em SVG detalhado + fumaça sutil -->
+				<div class="fire-fx-overlay" id="fire-fx" aria-hidden="true">
+					<div class="fire-core-glow"></div>
+					<div class="fire-smoke">
+						<span class="smoke-wisp s1"></span>
+						<span class="smoke-wisp s2"></span>
+						<span class="smoke-wisp s3"></span>
+					</div>
+					<svg class="svg-flame svg-flame-camp" viewBox="0 0 120 130" fill="none" xmlns="http://www.w3.org/2000/svg">
+						<defs>
+							<linearGradient id="campOuter" x1="60" y1="12" x2="60" y2="124" gradientUnits="userSpaceOnUse">
+								<stop offset="0%" stop-color="#ff6a1a" />
+								<stop offset="55%" stop-color="#f28424" />
+								<stop offset="100%" stop-color="#cc3b0c" />
+							</linearGradient>
+							<linearGradient id="campMid" x1="60" y1="30" x2="60" y2="122" gradientUnits="userSpaceOnUse">
+								<stop offset="0%" stop-color="#ffd04d" />
+								<stop offset="100%" stop-color="#ff7e1c" />
+							</linearGradient>
+							<linearGradient id="campCore" x1="60" y1="62" x2="60" y2="120" gradientUnits="userSpaceOnUse">
+								<stop offset="0%" stop-color="#fff8c8" />
+								<stop offset="100%" stop-color="#ffcf52" />
+							</linearGradient>
+						</defs>
+						<!-- Línguas externas de fogo -->
+						<path class="flame-tongue t-outer" d="M60 12 C69 34 86 48 87 74 C93 64 100 58 98 48 C108 66 105 94 90 109 C80 120 68 123 60 123 C50 123 36 119 27 107 C14 91 13 65 24 46 C23 58 29 64 34 72 C35 46 51 34 60 12 Z" fill="url(#campOuter)" stroke="#7a2a0d" stroke-width="2" stroke-linejoin="round" />
+						<!-- Camada média âmbar -->
+						<path class="flame-tongue t-mid" d="M60 32 C66 50 78 60 77 82 C83 75 86 70 86 64 C91 78 88 99 77 110 C70 117 65 119 60 119 C53 119 45 115 39 107 C31 96 30 78 36 63 C37 70 40 75 44 80 C44 60 54 49 60 32 Z" fill="url(#campMid)" />
+						<!-- Núcleo luminoso -->
+						<path class="flame-tongue t-core" d="M60 64 C66 76 72 86 70 100 C69 110 65 115 60 115 C54 115 49 109 48 99 C47 86 53 76 60 64 Z" fill="url(#campCore)" />
+						<!-- Fagulhas sutis -->
+						<circle class="ember e1" cx="42" cy="30" r="2.2" fill="#ffd966" />
+						<circle class="ember e2" cx="78" cy="24" r="1.8" fill="#ffb84d" />
+						<circle class="ember e3" cx="62" cy="6" r="1.6" fill="#ffe699" />
+					</svg>
+				</div>
+
+				<!-- 3 Tochas da ilha em SVG detalhado (apagadas de dia, acesas à noite/crepúsculo) -->
+				<div class="torch-fx torch-1" aria-hidden="true">
+					<div class="torch-glow"></div>
+					<svg class="svg-flame svg-flame-torch" viewBox="0 0 60 90" fill="none" xmlns="http://www.w3.org/2000/svg">
+						<path class="flame-tongue t-outer" d="M30 8 C37 26 48 38 46 58 C44 74 37 82 30 82 C22 82 14 73 13 57 C12 38 23 26 30 8 Z" fill="#f57a20" stroke="#78280c" stroke-width="1.8" stroke-linejoin="round" />
+						<path class="flame-tongue t-mid" d="M30 24 C35 37 41 47 40 61 C39 72 35 78 30 78 C24 78 20 71 19 60 C19 46 25 37 30 24 Z" fill="#ffbf3f" />
+						<path class="flame-tongue t-core" d="M30 46 C33 55 35 61 34 69 C34 74 32 76 30 76 C27 76 26 73 25 68 C25 61 27 54 30 46 Z" fill="#fff5be" />
+					</svg>
+				</div>
+				<div class="torch-fx torch-2" aria-hidden="true">
+					<div class="torch-glow"></div>
+					<svg class="svg-flame svg-flame-torch" viewBox="0 0 60 90" fill="none" xmlns="http://www.w3.org/2000/svg">
+						<path class="flame-tongue t-outer" d="M30 8 C37 26 48 38 46 58 C44 74 37 82 30 82 C22 82 14 73 13 57 C12 38 23 26 30 8 Z" fill="#f57a20" stroke="#78280c" stroke-width="1.8" stroke-linejoin="round" />
+						<path class="flame-tongue t-mid" d="M30 24 C35 37 41 47 40 61 C39 72 35 78 30 78 C24 78 20 71 19 60 C19 46 25 37 30 24 Z" fill="#ffbf3f" />
+						<path class="flame-tongue t-core" d="M30 46 C33 55 35 61 34 69 C34 74 32 76 30 76 C27 76 26 73 25 68 C25 61 27 54 30 46 Z" fill="#fff5be" />
+					</svg>
+				</div>
+				<div class="torch-fx torch-3" aria-hidden="true">
+					<div class="torch-glow"></div>
+					<svg class="svg-flame svg-flame-torch" viewBox="0 0 60 90" fill="none" xmlns="http://www.w3.org/2000/svg">
+						<path class="flame-tongue t-outer" d="M30 8 C37 26 48 38 46 58 C44 74 37 82 30 82 C22 82 14 73 13 57 C12 38 23 26 30 8 Z" fill="#f57a20" stroke="#78280c" stroke-width="1.8" stroke-linejoin="round" />
+						<path class="flame-tongue t-mid" d="M30 24 C35 37 41 47 40 61 C39 72 35 78 30 78 C24 78 20 71 19 60 C19 46 25 37 30 24 Z" fill="#ffbf3f" />
+						<path class="flame-tongue t-core" d="M30 46 C33 55 35 61 34 69 C34 74 32 76 30 76 C27 76 26 73 25 68 C25 61 27 54 30 46 Z" fill="#fff5be" />
+					</svg>
+				</div>
+
+				<!-- 1. ESFERA DE MAGIA LEVITANDO NA MÃO DO GOLEM (-> Ler) -->
+				<button
+					type="button"
+					class="island-hotspot orb-hotspot"
+					data-action="continue-or-start"
+					aria-label="Esfera Mágica — Ler"
+				>
+					<span class="orb-aura" aria-hidden="true"></span>
+					<span class="orb-sphere" aria-hidden="true">
+						<img class="orb-img" src="./assets/magic-orb.png" alt="" />
+					</span>
+					<span class="stone-tag">
+						<strong>Ler</strong>
+					</span>
+				</button>
+
+				<!-- 2. GOLEM ANCESTRAL DE MADEIRA (-> Autor) -->
+				<button
+					type="button"
+					class="island-hotspot golem-hotspot"
+					data-go="autor"
+					aria-label="Golem Ancestral — Autor"
+				>
+					<span class="stone-tag">
+						<strong>Autor</strong>
+					</span>
+				</button>
+
+				<!-- 3. COGUMELO SENTADO NO CHÃO COM PLACA ACIMA DA CABEÇA (-> Capítulos) -->
+				<button
+					type="button"
+					class="island-hotspot mushroom-hotspot"
+					id="mushroom-hotspot"
+					data-go="capitulos"
+					aria-label="Espírito Cogumelo — Capítulos"
+				>
+					<img class="mushroom-img" src="./assets/mini-mushroom.png" alt="" />
+					<span class="mushroom-chapter-num" id="mushroom-chapter-num">1</span>
+					<span class="stone-tag">
+						<strong>Capítulos</strong>
+					</span>
+				</button>
+
+				<!-- 4. CAVERNA DE PEDRA TRIBAL (-> Mapa) -->
+				<button
+					type="button"
+					class="island-hotspot cave-hotspot"
+					data-go="mapa"
+					aria-label="Caverna Tribal — Mapa"
+				>
+					<span class="stone-tag">
+						<strong>Mapa</strong>
+					</span>
+				</button>
+
+				<!-- 5. ARMAS APOIADAS (-> Apoie) -->
+				<button
+					type="button"
+					class="island-hotspot weapons-hotspot"
+					data-go="apoie"
+					aria-label="Armas Tribais — Apoie"
+				>
+					<span class="stone-tag">
+						<strong>Apoie</strong>
+					</span>
+				</button>
+			</div>
+		</main>
+		</section>
+
+		<!-- =========================================================
+		     TELA 2: CAPÍTULOS (Ghibli Minimalista + Cards Temáticos)
+		     ========================================================= -->
+		<section class="screen screen-chapters" data-screen="capitulos">
+			<div class="chapters-shell">
+				<header class="chapters-topbar">
+					<button type="button" class="ghibli-back-btn" data-go="inicio" aria-label="Voltar para a ilha">
+						<svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+							<path d="M15 18l-6-6 6-6" />
+						</svg>
+						<span>Ilha</span>
+					</button>
+
+					<div class="chapters-heading">
+						<h2>Capítulos</h2>
+					</div>
+				</header>
+
+				<div class="chapters-grid" id="chapters-grid"></div>
+			</div>
+		</section>
+
+		<!-- Menu lateral fixado à viewport esquerda (apenas na tela #ler) -->
+		<button
+			type="button"
+			class="ghibli-branch-tab"
+			id="branch-menu-btn"
+			aria-label="Abrir menu de navegação"
+			aria-expanded="false"
+			aria-controls="reader-drawer"
+		>
+			<img src="./assets/menu-tab.png" alt="" />
+		</button>
+
+		<!-- Gaveta do menu do leitor -->
+		<div class="reader-drawer-backdrop" id="reader-drawer" hidden>
+			<aside class="reader-drawer-panel" role="dialog" aria-modal="true" aria-label="Menu do Leitor">
+				<div class="drawer-head">
+					<h3>Diário da Tribo</h3>
+					<button type="button" class="sky-modal-close" id="drawer-close-btn" aria-label="Fechar menu">✕</button>
+				</div>
+
+				<div class="drawer-nav-links">
+					<button type="button" class="ghibli-pill-btn" data-go="inicio">Início</button>
+					<button type="button" class="ghibli-pill-btn is-secondary" data-go="mapa">Mapa</button>
+				</div>
+
+				<p class="drawer-section-label">Capítulos</p>
+				<div class="drawer-chapters" id="drawer-chapters"></div>
+			</aside>
+		</div>
+
+		<!-- =========================================================
+		     TELA 3: LEITOR DA HISTÓRIA (#ler)
+		     ========================================================= -->
+		<section class="screen screen-inner" data-screen="ler">
+
+			<div class="inner-shell reader-shell">
+				<header class="chapters-topbar reader-topbar">
+					<div class="reader-meta">
+						<h2 id="reader-ch-title">Cap. I — O Eco do Irmão Perdido</h2>
+						<p id="reader-page-meta">Página 0 de 93</p>
+					</div>
+
+					<div class="reader-top-arrows">
+						<button type="button" class="ghibli-arrow-btn" id="btn-prev-page" data-turn="-1" aria-label="Página anterior">
+							<svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+								<path d="M15 18l-6-6 6-6" />
+							</svg>
+						</button>
+						<input
+							type="number"
+							id="page-jump-input"
+							class="page-jump-input"
+							min="0"
+							max="93"
+							inputmode="numeric"
+							aria-label="Ir para página"
+							title="Ir para página"
+						/>
+						<button type="button" class="ghibli-arrow-btn" id="btn-next-page" data-turn="1" aria-label="Próxima página">
+							<svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+								<path d="M9 18l6-6-6-6" />
+							</svg>
+						</button>
+					</div>
+				</header>
+
+				<article class="ghibli-parchment reader-paper" id="reader-paper"></article>
+			</div>
+		</section>
+
+		<!-- =========================================================
+		     TELA 4: MAPA DO MUNDO (#mapa — Mapa Original)
+		     ========================================================= -->
+		<section class="screen screen-inner" data-screen="mapa">
+			<div class="inner-shell">
+				<header class="chapters-topbar">
+					<button type="button" class="ghibli-back-btn" data-go="inicio" aria-label="Voltar para a ilha">
+						<svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+							<path d="M15 18l-6-6 6-6" />
+						</svg>
+						<span>Ilha</span>
+					</button>
+					<div class="chapters-heading">
+						<h2>Mapa do Mundo</h2>
+						<p>Terras de Tribos Ancestrais</p>
+					</div>
+				</header>
+
+				<div class="map-frame">
+					<img class="world-map-img" src="../../public/img/mapOri.jpg" alt="Mapa original de Tribos Ancestrais" />
+				</div>
+			</div>
+		</section>
+
+		<!-- =========================================================
+		     TELA 5: SOBRE O AUTOR (#autor — Caderno Orgânico do Golem)
+		     ========================================================= -->
+		<section class="screen screen-inner" data-screen="autor">
+			<div class="inner-shell narrow-shell">
+				<header class="chapters-topbar">
+					<button type="button" class="ghibli-back-btn" data-go="inicio" aria-label="Voltar para a ilha">
+						<svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+							<path d="M15 18l-6-6 6-6" />
+						</svg>
+						<span>Ilha</span>
+					</button>
+					<div class="chapters-heading">
+						<h2>Sobre o Autor</h2>
+						<p>Andrei Barbuto</p>
+					</div>
+				</header>
+
+				<div class="organic-stage author-stage">
+					<div class="author-wreath-crest" aria-hidden="false">
+						<img class="author-crest-photo" src="../../public/img/perfil.png" alt="Andrei Barbuto" />
+						<img class="author-crest-wreath" src="./assets/author-wreath.png" alt="" aria-hidden="true" />
+					</div>
+
+					<div class="ghibli-parchment organic-scroll-sheet prose-card author-sheet">
+						<div class="organic-sheet-head">
+							<h3>Andrei Barbuto</h3>
+							<span class="author-role">Autor &amp; Idealizador</span>
+						</div>
+
+						<div class="organic-prose">
+							<p>Olá! Tudo começou com desenhos animados, idas ao cinema e muita influência do Goku de DBZ. Hoje sou um devorador de histórias em livros, mangás, séries e filmes.</p>
+							<p>Estudo para ser programador e, nas horas vagas, escrevo <strong>Tribos Ancestrais</strong> — que nasceu de caminhadas pela rua com o fone no máximo e música de ação, imaginando personagens malucos pulando por aí desde a pandemia.</p>
+						</div>
+
+						<img class="organic-branch-divider" src="./assets/organic-divider.png" alt="" aria-hidden="true" />
+
+						<div class="organic-oracle-stage">
+							<button type="button" class="oracle-spirit-btn" id="oracle-spirit-btn" aria-label="Tocar no espírito da floresta para outro segredo">
+								<img class="oracle-spirit-img" id="oracle-spirit-img" src="./assets/author-spirit.png" alt="Espírito da floresta segurando um pergaminho" />
+							</button>
+							<div class="oracle-bubble">
+								<span class="oracle-tag">Segredo sussurrado</span>
+								<p class="oracle-quote" id="oracle-quote">“No começo, eram só personagens malucos pulando por aí com fone de ouvido no máximo.”</p>
+								<button type="button" class="ghibli-pill-btn is-secondary" id="oracle-next-btn">✨ Outro segredo do autor</button>
+							</div>
+						</div>
+
+						<div class="prose-actions organic-actions">
+							<a class="ghibli-pill-btn" href="https://www.instagram.com/tribos_ancestrais?igsh=MWwybzNtZ3dyd2I5dQ==" target="_blank" rel="noopener noreferrer">Instagram</a>
+							<button type="button" class="ghibli-pill-btn is-secondary" data-copy="contatoandreibr@gmail.com" data-copy-msg="E-mail copiado!">Copiar E-mail</button>
+							<button type="button" class="ghibli-pill-btn is-secondary" data-go="apoie">Apoiar o Mangá →</button>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<!-- =========================================================
+		     TELA 6: APOIE O MANGÁ (#apoie — Fogueira Sagrada da Tribo)
+		     ========================================================= -->
+		<section class="screen screen-inner" data-screen="apoie">
+			<div class="inner-shell narrow-shell">
+				<header class="chapters-topbar">
+					<button type="button" class="ghibli-back-btn" data-go="inicio" aria-label="Voltar para a ilha">
+						<svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+							<path d="M15 18l-6-6 6-6" />
+						</svg>
+						<span>Ilha</span>
+					</button>
+					<div class="chapters-heading">
+						<h2>Apoie o Mangá</h2>
+						<p>Ajude a história a virar mangá</p>
+					</div>
+				</header>
+
+				<div class="organic-stage support-stage">
+					<button type="button" class="support-hearth-crest" id="support-hearth-btn" aria-label="Acender uma brasa na fogueira da tribo">
+						<span class="hearth-glow" aria-hidden="true"></span>
+						<span class="hearth-embers" aria-hidden="true">
+							<i></i><i></i><i></i><i></i><i></i>
+						</span>
+						<img class="support-hearth-img" src="./assets/support-hearth.png" alt="Fogueira tribal com pena de mangá e tinteiro sobre pedra com musgo" />
+					</button>
+
+					<div class="ghibli-parchment organic-scroll-sheet prose-card support-sheet">
+						<div class="organic-sheet-head">
+							<h3>Está curtindo a jornada?</h3>
+							<span class="author-role">Do Livro para o Mangá</span>
+						</div>
+
+						<div class="organic-prose">
+							<p>Inicialmente, <strong>Tribos Ancestrais</strong> seria apenas um livro escrito. Mas ao dar vida visual às cenas, a história pediu para virar um <strong>mangá</strong> — e hoje estudo desenho para transformar toda essa obra em quadrinhos.</p>
+						</div>
+
+						<div class="offering-fun-box organic-offering-box">
+							<div class="offering-status">
+								<div>
+									<strong id="offering-count-label">1 brasa acesa pela tribo</strong>
+									<small id="offering-blessing">Toque na fogueira ou no botão para enviar energia ao projeto!</small>
+								</div>
+							</div>
+							<button type="button" class="ghibli-pill-btn is-ember" id="offering-btn">🔥 Acender Brasa</button>
+						</div>
+
+						<img class="organic-branch-divider" src="./assets/organic-divider.png" alt="" aria-hidden="true" />
+
+						<div class="support-box organic-pix-plaque">
+							<div>
+								<span class="support-label">Oferenda via PIX (E-mail)</span>
+								<code class="support-pix">contatoandreibr@gmail.com</code>
+								<small class="support-owner">Titular: Andrei Barbuto Romanelli Lopes</small>
+							</div>
+							<button type="button" class="ghibli-pill-btn" data-copy="contatoandreibr@gmail.com" data-copy-msg="Chave PIX copiada!">Copiar PIX</button>
+						</div>
+
+						<div class="prose-actions organic-actions">
+							<button type="button" class="ghibli-pill-btn is-secondary" data-go="autor">← Conhecer o Autor</button>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<!-- Nuvens aleatórias que passam pela frente da ilha -->
+		<div class="clouds-layer clouds-front" id="clouds-front" data-parallax="0.028" aria-hidden="true"></div>
+
+		<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+		<script src="./app.js"></script>
+	</body>
+</html>

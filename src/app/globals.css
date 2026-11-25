@@ -859,8 +859,8 @@ button {
 }
 
 .mushroom-hotspot.is-on-cave {
-	left: 24.5%;
-	top: -7.5%;
+	left: 21.5%;
+	top: -4.5%;
 	width: 11.4%;
 	aspect-ratio: 520 / 372;
 }
@@ -904,14 +904,14 @@ button {
 }
 
 .chinu-hotspot.is-on-ground {
-	left: 36.2%;
+	left: 38.2%;
 	top: 41.8%;
 	width: 11.4%;
 	aspect-ratio: 473 / 520;
 }
 
 .chinu-hotspot.is-on-cave {
-	left: 21.8%;
+	left: 24.2%;
 	top: -11.5%;
 	width: 10.8%;
 	aspect-ratio: 444 / 520;
@@ -1093,16 +1093,17 @@ button {
 		width: 9.8%;
 	}
 	.mushroom-hotspot.is-on-cave {
+		left: 20.5%;
 		width: 14.5%;
-		top: -9.5%;
+		top: -6.0%;
 	}
 	.chinu-hotspot.is-on-ground {
-		left: 36.2%;
+		left: 38.2%;
 		width: 14.2%;
 		top: 41.0%;
 	}
 	.chinu-hotspot.is-on-cave {
-		left: 21.5%;
+		left: 24.0%;
 		width: 13.4%;
 		top: -13.5%;
 	}
@@ -1116,11 +1117,11 @@ button {
 	}
 	.mushroom-chapter-num {
 		font-size: clamp(0.56rem, 2.25vw, 0.86rem);
-		top: 21%;
+		top: 17.5%;
 	}
 	.mushroom-hotspot.is-on-cave .mushroom-chapter-num {
 		left: 75.5%;
-		top: 73.5%;
+		top: 68.5%;
 		font-size: clamp(0.76rem, 3.05vw, 1.08rem);
 		transform: translate(-50%, -50%) rotate(-7deg);
 	}
@@ -1138,8 +1139,8 @@ button {
 		bottom: calc(100% + 4px);
 	}
 	.orb-hotspot .stone-tag {
-		bottom: auto;
-		top: calc(100% + 6px);
+		top: auto;
+		bottom: calc(100% + 6px);
 	}
 	.weapons-hotspot .stone-tag {
 		left: 65%;

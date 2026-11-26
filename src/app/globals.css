@@ -98,6 +98,7 @@ button {
 		opacity: 0.35;
 		transform: scale(0.8);
 	}
+
 	to {
 		opacity: 1;
 		transform: scale(1.2);
@@ -162,6 +163,7 @@ button {
 	from {
 		transform: translateX(-140%);
 	}
+
 	to {
 		transform: translateX(calc(100vw + 140%));
 	}
@@ -390,6 +392,7 @@ button {
 	from {
 		transform: translateY(0px);
 	}
+
 	to {
 		transform: translateY(-9px);
 	}
@@ -460,6 +463,7 @@ button {
 	animation-delay: 0s;
 	animation-duration: 2.4s;
 }
+
 .camp-fire-embers i:nth-child(2) {
 	left: 55%;
 	top: 56%;
@@ -469,6 +473,7 @@ button {
 	animation-delay: 0.4s;
 	animation-duration: 2.9s;
 }
+
 .camp-fire-embers i:nth-child(3) {
 	left: 38%;
 	top: 68%;
@@ -477,6 +482,7 @@ button {
 	animation-delay: 0.8s;
 	animation-duration: 2.5s;
 }
+
 .camp-fire-embers i:nth-child(4) {
 	left: 60%;
 	top: 64%;
@@ -486,6 +492,7 @@ button {
 	animation-delay: 1.2s;
 	animation-duration: 2.7s;
 }
+
 .camp-fire-embers i:nth-child(5) {
 	left: 49%;
 	top: 52%;
@@ -495,6 +502,7 @@ button {
 	animation-delay: 1.6s;
 	animation-duration: 2.2s;
 }
+
 .camp-fire-embers i:nth-child(6) {
 	left: 42%;
 	top: 58%;
@@ -503,6 +511,7 @@ button {
 	animation-delay: 2.0s;
 	animation-duration: 3.0s;
 }
+
 .camp-fire-embers i:nth-child(7) {
 	left: 52%;
 	top: 70%;
@@ -518,9 +527,11 @@ button {
 		transform: translate(0, 0) scale(0.5);
 		opacity: 0;
 	}
+
 	20% {
 		opacity: 1;
 	}
+
 	100% {
 		transform: translate(10px, -54px) scale(0.15);
 		opacity: 0;
@@ -591,9 +602,11 @@ button {
 		transform: translate(-50%, 0) scale(0.6);
 		opacity: 0;
 	}
+
 	25% {
 		opacity: 0.55;
 	}
+
 	100% {
 		transform: translate(-38%, -62px) scale(2.1);
 		opacity: 0;
@@ -626,9 +639,11 @@ button {
 .ember {
 	animation: emberRise 2.2s ease-out infinite;
 }
+
 .e2 {
 	animation-delay: -0.7s;
 }
+
 .e3 {
 	animation-delay: -1.4s;
 }
@@ -638,9 +653,11 @@ button {
 		transform: translateY(4px);
 		opacity: 0;
 	}
+
 	25% {
 		opacity: 1;
 	}
+
 	100% {
 		transform: translateY(-16px);
 		opacity: 0;
@@ -657,12 +674,14 @@ button {
 	width: 3.2%;
 	height: 7.5%;
 }
+
 .torch-2 {
 	left: 58%;
 	top: 15.5%;
 	width: 3.2%;
 	height: 7.5%;
 }
+
 .torch-3 {
 	left: 61.3%;
 	top: 51%;
@@ -701,6 +720,7 @@ button {
 	from {
 		transform: scaleY(0.98) scaleX(0.99) skewX(-0.8deg);
 	}
+
 	to {
 		transform: scaleY(1.03) scaleX(1.01) skewX(0.8deg);
 	}
@@ -711,6 +731,7 @@ button {
 		transform: scale(0.95);
 		opacity: 0.84;
 	}
+
 	to {
 		transform: scale(1.06);
 		opacity: 1;
@@ -794,9 +815,11 @@ button {
 	0% {
 		border-radius: 34% 66% 58% 42% / 42% 35% 65% 58%;
 	}
+
 	50% {
 		border-radius: 62% 38% 41% 59% / 58% 64% 36% 42%;
 	}
+
 	100% {
 		border-radius: 44% 56% 64% 36% / 62% 40% 60% 38%;
 	}
@@ -814,6 +837,7 @@ button {
 	from {
 		transform: rotate(0deg);
 	}
+
 	to {
 		transform: rotate(360deg);
 	}
@@ -823,6 +847,7 @@ button {
 	from {
 		transform: translateY(0px);
 	}
+
 	to {
 		transform: translateY(-6px);
 	}
@@ -833,6 +858,7 @@ button {
 		opacity: 0.65;
 		transform: scale(0.96);
 	}
+
 	to {
 		opacity: 1;
 		transform: scale(1.06);
@@ -859,16 +885,16 @@ button {
 }
 
 .mushroom-hotspot.is-on-cave {
-	left: 21.5%;
-	top: -4.5%;
+	left: 19%;
+	top: -7%;
 	width: 11.4%;
 	aspect-ratio: 520 / 372;
 }
 
 .mushroom-hotspot.is-on-cave .mushroom-chapter-num {
-	left: 75.5%;
-	top: 73.5%;
-	font-size: clamp(1.08rem, 2.3vw, 1.7rem);
+	left: 78.5%;
+	top: 70%;
+	font-size: clamp(1.08rem, 1.5vw, 1.7rem);
 	transform: translate(-50%, -50%) rotate(-7deg);
 }
 
@@ -904,14 +930,14 @@ button {
 }
 
 .chinu-hotspot.is-on-ground {
-	left: 38.2%;
-	top: 41.8%;
+	left: 30.8%;
+	top: 31.8%;
 	width: 11.4%;
 	aspect-ratio: 473 / 520;
 }
 
 .chinu-hotspot.is-on-cave {
-	left: 24.2%;
+	left: 24.0%;
 	top: -11.5%;
 	width: 10.8%;
 	aspect-ratio: 444 / 520;
@@ -1061,10 +1087,12 @@ button {
 		left: 12px;
 		gap: 10px;
 	}
+
 	.sky-modal-backdrop {
 		place-items: end center;
 		padding: 0;
 	}
+
 	.sky-modal-card {
 		width: 100%;
 		max-width: 100%;
@@ -1072,80 +1100,101 @@ button {
 		padding: 14px 18px 22px;
 		transform: translateY(24px);
 	}
+
 	.stars-field {
 		inset: 0 0 46% 0;
 	}
+
 	.star-dot {
 		width: 2px;
 		height: 2px;
 	}
+
 	.star-dot:nth-child(odd) {
 		display: none;
 	}
+
 	.home-stage-wrap {
 		padding-top: 3.5rem;
 	}
+
 	.island-stage {
 		width: min(104vw, calc(82dvh * 1270 / 718));
 		max-width: 104vw;
 	}
+
 	.mushroom-hotspot {
 		width: 9.8%;
+		left: 36.5%;
+		top: 45.0%;
 	}
+
 	.mushroom-hotspot.is-on-cave {
-		left: 20.5%;
+		left: 19.5%;
+		top: -8.0%;
 		width: 14.5%;
-		top: -6.0%;
 	}
+
 	.chinu-hotspot.is-on-ground {
-		left: 38.2%;
-		width: 14.2%;
-		top: 41.0%;
+		left: 28.5%;
+		width: 13.2%;
+		top: 25.5%;
 	}
+
 	.chinu-hotspot.is-on-cave {
-		left: 24.0%;
+		left: 21.0%;
 		width: 13.4%;
-		top: -13.5%;
+		top: -15.5%;
 	}
+
 	.chinu-hotspot.is-on-ground .stone-tag {
 		bottom: auto;
 		top: calc(100% + 4px);
 	}
+
 	.chinu-hotspot.is-on-cave .stone-tag {
 		top: auto;
 		bottom: calc(100% + 4px);
 	}
+
 	.mushroom-chapter-num {
-		font-size: clamp(0.56rem, 2.25vw, 0.86rem);
-		top: 17.5%;
+		font-size: clamp(0.86rem, 2.25vw, 0.86rem);
+		top: 18.5%;
 	}
+
 	.mushroom-hotspot.is-on-cave .mushroom-chapter-num {
-		left: 75.5%;
-		top: 68.5%;
+		left: 77.5%;
+		top: 65.5%;
 		font-size: clamp(0.76rem, 3.05vw, 1.08rem);
 		transform: translate(-50%, -50%) rotate(-7deg);
 	}
+
 	.stone-tag {
 		opacity: 1;
 		padding: 5px 11px;
 		bottom: calc(100% + 4px);
 	}
+
 	.mushroom-hotspot .stone-tag {
 		bottom: auto;
 		top: calc(100% + 4px);
 	}
+
 	.mushroom-hotspot.is-on-cave .stone-tag {
 		top: auto;
 		bottom: calc(100% + 4px);
 	}
+
 	.orb-hotspot .stone-tag {
 		top: auto;
 		bottom: calc(100% + 6px);
 	}
+
 	.weapons-hotspot .stone-tag {
 		left: 65%;
 		bottom: calc(100% + 12px);
 	}
+
 	.stone-tag strong {
 		font-size: 0.68rem;
 		letter-spacing: 0.03em;
@@ -1352,15 +1401,19 @@ body:not([data-screen="inicio"]) .top-left-bar {
 		max-width: 100%;
 		padding: 16px 12px 48px;
 	}
+
 	.chapters-topbar {
 		margin-bottom: 16px;
 	}
+
 	.chapters-heading h2 {
 		font-size: 1.15rem;
 	}
+
 	.chapters-heading p {
 		font-size: 0.7rem;
 	}
+
 	.chapters-grid {
 		width: 100%;
 		max-width: 300px;
@@ -1368,10 +1421,12 @@ body:not([data-screen="inicio"]) .top-left-bar {
 		grid-template-columns: 1fr;
 		gap: 18px;
 	}
+
 	.card-inner {
 		padding: 20% 15% 16%;
 		gap: 3px;
 	}
+
 	.ghibli-card[data-chapter="V"] .card-inner {
 		padding: 34% 26% 20%;
 	}
@@ -1393,41 +1448,52 @@ body:not([data-screen="inicio"]) .top-left-bar {
 	.card-num {
 		font-size: 0.68rem;
 	}
+
 	.card-title {
 		font-size: 0.78rem;
 	}
+
 	.card-pages {
 		font-size: 0.64rem;
 	}
+
 	.card-badge {
 		font-size: 0.56rem;
 		padding: 2px 7px;
 		margin-top: 3px;
 	}
+
 	.inner-shell {
 		padding: 16px 14px 48px;
 	}
+
 	.ghibli-parchment {
 		padding: 20px 18px;
 	}
+
 	.map-pin .pin-name {
 		font-size: 0.62rem;
 		padding: 2px 6px;
 	}
+
 	.screen-inner[data-screen="ler"] .inner-shell {
 		padding: 10px 0 0;
 	}
+
 	.screen-inner[data-screen="ler"] .chapters-topbar {
 		padding: 0 12px;
 		margin-bottom: 10px;
 	}
+
 	.screen-inner[data-screen="ler"] .reader-meta h2 {
 		font-size: 0.88rem;
 	}
+
 	.drawer-nav-links .ghibli-pill-btn {
 		padding: 6px 8px;
 		font-size: 0.7rem;
 	}
+
 	.screen-inner[data-screen="ler"] .reader-paper {
 		border-radius: 0;
 		border-left: 0;
@@ -2277,6 +2343,7 @@ body[data-screen="ler"] .ghibli-branch-tab {
 	width: 5px;
 	height: 5px;
 }
+
 .hearth-embers i:nth-child(3) {
 	left: 41%;
 	animation-delay: 1.4s;
@@ -2284,11 +2351,13 @@ body[data-screen="ler"] .ghibli-branch-tab {
 	width: 4px;
 	height: 4px;
 }
+
 .hearth-embers i:nth-child(4) {
 	left: 50%;
 	animation-delay: 2.1s;
 	animation-duration: 3.0s;
 }
+
 .hearth-embers i:nth-child(5) {
 	left: 46%;
 	animation-delay: 2.6s;
@@ -2332,6 +2401,7 @@ body[data-screen="ler"] .ghibli-branch-tab {
 	100% {
 		transform: translateY(0);
 	}
+
 	50% {
 		transform: translateY(-5px);
 	}
@@ -2341,12 +2411,15 @@ body[data-screen="ler"] .ghibli-branch-tab {
 	0% {
 		transform: translateY(0) rotate(0deg);
 	}
+
 	35% {
 		transform: translateY(-14px) rotate(-6deg) scale(1.06);
 	}
+
 	65% {
 		transform: translateY(-4px) rotate(4deg);
 	}
+
 	100% {
 		transform: translateY(0) rotate(0deg);
 	}
@@ -2358,6 +2431,7 @@ body[data-screen="ler"] .ghibli-branch-tab {
 		transform: scale(0.96);
 		opacity: 0.72;
 	}
+
 	50% {
 		transform: scale(1.06);
 		opacity: 1;
@@ -2369,10 +2443,12 @@ body[data-screen="ler"] .ghibli-branch-tab {
 		transform: scale(1);
 		filter: drop-shadow(0 12px 22px rgba(14, 16, 18, 0.34));
 	}
+
 	40% {
 		transform: scale(1.06);
 		filter: drop-shadow(0 8px 28px rgba(255, 146, 46, 0.72));
 	}
+
 	100% {
 		transform: scale(1);
 		filter: drop-shadow(0 12px 22px rgba(14, 16, 18, 0.34));
@@ -2384,9 +2460,11 @@ body[data-screen="ler"] .ghibli-branch-tab {
 		transform: translate(0, 0) scale(0.6);
 		opacity: 0;
 	}
+
 	20% {
 		opacity: 0.95;
 	}
+
 	100% {
 		transform: translate(14px, -68px) scale(0.2);
 		opacity: 0;
@@ -2399,24 +2477,30 @@ body[data-screen="ler"] .ghibli-branch-tab {
 		height: 146px;
 		margin-bottom: -62px;
 	}
+
 	.author-sheet {
 		padding-top: 74px;
 	}
+
 	.organic-oracle-stage {
 		flex-direction: column;
 		text-align: center;
 		gap: 10px;
 	}
+
 	.oracle-spirit-btn {
 		width: 92px;
 	}
+
 	.support-hearth-crest {
 		width: min(275px, 88%);
 		margin-bottom: -46px;
 	}
+
 	.support-sheet {
 		padding-top: 54px;
 	}
+
 	.organic-offering-box,
 	.organic-pix-plaque {
 		justify-content: center;
@@ -2584,6 +2668,7 @@ dialog.sky-modal-card {
 	animation-delay: 0s;
 	animation-duration: 3.1s;
 }
+
 .hotspot-sparkles i:nth-child(2) {
 	left: 34%;
 	top: 52%;
@@ -2592,6 +2677,7 @@ dialog.sky-modal-card {
 	animation-delay: 0.45s;
 	animation-duration: 3.6s;
 }
+
 .hotspot-sparkles i:nth-child(3) {
 	left: 52%;
 	top: 72%;
@@ -2600,6 +2686,7 @@ dialog.sky-modal-card {
 	animation-delay: 0.9s;
 	animation-duration: 2.9s;
 }
+
 .hotspot-sparkles i:nth-child(4) {
 	left: 70%;
 	top: 56%;
@@ -2608,6 +2695,7 @@ dialog.sky-modal-card {
 	animation-delay: 1.35s;
 	animation-duration: 3.5s;
 }
+
 .hotspot-sparkles i:nth-child(5) {
 	left: 84%;
 	top: 68%;
@@ -2616,6 +2704,7 @@ dialog.sky-modal-card {
 	animation-delay: 1.8s;
 	animation-duration: 3.2s;
 }
+
 .hotspot-sparkles i:nth-child(6) {
 	left: 26%;
 	top: 40%;
@@ -2624,6 +2713,7 @@ dialog.sky-modal-card {
 	animation-delay: 2.2s;
 	animation-duration: 2.8s;
 }
+
 .hotspot-sparkles i:nth-child(7) {
 	left: 60%;
 	top: 44%;
@@ -2632,6 +2722,7 @@ dialog.sky-modal-card {
 	animation-delay: 2.65s;
 	animation-duration: 3.4s;
 }
+
 .hotspot-sparkles i:nth-child(8) {
 	left: 44%;
 	top: 60%;
@@ -2646,12 +2737,15 @@ dialog.sky-modal-card {
 		transform: translate(0, 0) scale(0.5);
 		opacity: 0;
 	}
+
 	22% {
 		opacity: 0.95;
 	}
+
 	75% {
 		opacity: 0.7;
 	}
+
 	100% {
 		transform: translate(8px, -44px) scale(0.15);
 		opacity: 0;

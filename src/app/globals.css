@@ -427,6 +427,10 @@ button {
 	transition: none;
 }
 
+.fire-fx-overlay.is-chinu-roasting {
+	opacity: 1;
+}
+
 .camp-flames-img {
 	position: relative;
 	z-index: 2;
@@ -930,10 +934,10 @@ button {
 }
 
 .chinu-hotspot.is-on-ground {
-	left: 31.2%;
-	top: 25.5%;
-	width: 11.4%;
-	aspect-ratio: 361 / 540;
+	left: 27.5%;
+	top: 32.5%;
+	width: 19.5%;
+	aspect-ratio: 560 / 419;
 }
 
 .chinu-hotspot.is-on-cave {
@@ -1136,9 +1140,9 @@ button {
 	}
 
 	.chinu-hotspot.is-on-ground {
-		left: 29.0%;
-		width: 14.2%;
-		top: 24.0%;
+		left: 25.5%;
+		width: 23.0%;
+		top: 31.0%;
 	}
 
 	.chinu-hotspot.is-on-cave {

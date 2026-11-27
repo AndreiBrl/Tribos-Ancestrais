@@ -63,8 +63,12 @@ export default function HomePage() {
 						alt="Ilha flutuante musgosa com caverna de pedra tribal, fogueira central, golem ancestral de madeira com barba de folhas e árvore"
 					/>
 
-					{/* Fogueira central: imagem estática + brilho ao redor + pontinhos cor de fogo */}
-					<div className="fire-fx-overlay" id="fire-fx" aria-hidden="true">
+					{/* Fogueira central: acesa à noite ou sempre que a Chinu está no chão assando o cogumelo */}
+					<div
+						className={`fire-fx-overlay${mushroomOnCave ? " is-chinu-roasting" : ""}`}
+						id="fire-fx"
+						aria-hidden="true"
+					>
 						<div className="fire-core-glow" />
 						<img className="camp-flames-img" src="/ghibli/flames.png" alt="" />
 						<span className="camp-fire-embers" aria-hidden="true">

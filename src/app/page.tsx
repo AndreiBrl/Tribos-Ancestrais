@@ -171,6 +171,19 @@ export default function HomePage() {
 					</Link>
 
 					{/* 4. CHINU (-> Apoie) — alterna de lugar com o Cogumelo ao recarregar */}
+					{mushroomOnCave && (
+						<div
+							className="chinu-basket-prop"
+							aria-hidden="true"
+							style={{
+								opacity: mushroomReady ? 1 : 0,
+								transition: "opacity 1.15s cubic-bezier(0.22, 1, 0.36, 1) 0.08s",
+							}}
+						>
+							<FadeImage className="chinu-basket-img" src="/ghibli/chinu-basket.png" alt="" />
+						</div>
+					)}
+
 					<Link
 						href="/apoie"
 						className={`island-hotspot chinu-hotspot${mushroomOnCave ? " is-on-ground" : " is-on-cave"}`}

@@ -934,10 +934,48 @@ button {
 }
 
 .chinu-hotspot.is-on-ground {
-	left: 27.5%;
-	top: 32.5%;
-	width: 19.5%;
-	aspect-ratio: 560 / 419;
+	left: 30.2%;
+	top: 33.5%;
+	width: 15.2%;
+	aspect-ratio: 523 / 440;
+}
+
+/* Cesto tribal separado da Chinu no chão (fácil de posicionar independentemente) */
+.chinu-basket-prop {
+	position: absolute;
+	left: 24.5%;
+	top: 41.5%;
+	width: 7.4%;
+	aspect-ratio: 420 / 380;
+	z-index: 9;
+	pointer-events: none;
+}
+
+.chinu-basket-prop::after {
+	content: "";
+	position: absolute;
+	left: 50%;
+	bottom: -4%;
+	width: 82%;
+	height: 18%;
+	transform: translateX(-50%);
+	border-radius: 50%;
+	background: radial-gradient(
+		ellipse,
+		rgba(14, 20, 12, 0.52) 0%,
+		rgba(14, 20, 12, 0.22) 55%,
+		transparent 80%
+	);
+	filter: blur(3px);
+	z-index: -1;
+}
+
+.chinu-basket-img {
+	width: 100%;
+	height: 100%;
+	object-fit: contain;
+	filter: var(--scenery-filter);
+	transition: filter 0.2s linear;
 }
 
 .chinu-hotspot.is-on-cave {
@@ -1140,9 +1178,15 @@ button {
 	}
 
 	.chinu-hotspot.is-on-ground {
-		left: 25.5%;
-		width: 23.0%;
-		top: 31.0%;
+		left: 28.5%;
+		width: 18.0%;
+		top: 32.5%;
+	}
+
+	.chinu-basket-prop {
+		left: 22.0%;
+		top: 41.0%;
+		width: 9.2%;
 	}
 
 	.chinu-hotspot.is-on-cave {

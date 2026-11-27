@@ -930,10 +930,10 @@ button {
 }
 
 .chinu-hotspot.is-on-ground {
-	left: 31.5%;
-	top: 27.5%;
-	width: 22.5%;
-	aspect-ratio: 463 / 540;
+	left: 31.2%;
+	top: 25.5%;
+	width: 11.4%;
+	aspect-ratio: 361 / 540;
 }
 
 .chinu-hotspot.is-on-cave {
@@ -1136,9 +1136,9 @@ button {
 	}
 
 	.chinu-hotspot.is-on-ground {
-		left: 29.5%;
-		width: 26.5%;
-		top: 25.5%;
+		left: 29.0%;
+		width: 14.2%;
+		top: 24.0%;
 	}
 
 	.chinu-hotspot.is-on-cave {

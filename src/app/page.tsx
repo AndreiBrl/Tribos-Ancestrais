@@ -63,23 +63,19 @@ export default function HomePage() {
 						alt="Ilha flutuante musgosa com caverna de pedra tribal, fogueira central, golem ancestral de madeira com barba de folhas e árvore"
 					/>
 
-					{/* Fogueira central: de noite a labareda dá lugar à Chinu com caldeirão quando ela está no chão, mantendo o brilho */}
+					{/* Fogueira central: imagem estática + brilho ao redor + pontinhos cor de fogo */}
 					<div className="fire-fx-overlay" id="fire-fx" aria-hidden="true">
 						<div className="fire-core-glow" />
-						{!mushroomOnCave && (
-							<>
-								<img className="camp-flames-img" src="/ghibli/flames.png" alt="" />
-								<span className="camp-fire-embers" aria-hidden="true">
-									<i />
-									<i />
-									<i />
-									<i />
-									<i />
-									<i />
-									<i />
-								</span>
-							</>
-						)}
+						<img className="camp-flames-img" src="/ghibli/flames.png" alt="" />
+						<span className="camp-fire-embers" aria-hidden="true">
+							<i />
+							<i />
+							<i />
+							<i />
+							<i />
+							<i />
+							<i />
+						</span>
 					</div>
 
 					{/* 3 Tochas da ilha em SVG detalhado */}
@@ -182,28 +178,7 @@ export default function HomePage() {
 						}}
 						aria-label="Chinu — Apoie o Mangá"
 					>
-						{mushroomOnCave ? (
-							<>
-								<span className="chinu-lantern-glow" aria-hidden="true" />
-								<span className="cauldron-smoke" aria-hidden="true">
-									<span className="smoke-wisp s1" />
-									<span className="smoke-wisp s2" />
-									<span className="smoke-wisp s3" />
-								</span>
-								<span className="cauldron-sparkles" aria-hidden="true">
-									<i />
-									<i />
-									<i />
-									<i />
-									<i />
-									<i />
-									<i />
-									<i />
-								</span>
-							</>
-						) : (
-							<HotspotSparkles />
-						)}
+						<HotspotSparkles />
 						<FadeImage
 							key={mushroomOnCave ? "chinu-ground" : "chinu-cave"}
 							className="chinu-img"

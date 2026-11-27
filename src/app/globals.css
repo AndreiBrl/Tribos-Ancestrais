@@ -930,10 +930,10 @@ button {
 }
 
 .chinu-hotspot.is-on-ground {
-	left: 30.8%;
-	top: 31.8%;
-	width: 11.4%;
-	aspect-ratio: 473 / 520;
+	left: 31.5%;
+	top: 27.5%;
+	width: 22.5%;
+	aspect-ratio: 463 / 540;
 }
 
 .chinu-hotspot.is-on-cave {
@@ -1136,8 +1136,8 @@ button {
 	}
 
 	.chinu-hotspot.is-on-ground {
-		left: 28.5%;
-		width: 13.2%;
+		left: 29.5%;
+		width: 26.5%;
 		top: 25.5%;
 	}
 
@@ -2757,4 +2757,157 @@ dialog.sky-modal-card {
 		width: 4px;
 		height: 4px;
 	}
+}
+
+/* Chinu no chão: luz do lampião tribal, fumaça e pontinhos coloridos saindo do caldeirão */
+.chinu-lantern-glow {
+	position: absolute;
+	left: 65%;
+	top: 33%;
+	width: 34%;
+	height: 30%;
+	transform: translate(-50%, -50%);
+	border-radius: 50%;
+	background: radial-gradient(
+		circle,
+		rgba(255, 224, 128, 0.85) 0%,
+		rgba(255, 168, 56, 0.42) 38%,
+		rgba(255, 118, 28, 0.12) 66%,
+		transparent 82%
+	);
+	mix-blend-mode: screen;
+	pointer-events: none;
+	z-index: 12;
+	animation: fireGlow 2.1s ease-in-out infinite alternate;
+}
+
+.cauldron-smoke {
+	position: absolute;
+	left: 52%;
+	right: 10%;
+	bottom: 42%;
+	height: 54%;
+	pointer-events: none;
+	z-index: 11;
+}
+
+.cauldron-sparkles {
+	position: absolute;
+	left: 48%;
+	right: 8%;
+	top: 12%;
+	bottom: 36%;
+	pointer-events: none;
+	z-index: 14;
+	overflow: visible;
+}
+
+.cauldron-sparkles i {
+	position: absolute;
+	width: 5px;
+	height: 5px;
+	border-radius: 50%;
+	opacity: 0;
+	animation: cauldronMoteRise 3.1s ease-out infinite;
+}
+
+.cauldron-sparkles i:nth-child(1) {
+	left: 24%;
+	top: 76%;
+	background: #6bf5a8;
+	box-shadow: 0 0 8px #4ce890, 0 0 14px rgba(107, 245, 168, 0.75);
+	animation-delay: 0s;
+	animation-duration: 2.9s;
+}
+.cauldron-sparkles i:nth-child(2) {
+	left: 46%;
+	top: 72%;
+	width: 6px;
+	height: 6px;
+	background: #d18bff;
+	box-shadow: 0 0 8px #b964ff, 0 0 14px rgba(209, 139, 255, 0.75);
+	animation-delay: 0.4s;
+	animation-duration: 3.3s;
+}
+.cauldron-sparkles i:nth-child(3) {
+	left: 68%;
+	top: 78%;
+	width: 4.5px;
+	height: 4.5px;
+	background: #ffd95e;
+	box-shadow: 0 0 8px #ffbe3b, 0 0 14px rgba(255, 217, 94, 0.75);
+	animation-delay: 0.8s;
+	animation-duration: 2.7s;
+}
+.cauldron-sparkles i:nth-child(4) {
+	left: 34%;
+	top: 66%;
+	width: 4px;
+	height: 4px;
+	background: #6ee7ff;
+	box-shadow: 0 0 8px #38d6f5, 0 0 14px rgba(110, 231, 255, 0.75);
+	animation-delay: 1.2s;
+	animation-duration: 3.1s;
+}
+.cauldron-sparkles i:nth-child(5) {
+	left: 58%;
+	top: 70%;
+	width: 5px;
+	height: 5px;
+	background: #ff8fb8;
+	box-shadow: 0 0 8px #ff639c, 0 0 14px rgba(255, 143, 184, 0.75);
+	animation-delay: 1.6s;
+	animation-duration: 3.4s;
+}
+.cauldron-sparkles i:nth-child(6) {
+	left: 78%;
+	top: 72%;
+	width: 4px;
+	height: 4px;
+	background: #a3ff7a;
+	box-shadow: 0 0 8px #7bf04a, 0 0 14px rgba(163, 255, 122, 0.75);
+	animation-delay: 2.0s;
+	animation-duration: 2.8s;
+}
+.cauldron-sparkles i:nth-child(7) {
+	left: 42%;
+	top: 80%;
+	width: 4.5px;
+	height: 4.5px;
+	background: #ffae52;
+	box-shadow: 0 0 8px #ff8a24, 0 0 14px rgba(255, 174, 82, 0.75);
+	animation-delay: 2.4s;
+	animation-duration: 3.0s;
+}
+.cauldron-sparkles i:nth-child(8) {
+	left: 62%;
+	top: 64%;
+	width: 3.5px;
+	height: 3.5px;
+	background: #fff6cc;
+	box-shadow: 0 0 8px #ffe484, 0 0 14px rgba(255, 246, 204, 0.8);
+	animation-delay: 2.75s;
+	animation-duration: 2.6s;
+}
+
+@keyframes cauldronMoteRise {
+	0% {
+		transform: translate(0, 0) scale(0.45);
+		opacity: 0;
+	}
+	22% {
+		opacity: 0.96;
+	}
+	78% {
+		opacity: 0.72;
+	}
+	100% {
+		transform: translate(10px, -54px) scale(0.15);
+		opacity: 0;
+	}
+}
+
+.author-crest-photo {
+	width: 59%;
+	height: 59%;
 }
